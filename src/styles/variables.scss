@@ -1,0 +1,40 @@
+/* Color */
+$color-deep-white: #fbfbfb;
+$color-light-gray: #d9d9d9;
+$color-middle-gray: #959595;
+$color-dark-gray: #666;
+$color-black: #101010;
+$color-Highlight: #00c3bd;
+
+/* Font size */
+$font-large: 44px;
+$font-small: 12px;
+
+/* Size */
+$icon-size: 22px;
+
+/* Margin */
+$margin-center: 0 auto;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexCenterColumn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flexSpaceBetweenCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin itelic {
+  font-family: 'Playfair Display', serif;
+}
