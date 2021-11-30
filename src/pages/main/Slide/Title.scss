@@ -1,0 +1,55 @@
+@import '../../../styles/variables.scss';
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20%;
+
+  .MainTitle {
+    font-size: 40px;
+    color: $color-black;
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    @include itelic;
+
+    .MainTitleImg {
+      width: 40px;
+      height: 40px;
+      //밑에 코드는 추후 삭제
+      background-color: black;
+      border-radius: 50px;
+    }
+  }
+
+  .MainSubTitleContainer {
+    .MainSubTitle {
+      font-size: 32px;
+      padding-bottom: 10px;
+      color: $color-light-gray;
+      @include itelic;
+    }
+
+    .MainSubTitle2 {
+      font-size: 32px;
+      padding-bottom: 10px;
+      color: $color-light-gray;
+      @include itelic;
+    }
+  }
+}
+
+.NewUpData {
+  display: flex;
+  justify-content: right;
+  color: $color-Highlight;
+  @include itelic;
+  font-style: italic;
+  font-size: 11px;
+  margin: 20px 20%;
+
+  .NewUpDataText {
+    color: $color-light-gray;
+    margin-left: 10px;
+  }
+}

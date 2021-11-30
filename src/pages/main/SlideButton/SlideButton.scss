@@ -1,0 +1,35 @@
+@import '../../../styles/variables.scss';
+
+.SlideButton {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+
+  .leftButton {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: rgba(189, 189, 189, 0.571);
+    @include flexCenter;
+
+    .leftButtonIcon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .rightButton {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: rgba(189, 189, 189, 0.571);
+    @include flexCenter;
+
+    .rightButtonIcon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

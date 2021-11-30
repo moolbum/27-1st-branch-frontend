@@ -1,0 +1,11 @@
+@import '../../../styles/variables.scss';
+
+.slideNumber {
+  display: flex;
+  justify-content: center;
+
+  .slideNumberIndex {
+    padding: 40px 10px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,99 @@
+@import '../../../styles/variables.scss';
+
+* img {
+  width: 300px;
+  height: 300px;
+}
+.slideImage {
+  display: flex;
+  position: relative;
+
+  .bestBranchContainer0 {
+    display: flex;
+
+    .bestBranchContainer1 {
+      display: flex;
+
+      .BranchMeta {
+        position: relative;
+
+        .BranchImageBox {
+          .BranchCover {
+            width: 300px;
+            height: 400px;
+          }
+        }
+        .bestBranchText {
+          position: absolute;
+          width: 80%;
+          text-align: center;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 2;
+          color: white;
+          @include flexCenterColumn;
+
+          .bestBranchTitle {
+            font-size: 28px;
+          }
+
+          .bestBranchName {
+            margin-top: 60px;
+          }
+        }
+      }
+
+      .BranchMetaContainer {
+        .BranchMeta2 {
+          position: relative;
+
+          .BranchImageBox2 {
+            .BranchCover2 {
+              width: 300px;
+              height: 200px;
+            }
+          }
+
+          .bestBranchText2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: white;
+            @include flexCenterColumn;
+
+            .bestBranchTitle {
+              font-size: 28px;
+            }
+          }
+        }
+      }
+    }
+    .BranchMeta3 {
+      position: relative;
+
+      .BranchImageBox3 {
+        .BranchCover3 {
+          width: 300px;
+          height: 400px;
+        }
+      }
+
+      .bestBranchText3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        color: white;
+        @include flexCenterColumn;
+
+        .bestBranchTitle {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+}

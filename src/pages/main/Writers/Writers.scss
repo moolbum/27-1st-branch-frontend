@@ -1,0 +1,83 @@
+@import '../../../styles/variables.scss';
+
+.writers {
+  background-color: $color-deep-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0;
+
+  .writersTitle {
+    @include itelic;
+    font-size: 24px;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+  }
+
+  .writersSubText {
+    font-size: $font-small;
+    color: $color-middle-gray;
+    margin-bottom: 40px;
+  }
+
+  .writersTagContainer {
+    margin-bottom: 80px;
+
+    .writersTag {
+      padding: 10px;
+      margin: 0 6px;
+      font-size: 12px;
+      border: 1px solid $color-light-gray;
+      border-radius: 50px;
+    }
+  }
+  .writersPeopleContainer {
+    display: flex;
+
+    .writersPeople {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: white;
+      padding: 46px 40px;
+      margin: 10px;
+
+      .writersPeopleImg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50px;
+      }
+
+      .writersPeopleName {
+        padding: 30px 0 20px 0;
+        font-size: 20px;
+      }
+
+      .writersPeopleJob {
+        font-size: 12px;
+      }
+
+      .writersPeopleIntro {
+        width: 230px;
+        height: 80px;
+        padding: 20px 0 20px 0;
+        margin-bottom: 20px;
+        font-size: 12px;
+        line-height: 20px;
+        overflow: hidden;
+      }
+
+      .writersPeopleTag {
+        margin: 30px 0 20px 0;
+
+        .writersTag {
+          padding: 10px;
+          margin: 0 6px;
+          font-size: 12px;
+          border: 1px solid $color-light-gray;
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+}
