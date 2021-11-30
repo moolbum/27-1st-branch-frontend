@@ -1,3 +1,4 @@
+import { check } from 'prettier';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
@@ -5,6 +6,8 @@ import './Login.scss';
 function Login() {
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  const [imageIndex, setImageIndex] = useState(0);
+  const images = ['./images/Login/login1.png', './images/Login/login2.png'];
 
   const userIdHandler = e => {
     const { value } = e.target;
@@ -20,6 +23,10 @@ function Login() {
   const goToMain = () => {
     navigate('/main');
   };
+
+  function checkboxToggle() {
+    setImageIndex(prevIndex => (prevIndex + 1) % images.length);
+  }
 
   return (
     <div className="login">
@@ -58,12 +65,19 @@ function Login() {
               onChange={userPasswordHandler}
             />
             <div className="loginHolder">
-              <input className="loginCheckbox" type="checkbox" />
-              <p className="loginCheckboxText">로그인 상태 유지</p>
+              <img
+                className="loginCheckbox"
+                src={images[imageIndex]}
+                alt="체크박스"
+                onClick={checkboxToggle}
+              />
+              <label>
+                <p className="loginCheckboxText">로그인 상태 유지</p>
+              </label>
             </div>
             <button
-              className={userValidation ? 'loginButtonChange' : 'loginButton'}
-              type="button"
+              className="loginButton"
+              type="submit"
               disabled={userValidation ? false : true}
               onClick={userValidation ? goToMain : ''}
             >

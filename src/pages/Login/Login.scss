@@ -55,6 +55,17 @@
         display: flex;
         align-items: center;
         margin-top: 30px;
+
+        .loginCheckbox {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+
+        .loginCheckboxText {
+          margin-left: 5px;
+          cursor: pointer;
+        }
       }
 
       .loginButton {
@@ -62,18 +73,7 @@
         padding: 15px 0;
         border-radius: 5px;
         border: none;
-        background-color: $color-light-gray;
-        color: $color-middle-gray;
-        font-size: 15px;
-        transition: 0.3s;
-      }
-      .loginButtonChange {
-        margin-top: 30px;
-        padding: 15px 0;
-        border-radius: 5px;
-        border: none;
         background-color: #fee500;
-        color: $color-black;
         font-size: 15px;
         transition: 0.3s;
       }
