@@ -5,21 +5,23 @@
   height: 100vh;
 
   .leftWrap {
-    margin-right: 40px;
+    margin-right: 45px;
 
     .title {
+      margin-left: 30px;
       color: $color-black;
       font-size: 25px;
       letter-spacing: -1px;
     }
     .subtitle {
-      margin-top: 10px;
+      margin: 10px 0 0 30px;
       color: $color-middle-gray;
       font-size: 13px;
       line-height: 16px;
     }
     .imagesWrap img {
-      width: 500px;
+      width: 480px;
+      margin-top: 30px;
     }
   }
 
@@ -37,15 +39,13 @@
       display: flex;
       flex-direction: column;
 
-      .loginId,
-      .loginPassword {
+      .loginInputChange {
         padding: 15px 0;
         border-bottom: 2px solid $color-light-gray;
         transition: 0.2s;
       }
 
-      .loginIdInnerText,
-      .loginPasswordInnerText {
+      .loginInput {
         padding: 15px 0;
         border-bottom: 2px solid $color-middle-gray;
         transition: 0.2s;

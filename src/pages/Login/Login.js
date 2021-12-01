@@ -2,30 +2,49 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 
+const CHECKBOX_IMG_LIST = [
+  './images/Login/login1.png',
+  './images/Login/login2.png',
+];
+
 function Login() {
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [imageIndex, setImageIndex] = useState(0);
-  const images = ['./images/Login/login1.png', './images/Login/login2.png'];
-
-  const userIdHandler = e => {
-    const { value } = e.target;
-    setUserId(value);
-  };
-  const userPasswordHandler = e => {
-    const { value } = e.target;
-    setUserPassword(value);
-  };
+  const [isChecked, setIsChecked] = useState(0);
 
   const navigate = useNavigate();
-  const userValidation = userId.includes('@') && userPassword.length >= 5;
   const goToMain = () => {
     navigate('/main');
   };
 
-  function checkboxToggle() {
-    setImageIndex(prevIndex => (prevIndex + 1) % images.length);
-  }
+  const handleUserId = e => {
+    const { value } = e.target;
+    setUserId(value);
+  };
+
+  const handleUserPassword = e => {
+    const { value } = e.target;
+    setUserPassword(value);
+  };
+
+  const isUserValid =
+    Number(userId.length) === 11 ||
+    (userId.includes('@') && userPassword.length >= 5);
+
+  const setCookie = (Id, value, exp) => {
+    let date = new Date();
+    date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+    document.cookie =
+      Id + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+  };
+
+  const handlecheckboxToggle = () => {
+    setIsChecked(prevIndex => (prevIndex + 1) % CHECKBOX_IMG_LIST.length);
+
+    setCookie('Id', userId, 7);
+    setCookie('Password', userPassword, 7);
+    setCookie('button', true, 7);
+  };
 
   return (
     <div className="login">
@@ -37,10 +56,7 @@ function Login() {
           이메일계정 하나로 편리하게 이용해보세요!
         </p>
         <div className="imagesWrap">
-          <img
-            src="https://accounts.kakao.com/assets/weblogin/techin/retina/banner_login1-81752909ec9c815794b13ccff4d17d7d3e81f431585ecec30ee7a8055785c74f.png"
-            alt="노트북이미지"
-          />
+          <img src="/images/Login/Branch_login.png" alt="노트북이미지" />
         </div>
       </section>
       <section className="rightWrap">
@@ -48,27 +64,25 @@ function Login() {
           <h1 className="loginTitle">Email</h1>
           <form className="loginWrap">
             <input
-              className={userId ? 'loginIdInnerText' : 'loginId'}
+              className={userId ? 'loginInput ' : 'loginInputChange'}
               type="text"
               placeholder="이메일, 전화번호"
               value={userId}
-              onChange={userIdHandler}
+              onChange={handleUserId}
             />
             <input
-              className={
-                userPassword ? 'loginPasswordInnerText' : 'loginPassword'
-              }
+              className={userPassword ? 'loginInput ' : 'loginInputChange'}
               type="password"
               placeholder="비밀번호"
               value={userPassword}
-              onChange={userPasswordHandler}
+              onChange={handleUserPassword}
             />
             <div className="loginHolder">
               <img
                 className="loginCheckbox"
-                src={images[imageIndex]}
+                src={CHECKBOX_IMG_LIST[isChecked]}
                 alt="체크박스"
-                onClick={checkboxToggle}
+                onClick={handlecheckboxToggle}
               />
               <label>
                 <p className="loginCheckboxText">로그인 상태 유지</p>
@@ -76,9 +90,9 @@ function Login() {
             </div>
             <button
               className="loginButton"
-              type="submit"
-              disabled={userValidation ? false : true}
-              onClick={userValidation ? goToMain : ''}
+              type="button"
+              disabled={!isUserValid}
+              onClick={goToMain}
             >
               로그인
             </button>
