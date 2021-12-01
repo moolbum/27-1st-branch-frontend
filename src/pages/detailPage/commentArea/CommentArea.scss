@@ -1,0 +1,134 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/common.scss';
+
+.branchComment {
+  position: relative;
+  padding: 44px 0 142px 0;
+  background: #fff;
+
+  .commentHead {
+    margin: 0 auto 13px;
+    width: 700px;
+    height: 30px;
+    font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+
+    .titleComment {
+      font-size: 16px;
+      font-weight: 200;
+      margin-top: 4px;
+      margin-left: -1px;
+
+      .txtNum {
+        padding-left: 5px;
+        color: #00c3bd;
+        font-family: 'SF Pro Light', sans-serif;
+        font-size: 16px;
+      }
+    }
+  }
+  .commentContent {
+    width: 700px;
+    margin: 0 auto;
+
+    .listComment {
+      display: block;
+      width: 100%;
+      border-top: 1px solid #eee;
+    }
+  }
+  .wrapCommentWrite {
+    clear: both;
+    .commentWrite {
+      padding-top: 20px;
+      width: 700px;
+      margin: 0 auto;
+      .commentProfile {
+        margin: 6px 0 18px 10px;
+        overflow: visible;
+        float: left;
+        position: relative;
+        margin-left: 10px;
+        .imgThumb {
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          background: #fff;
+        }
+      }
+      .boxArea {
+        float: right;
+        position: relative;
+        width: 624px;
+        border: 1px solid #eee;
+        background-color: #fff;
+        .wrapArea {
+          display: block;
+          .inputArea {
+            padding: 15px 19px 0;
+            width: 590px;
+            min-height: 45px;
+            border: none;
+            line-height: 22px;
+            color: #666;
+            background: 0 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            outline: transparent dotted;
+            z-index: 1;
+          }
+          .inputPlaceholder {
+            position: absolute;
+            z-index: 0;
+            top: 15px;
+            left: 18px;
+            line-height: 22px;
+            color: #959595;
+          }
+          .aditorArea {
+            // display: none;
+            padding: 15px 19px 0;
+            width: 590px;
+            min-height: 45px;
+            border: none;
+            line-height: 22px;
+            color: #666;
+            z-index: 1;
+            vertical-align: middle;
+            border: none;
+            resize: none;
+            outline: none;
+          }
+        }
+        .writePlace {
+          padding: 45px 19px 50px;
+          display: flex;
+          justify-content: space-between;
+          height: 44px;
+
+          .iconArticle {
+            position: relative;
+            width: 22px;
+            height: 22px;
+            background: url(../../../asset/images/smile.png) no-repeat 50% /
+              cover;
+            color: #bbb;
+          }
+          .btnDefault {
+            width: 56px;
+            height: 30px;
+            margin-left: 5px;
+            border: 1px solid #bbb;
+            border-radius: 32px;
+            font-size: 12px;
+            line-height: 28px;
+            color: #bbb;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}
