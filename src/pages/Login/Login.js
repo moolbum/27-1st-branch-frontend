@@ -31,19 +31,39 @@ function Login() {
     Number(userId.length) === 11 ||
     (userId.includes('@') && userPassword.length >= 5);
 
-  const setCookie = (Id, value, exp) => {
-    let date = new Date();
-    date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+  const setCookie = (name, value, days = 7, path = '/') => {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
     document.cookie =
-      Id + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+      name +
+      '=' +
+      encodeURIComponent(value) +
+      '; expires=' +
+      expires +
+      '; path=' +
+      path;
   };
+
+  // const getCookie = name => {
+  //   return document.cookie.split('; ').reduce((r, v) => {
+  //     const parts = v.split('=');
+  //     return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+  //   }, '');
+  // };
+
+  // const deleteCookie = name => {
+  //   setCookie(name, '', -1);
+  // };
 
   const handlecheckboxToggle = () => {
     setIsChecked(prevIndex => (prevIndex + 1) % CHECKBOX_IMG_LIST.length);
-
     setCookie('Id', userId, 7);
     setCookie('Password', userPassword, 7);
     setCookie('button', true, 7);
+    if (CHECKBOX_IMG_LIST[0]) {
+      setCookie('Id', userId, -1);
+      setCookie('Password', userPassword, -1);
+      setCookie('button', false);
+    }
   };
 
   return (
