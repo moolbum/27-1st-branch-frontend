@@ -1,40 +1,57 @@
 import React, { useState, useEffect } from 'react';
+import ListRelatedArticle from './ListRelatedArticle/ListRelatedArticle';
+import CommentArea from './CommentArea/CommentArea';
 import './DetailPage.scss';
-import ListRelatedArticle from './userData/UserData';
-import CommentArea from './commentArea/CommentArea';
 
 function DetailPage() {
-  const [userData, setUserData] = useState([]);
-  const [comment, setComment] = useState(false);
+  const [relaredListUserData, setRelaredListUserData] = useState([]);
+  const [isCommentOpen, setIsCommentOpen] = useState(false);
+  const [inputComment, setInputComment] = useState([]);
+  const [value, setValue] = useState('');
 
-  const onClickComment = e => {
-    setComment(prevStatus => (prevStatus ? false : true));
+  const onChange = e => {
+    setValue(e.target.value);
   };
 
   useEffect(() => {
-    fetch('/data/data.json')
+    fetch('/ListRelatedData/listRelatedData.json')
       .then(res => res.json())
-      .then(res => setUserData(res));
+      .then(res => setRelaredListUserData(res));
   }, []);
+
+  const addComment = () => {
+    if (value.trim().length === 0) return;
+
+    setInputComment(element => [
+      ...element,
+      {
+        id: inputComment.length + 1,
+        userName: 'harry',
+        userComment: value,
+      },
+    ]);
+
+    setValue('');
+  };
+
+  const deleteComment = id => {
+    setInputComment(inputComment.filter(commentList => commentList.id !== id));
+  };
 
   return (
     <div className="detailPage">
       <header className="pageHeader">
-        <div className="wrapCover">
-          <div className="coverAndTitle">
-            <div className="coverImage">
-              <div className="coverTitleShell">
-                <h1 className="coverTitle">쉽게 쓰어진 에세이</h1>
-                <p className="coverSubTitle">작가는 아무나 하나요</p>
-                <div className="info">
-                  <span className="infoBy">by</span>
-                  <span className="infoName">미니민</span>
-                  <span className="middleDot" />
-                  <span className="infoDate">Nov 25, 2021</span>
-                </div>
-              </div>
+        <div className="coverInner" />
+        <div className="coverSell">
+          <div className="coverTitleShell">
+            <h1 className="coverTitle">쉽게 쓰어진 에세이</h1>
+            <p className="coverSubTitle">작가는 아무나 하나요</p>
+            <div className="info">
+              <span className="infoBy">by</span>
+              <span className="infoName">미니민</span>
+              <span className="middleDot" />
+              <span className="infoDate">Nov 25, 2021</span>
             </div>
-            <div className="coverInner" />
           </div>
         </div>
       </header>
@@ -72,44 +89,47 @@ function DetailPage() {
             Cicero are also reproduced in their exact original form, accompanied
             by English versions from the 1914 translation by H. Rackham.
           </p>
-          <article className="wrapComment">
-            <div className="wrapBodyInfo">
-              <div className="innerBodyInfo">
-                <div className="wrapKeyword">
-                  <ul className="listClass">
-                    <li>
-                      <a href="#" className="linkKeyword">
-                        하루키
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="linkKeyword">
-                        에세이
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="linkKeyword">
-                        작가
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <span className="wrapCommentBtn">
-                  <button
-                    type="button"
-                    className="btnComment"
-                    onClick={comment ? <CommentArea /> : null}
-                  >
-                    <span className="btnCommentIcon" />
-                    <span>댓글</span>
-                    <span className="numComment">6</span>
-                  </button>
-                </span>
-              </div>
+          <article className="innerBodyInfo">
+            <div className="wrapKeyword">
+              <ul className="listClass">
+                <li>
+                  <a href="#" className="linkKeyword">
+                    하루키
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="linkKeyword">
+                    에세이
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="linkKeyword">
+                    작가
+                  </a>
+                </li>
+              </ul>
             </div>
+            <span className="wrapCommentBtn">
+              <button
+                className="btnComment"
+                onClick={() => setIsCommentOpen(!isCommentOpen)}
+              >
+                <span className="btnCommentIcon" />
+                <span>댓글</span>
+                <span className="numComment"> {inputComment.length}</span>
+              </button>
+            </span>
           </article>
         </div>
-        <CommentArea />
+        {isCommentOpen && (
+          <CommentArea
+            addComment={addComment}
+            deleteComment={deleteComment}
+            inputComment={inputComment}
+            onChange={onChange}
+            value={value}
+          />
+        )}
         <article className="wrapAuthor">
           <div className="innerAuthor">
             <strong className="authorName">미니민</strong>
@@ -134,20 +154,14 @@ function DetailPage() {
                 <span className="numSubscription">0</span>
               </span>
               <span className="wrapSubBtn">
-                <button type="button" className="btnSuggest">
-                  개발자보기
-                </button>
-                <button type="button" className="btnFollow">
-                  구독하기
-                </button>
+                <button className="btnSuggest">개발자보기</button>
+                <button className="btnFollow">구독하기</button>
               </span>
             </div>
           </div>
         </article>
-        <section className="wrapPageSection">
-          <div className="wrapArticle">
-            <ListRelatedArticle data={userData} />
-          </div>
+        <section className="wrapArticle">
+          <ListRelatedArticle relatedData={relaredListUserData} />
         </section>
         <div className="wrapFooterBanner">
           <img
