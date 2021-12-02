@@ -2,18 +2,99 @@
 
 .signup {
   @include flexCenterColumn;
-  height: 100vh;
+
   .title {
+    margin: 30px 0;
     font-size: 36px;
+    font-weight: normal;
+    letter-spacing: -0.5px;
   }
+
   .signupWrap {
     width: 650px;
-    padding: 40px 85px 0 85px;
+    padding: 40px 75px 0 75px;
     border: 1px solid $color-light-gray;
 
-    .subtitle {
-      font-size: 24px;
-      line-height: 34px;
+    .line {
+      width: 40px;
+      margin: 40px 0;
+      padding: 2px 0;
+      border-radius: 30px;
+      background-color: $color-black;
     }
+
+    .subtitleWrap {
+      padding-bottom: 30px;
+
+      .subtitle {
+        font-size: 24px;
+        font-weight: normal;
+        line-height: 34px;
+      }
+    }
+  }
+
+  form {
+    position: relative;
+
+    .profile {
+      display: none;
+    }
+    .profilePicture {
+      position: absolute;
+      top: -90px;
+      right: 0;
+      width: 60px;
+      cursor: pointer;
+    }
+
+    .essentialValue {
+      position: absolute;
+      top: 0;
+      color: red;
+    }
+
+    .inputIdformat {
+      width: 100%;
+      margin-top: 35px;
+      padding: 10px 0;
+      border-bottom: 2px solid $color-light-gray;
+      font-size: 18px;
+    }
+
+    .inputIdformatChange {
+      width: 100%;
+      margin-top: 35px;
+      padding: 10px 0;
+      border-bottom: 2px solid $color-middle-gray;
+      font-size: 18px;
+    }
+    .passwordInfomation {
+      margin-top: 15px;
+      color: $color-middle-gray;
+      font-size: 12px;
+    }
+    .makeUserChoice {
+      margin-top: 45px;
+    }
+  }
+
+  .footerTextWrap {
+    margin-top: 40px;
+    .footerText {
+      padding: 5px 0;
+      color: #999999;
+      font-size: 12px;
+    }
+  }
+
+  .signupSubmit {
+    width: 100%;
+    padding: 15px 0;
+    margin: 40px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #fee500;
+    font-size: 18px;
   }
 }
