@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login/Login';
+import Footer from './pages/Footer/Footer';
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/footer" element={<Footer />} />
       </Routes>
     </BrowserRouter>
   );
