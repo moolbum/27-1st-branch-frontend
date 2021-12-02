@@ -71,20 +71,18 @@
     .emailErrorOff {
       display: none;
       margin-bottom: 8px;
-      color: red;
       font-size: 12px;
     }
 
     .emailErrorOn {
       margin-bottom: 8px;
-      color: red;
+      color: $color-middle-gray;
       font-size: 12px;
     }
 
     .passwordErrorOff {
       display: none;
       margin-bottom: 8px;
-      color: red;
       font-size: 12px;
     }
 

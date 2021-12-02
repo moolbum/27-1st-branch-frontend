@@ -135,9 +135,9 @@ function Signup() {
             value={email}
           />
 
-          {/* <p className={email.includes('@') ? 'emailErrorOff' : 'emailErrorOn'}>
+          <p className={emailValueCheck ? 'emailErrorOff' : 'emailErrorOn'}>
             유효하지 않은 이메일 형식입니다.
-          </p> */}
+          </p>
 
           <input
             name="password"
