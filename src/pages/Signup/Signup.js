@@ -1,97 +1,87 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import './Signup.scss';
 
 function Signup() {
-  const [userInfomation, setUserInfomation] = useState({
-    name: '',
-    nickname: '',
-    email: '',
-    password: '',
-    phone_number: '',
-    github: '',
-    profile_photo: '',
-    description: '',
-    position: '',
-  });
-  const userNameInput = e => {
-    setUserInfomation({
-      name: e.target.value,
-    });
-  };
-  const userNickNameInput = e => {
-    setUserInfomation({
-      nickname: e.target.value,
-    });
-  };
-  const userEmailInput = e => {
-    setUserInfomation({
-      email: e.target.value,
-    });
-  };
-  const userPasswordInput = e => {
-    setUserInfomation({
-      password: e.target.value,
-    });
-  };
-  const userPhoneNumberInput = e => {
-    setUserInfomation({
-      phone_number: e.target.value,
-    });
-  };
-  const userGithubInput = e => {
-    setUserInfomation({
-      github: e.target.value,
-    });
-  };
-  const userProfilePhotoInput = e => {
-    setUserInfomation({
-      profile_photo: e.target.value,
-    });
-  };
-  const userDescriptionInput = e => {
-    setUserInfomation({
-      description: e.target.value,
-    });
-  };
-  const userPositionInput = e => {
-    setUserInfomation({
-      position: e.target.value,
-    });
+  const [name, setName] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [github, setGithub] = useState('');
+  const [description, setDescription] = useState('');
+  const [position, setPosition] = useState('');
+
+  const navigate = useNavigate();
+  const goToMain = () => {
+    alert(`${name + '님'} 회원가입이 되었습니다`);
+    navigate('/main');
   };
 
-  const checkPassword = password => {
-    let regExp =
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-    if (!regExp.test(password.target.value)) {
-      alert('비밀번호 형식이 올바르지 않습니다!');
-      password.target.value = '';
-      return false;
-    }
-    return true;
+  const onNameHandler = event => {
+    const { value } = event.currentTarget;
+    setName(value);
   };
 
-  const checkEmail = email => {
-    let regExp =
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-
-    if (!regExp.test(email.target.value)) {
-      alert('이메일 형식이 올바르지 않습니다!');
-      email.target.value = '';
-      return false;
-    }
-    return true;
+  const onNicknameHandler = event => {
+    const { value } = event.currentTarget;
+    setNickname(value);
   };
 
-  const checkCellPhone = e => {
-    let regExp = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-
-    if (!regExp.test(e.target.value)) {
-      alert('전화번호 형식이 올바르지 않습니다!');
-      e.target.value = '';
-      return false;
-    }
-    return true;
+  const onEmailHandler = event => {
+    const { value } = event.currentTarget;
+    setEmail(value);
   };
+
+  const onPasswordHandler = event => {
+    const { value } = event.currentTarget;
+    setPassword(value);
+  };
+  const onPasswordConfirmHandler = event => {
+    const { value } = event.currentTarget;
+    setPasswordConfirm(value);
+  };
+
+  const onPhoneNumberHandler = event => {
+    const { value } = event.currentTarget;
+    setPhoneNumber(value);
+  };
+
+  const onGithubHandler = event => {
+    const { value } = event.currentTarget;
+    setGithub(value);
+  };
+
+  const onDescriptionHandler = event => {
+    const { value } = event.currentTarget;
+    setDescription(value);
+  };
+
+  const onPositionHandler = event => {
+    const { value } = event.currentTarget;
+    setPosition(value);
+  };
+
+  const isSignupButtonHandler =
+    name &&
+    nickname &&
+    email.includes('@') &&
+    password.length >= 8 &&
+    passwordConfirm === password &&
+    phoneNumber.length >= 11;
+
+  const emailRegex =
+    /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+
+  // const passwordRegex =
+  //   /^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$/;
+
+  // const phoneNumberRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+
+  // const emailValueCheck = emailRegex.test(email);
+  // const passwordValueCheck = passwordRegex.test(password);
+  // const phoneNumberValueCheck = phoneNumberRegex.test(phoneNumber);
 
   return (
     <div className="signup">
@@ -112,7 +102,6 @@ function Signup() {
             className="profile"
             id="chooseFile"
             type="file"
-            onChange={userProfilePhotoInput}
           />
           <label className="profileUplode" for="chooseFile">
             <img
@@ -127,30 +116,38 @@ function Signup() {
             className="inputIdformat"
             type="text"
             placeholder="* 이름 입력"
-            onChange={userNameInput}
+            onChange={onNameHandler}
+            value={name}
           />
+
           <input
             name="nickname"
             className="inputIdformat"
             type="text"
             placeholder="* 닉네임 입력"
-            onChange={userNickNameInput}
+            onChange={onNicknameHandler}
+            value={nickname}
           />
           <input
             name="email"
             className="inputIdformat"
             type="text"
             placeholder="* 이메일 입력"
-            onChange={userEmailInput}
-            onBlur={checkEmail}
+            onChange={onEmailHandler}
+            value={email}
           />
+
+          {/* <p className={email.includes('@') ? 'emailErrorOff' : 'emailErrorOn'}>
+            유효하지 않은 이메일 형식입니다.
+          </p> */}
+
           <input
             name="password"
             className="inputIdformat"
             type="password"
             placeholder="* 비밀번호 입력"
-            onChange={userPasswordInput}
-            onBlur={checkPassword}
+            onChange={onPasswordHandler}
+            value={password}
           />
 
           <p className="passwordInfomation">
@@ -158,33 +155,58 @@ function Signup() {
           </p>
 
           <input
+            name="password"
+            className="inputIdformat"
+            type="password"
+            placeholder="* 비밀번호 확인"
+            onChange={onPasswordConfirmHandler}
+            value={passwordConfirm}
+          />
+
+          <p
+            className={
+              passwordConfirm === password
+                ? 'passwordErrorOff'
+                : 'passwordErrorOn'
+            }
+          >
+            비밀번호가 일치하지 않습니다.
+          </p>
+
+          <input
             name="phone_number"
             className="inputIdformat"
             type="text"
             placeholder="* 핸드폰번호 입력 ('-') 제외"
-            onChange={userPhoneNumberInput}
-            onBlur={checkCellPhone}
+            onChange={onPhoneNumberHandler}
+            value={phoneNumber}
           />
+
+          <p className="additionalInput">추가입력</p>
+
           <input
             name="github"
             className="inputIdformat"
             type="text"
             placeholder="github 아이디 입력"
-            onChange={userGithubInput}
+            onChange={onGithubHandler}
+            value={github}
           />
           <input
             name="description"
             className="inputIdformat"
             type="text"
             placeholder="소개"
-            onChange={userDescriptionInput}
+            onChnage={onDescriptionHandler}
+            value={description}
           />
           <input
             name="position"
             className="inputIdformat"
             type="text"
             placeholder="개발직군 ex) 프론트엔드,백엔드"
-            onChange={userPositionInput}
+            onChange={onPositionHandler}
+            value={position}
           />
 
           <ul className="footerTextWrap">
@@ -196,8 +218,13 @@ function Signup() {
               확인해주세요.
             </li>
           </ul>
-          <button className="signupSubmit" type="button">
-            제출
+          <button
+            className="signupSubmit"
+            type="button"
+            onClick={goToMain}
+            disabled={!isSignupButtonHandler}
+          >
+            회원가입
           </button>
         </form>
       </div>

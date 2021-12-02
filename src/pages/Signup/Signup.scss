@@ -12,6 +12,7 @@
 
   .signupWrap {
     width: 650px;
+    margin-bottom: 50px;
     padding: 40px 75px 0 75px;
     border: 1px solid $color-light-gray;
 
@@ -42,40 +43,60 @@
     }
     .profilePicture {
       position: absolute;
-      top: -90px;
+      top: -114px;
       right: 0;
       width: 60px;
       cursor: pointer;
     }
 
     .essentialValue {
-      position: absolute;
-      top: 0;
+      margin: 20px 0;
       color: red;
     }
 
     .inputIdformat {
       width: 100%;
-      margin-top: 35px;
-      padding: 10px 0;
+      margin: 15px 0;
+      padding: 5px 0;
       border-bottom: 2px solid $color-light-gray;
       font-size: 18px;
     }
 
-    .inputIdformatChange {
-      width: 100%;
-      margin-top: 35px;
-      padding: 10px 0;
-      border-bottom: 2px solid $color-middle-gray;
-      font-size: 18px;
-    }
     .passwordInfomation {
-      margin-top: 15px;
+      margin-bottom: 8px;
       color: $color-middle-gray;
       font-size: 12px;
     }
-    .makeUserChoice {
-      margin-top: 45px;
+
+    .emailErrorOff {
+      display: none;
+      margin-bottom: 8px;
+      color: red;
+      font-size: 12px;
+    }
+
+    .emailErrorOn {
+      margin-bottom: 8px;
+      color: red;
+      font-size: 12px;
+    }
+
+    .passwordErrorOff {
+      display: none;
+      margin-bottom: 8px;
+      color: red;
+      font-size: 12px;
+    }
+
+    .passwordErrorOn {
+      margin-bottom: 8px;
+      color: red;
+      font-size: 12px;
+    }
+
+    .additionalInput {
+      margin-top: 40px;
+      color: $color-middle-gray;
     }
   }
 
@@ -95,6 +116,7 @@
     border-radius: 5px;
     border: none;
     background-color: #fee500;
+    transition: 0.3s;
     font-size: 18px;
   }
 }
