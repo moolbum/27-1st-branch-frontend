@@ -63,25 +63,23 @@ function Signup() {
     setPosition(value);
   };
 
+  const emailRegex =
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+  const passwordRegex =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+  const phoneNumberRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+
+  const emailValueCheck = emailRegex.test(email);
+  const passwordValueCheck = passwordRegex.test(password);
+  const phoneNumberValueCheck = phoneNumberRegex.test(phoneNumber);
+
   const isSignupButtonHandler =
     name &&
     nickname &&
-    email.includes('@') &&
-    password.length >= 8 &&
+    emailValueCheck &&
+    passwordValueCheck &&
     passwordConfirm === password &&
-    phoneNumber.length >= 11;
-
-  const emailRegex =
-    /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-
-  // const passwordRegex =
-  //   /^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$/;
-
-  // const phoneNumberRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-
-  // const emailValueCheck = emailRegex.test(email);
-  // const passwordValueCheck = passwordRegex.test(password);
-  // const phoneNumberValueCheck = phoneNumberRegex.test(phoneNumber);
+    phoneNumberValueCheck;
 
   return (
     <div className="signup">
