@@ -2,7 +2,9 @@
 
 import './SlideNumber.scss';
 
-function SlideNumber() {
+function SlideNumber({ userData }) {
+  // console.log(userData);
+
   return (
     <ul className="slideNumber">
       <li className="slideNumberIndex">01</li>

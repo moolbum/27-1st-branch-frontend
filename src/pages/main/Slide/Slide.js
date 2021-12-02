@@ -1,15 +1,15 @@
 import Title from './Title';
 import SlideImage from './SlideImage';
-import SlideNumber from './SlideNumber';
+// import SlideNumber from './SlideNumber';
 
 function Slide(props) {
   const { userData } = props;
 
   return (
-    <div className="Slide">
+    <div className="slide">
       <Title />
       <SlideImage userData={userData} />
-      <SlideNumber />
+      {/* <SlideNumber /> */}
     </div>
   );
 }

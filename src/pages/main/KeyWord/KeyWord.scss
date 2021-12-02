@@ -6,29 +6,34 @@
   align-items: center;
   padding: 100px 0;
 
-  .keyWordTitle {
+  .Title {
     @include itelic;
     font-size: 24px;
     letter-spacing: 8px;
     margin-bottom: 10px;
   }
 
-  .keyWordSubText {
+  .SubText {
     font-size: $font-small;
     color: $color-middle-gray;
     margin-bottom: 40px;
   }
 
-  .keyWordContainer {
-    .keyWordContainerLine1,
-    .keyWordContainerLine2 {
+  .Container {
+    .ContainerLine {
       display: flex;
 
-      .keyWordContents {
+      .Contents {
         width: 120px;
         height: 120px;
         border: 1px solid $color-light-gray;
+        font-weight: 200;
         @include flexCenter;
+
+        &:hover {
+          border: 1px solid $color-Highlight;
+          color: $color-Highlight;
+        }
       }
     }
   }
