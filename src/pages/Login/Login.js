@@ -8,7 +8,21 @@ function Login() {
 
   const navigate = useNavigate();
   const goToMain = e => {
-    navigate('/main');
+    e.preventDefault();
+    fetch('API주소', {
+      method: 'POST',
+      // headers:{},
+      body: JSON.stringify({
+        id: userId,
+        password: userPassword,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.messge === 'SUCCESS') {
+          navigate('/main');
+        }
+      });
   };
 
   const handleUserId = e => {
