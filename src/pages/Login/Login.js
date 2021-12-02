@@ -2,18 +2,12 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 
-const CHECKBOX_IMG_LIST = [
-  './images/Login/login1.png',
-  './images/Login/login2.png',
-];
-
 function Login() {
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [isChecked, setIsChecked] = useState(0);
 
   const navigate = useNavigate();
-  const goToMain = () => {
+  const goToMain = e => {
     navigate('/main');
   };
 
@@ -27,39 +21,18 @@ function Login() {
     setUserPassword(value);
   };
 
+  const emailRegex =
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+  const passwordRegex =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+  const phoneNumberRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+
+  const emailValueCheck = emailRegex.test(userId);
+  const passwordValueCheck = passwordRegex.test(userPassword);
+  const phoneNumberValueCheck = phoneNumberRegex.test(userId);
+
   const isUserValid =
-    Number(userId.length) === 11 ||
-    (userId.includes('@') && userPassword.length >= 5);
-
-  const setCookie = (name, value, days = 7, path = '/') => {
-    const expires = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie =
-      name +
-      '=' +
-      encodeURIComponent(value) +
-      '; expires=' +
-      expires +
-      '; path=' +
-      path;
-  };
-
-  // const getCookie = name => {
-  //   return document.cookie.split('; ').reduce((r, v) => {
-  //     const parts = v.split('=');
-  //     return parts[0] === name ? decodeURIComponent(parts[1]) : r;
-  //   }, '');
-  // };
-
-  // const deleteCookie = name => {
-  //   setCookie(name, '', -1);
-  // };
-
-  const handlecheckboxToggle = () => {
-    setIsChecked(prevIndex => (prevIndex + 1) % CHECKBOX_IMG_LIST.length);
-    setCookie('Id', userId, 7);
-    setCookie('Password', userPassword, 7);
-    setCookie('button', true, 7);
-  };
+    (emailValueCheck || phoneNumberValueCheck) && passwordValueCheck;
 
   return (
     <div className="login">
@@ -92,17 +65,6 @@ function Login() {
               value={userPassword}
               onChange={handleUserPassword}
             />
-            <div className="loginHolder">
-              <img
-                className="loginCheckbox"
-                src={CHECKBOX_IMG_LIST[isChecked]}
-                alt="체크박스"
-                onClick={handlecheckboxToggle}
-              />
-              <label>
-                <p className="loginCheckboxText">로그인 상태 유지</p>
-              </label>
-            </div>
             <button
               className="loginButton"
               type="button"
@@ -116,9 +78,6 @@ function Login() {
             <Link to="/signup">
               <p className="signupText">회원가입</p>
             </Link>
-            {/* <Link>
-              <p className="membershipText">비밀번호 찾기</p>
-            </Link> */}
           </div>
         </article>
       </section>
