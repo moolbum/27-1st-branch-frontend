@@ -59,11 +59,6 @@ function Login() {
     setCookie('Id', userId, 7);
     setCookie('Password', userPassword, 7);
     setCookie('button', true, 7);
-    if (CHECKBOX_IMG_LIST[0]) {
-      setCookie('Id', userId, -1);
-      setCookie('Password', userPassword, -1);
-      setCookie('button', false);
-    }
   };
 
   return (
