@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ListRelatedArticle from './ListRelatedArticle/ListRelatedArticle';
 import CommentArea from './CommentArea/CommentArea';
 import './DetailPage.scss';
@@ -93,19 +94,19 @@ function DetailPage() {
             <div className="wrapKeyword">
               <ul className="listClass">
                 <li>
-                  <a href="#" className="linkKeyword">
+                  <Link to="/listPage" className="linkKeyword">
                     하루키
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="linkKeyword">
+                  <Link to="/listPage" className="linkKeyword">
                     에세이
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="linkKeyword">
+                  <Link to="/listPage" className="linkKeyword">
                     작가
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -154,7 +155,9 @@ function DetailPage() {
                 <span className="numSubscription">0</span>
               </span>
               <span className="wrapSubBtn">
-                <button className="btnSuggest">개발자보기</button>
+                <Link to="/myPage">
+                  <button className="btnSuggest">개발자보기</button>
+                </Link>
                 <button className="btnFollow">구독하기</button>
               </span>
             </div>
