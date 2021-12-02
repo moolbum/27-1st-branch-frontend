@@ -135,10 +135,6 @@ function Signup() {
             value={email}
           />
 
-          <p className={emailValueCheck ? 'emailErrorOff' : 'emailErrorOn'}>
-            유효하지 않은 이메일 형식입니다.
-          </p>
-
           <input
             name="password"
             className="inputIdformat"
