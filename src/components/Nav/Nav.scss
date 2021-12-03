@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 20px 6px 20px;
+  min-width: 640px;
+  position: relative;
+
+  .navLeft {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      margin-left: 14px;
+      @include itelic;
+      font-style: italic;
+      font-size: 16px;
+      text-decoration: underline;
+    }
+  }
+
+  .navRight {
+    display: flex;
+    align-items: center;
+
+    .startButton {
+      padding: 8px;
+      border: 1px solid $color-middle-gray;
+      border-radius: 50px;
+      font-size: 12px;
+      color: $color-middle-gray;
+      background-color: white;
+    }
+
+    .searchIcon {
+      margin-left: 14px;
+    }
+  }
+
+  .HamburgerMenu {
+  }
+}
