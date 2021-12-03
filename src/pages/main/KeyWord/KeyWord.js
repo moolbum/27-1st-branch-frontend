@@ -14,13 +14,13 @@ function KeyWord() {
 
   return (
     <span className="keyWord">
-      <span className="Title">BRANCH KEYWORD</span>
-      <span className="SubText">키워드로 분류된 다양한 글 모음</span>
-      <section className="Container">
-        <div className="ContainerLine">
+      <span className="title">BRANCH KEYWORD</span>
+      <span className="subText">키워드로 분류된 다양한 글 모음</span>
+      <section className="container">
+        <div className="containerLine">
           {keyData.map(KeyList => {
             return (
-              <div className="Contents" key={KeyList.id}>
+              <div className="contents" key={KeyList.id}>
                 {KeyList.keyData}
               </div>
             );

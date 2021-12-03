@@ -7,20 +7,20 @@
   align-items: center;
   padding: 100px 0;
 
-  .writersTitle {
+  .title {
     @include itelic;
     font-size: 24px;
     letter-spacing: 8px;
     margin-bottom: 10px;
   }
 
-  .writersSubText {
+  .subText {
     font-size: $font-small;
     color: $color-middle-gray;
     margin-bottom: 40px;
   }
 
-  .writersTagContainer {
+  .tagContainer {
     margin-bottom: 80px;
 
     .writersTag {
@@ -33,13 +33,13 @@
     }
   }
 }
-.writersPeopleContainer {
+.peopleContainer {
   display: flex;
   flex-wrap: wrap;
   width: 1000px;
   cursor: pointer;
 
-  .writersPeople {
+  .people {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,23 +47,23 @@
     padding: 46px 40px;
     margin: 10px;
 
-    .writersPeopleImg {
+    .peopleImg {
       width: 80px;
       height: 80px;
       border-radius: 50px;
     }
 
-    .writersPeopleName {
+    .peopleName {
       padding: 30px 0 20px;
       font-size: 20px;
     }
 
-    .writersPeopleJob {
+    .peopleJob {
       font-size: 12px;
       color: $color-middle-gray;
     }
 
-    .writersPeopleIntro {
+    .peopleIntro {
       width: 230px;
       height: 80px;
       padding: 20px 0 20px 0;
@@ -74,7 +74,7 @@
       color: $color-middle-gray;
     }
 
-    .writersPeopleTag {
+    .peopleTag {
       margin: 30px 0 20px 0;
 
       .writersTag {

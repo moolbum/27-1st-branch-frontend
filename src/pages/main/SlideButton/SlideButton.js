@@ -3,12 +3,8 @@ import './SlideButton.scss';
 
 function SlideButton() {
   return (
-    <div className="SlideButton">
-      <img
-        className="ButtonIcon"
-        src="./images/Main/iconmonstr-arrow-left-thin.svg"
-        alt="button"
-      />
+    <div className="slideButton">
+      <img src="./images/Main/iconmonstr-arrow-left-thin.svg" alt="button" />
     </div>
   );
 }

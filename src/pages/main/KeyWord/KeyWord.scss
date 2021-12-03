@@ -6,24 +6,24 @@
   align-items: center;
   padding: 100px 0;
 
-  .Title {
+  .title {
     @include itelic;
     font-size: 24px;
     letter-spacing: 8px;
     margin-bottom: 10px;
   }
 
-  .SubText {
+  .subText {
     font-size: $font-small;
     color: $color-middle-gray;
     margin-bottom: 40px;
   }
 
-  .Container {
-    .ContainerLine {
+  .container {
+    .containerLine {
       display: flex;
 
-      .Contents {
+      .contents {
         width: 120px;
         height: 120px;
         border: 1px solid $color-light-gray;

@@ -8,7 +8,6 @@ import './Main.scss';
 function Main() {
   const [userData, setUserData] = useState([]);
   const [ScrollY, setScrollY] = useState(0);
-  // console.log(ScrollY);
   // 스크롤 높이값 구하는 함수 => pageYOffset 속성이 작업해준다
   const handleFollow = () => {
     setScrollY(window.scrollY);
