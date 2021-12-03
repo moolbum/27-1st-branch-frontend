@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ListRelatedArticle from './ListRelatedArticle/ListRelatedArticle';
-import CommentArea from './CommentArea/CommentArea';
+import CommentArea from './commentArea/CommentArea';
 import './DetailPage.scss';
 
 function DetailPage() {
   const [relaredListUserData, setRelaredListUserData] = useState([]);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [inputComment, setInputComment] = useState([]);
-  const [value, setValue] = useState('');
+  const [commentValue, setCommentValue] = useState('');
 
   const onChange = e => {
-    setValue(e.target.value);
+    setCommentValue(e.target.value);
   };
 
   useEffect(() => {
@@ -21,18 +21,18 @@ function DetailPage() {
   }, []);
 
   const addComment = () => {
-    if (value.trim().length === 0) return;
+    if (commentValue.trim().length === 0) return;
 
     setInputComment(element => [
       ...element,
       {
         id: inputComment.length + 1,
         userName: 'harry',
-        userComment: value,
+        userComment: commentValue,
       },
     ]);
 
-    setValue('');
+    setCommentValue('');
   };
 
   const deleteComment = id => {
@@ -128,7 +128,7 @@ function DetailPage() {
             deleteComment={deleteComment}
             inputComment={inputComment}
             onChange={onChange}
-            value={value}
+            value={commentValue}
           />
         )}
         <article className="wrapAuthor">
