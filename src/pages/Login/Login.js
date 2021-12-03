@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Login.scss';
 
 function Login() {
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
-  const navigate = useNavigate();
-  const goToMain = e => {
-    fetch('API주소', {
+  // const navigate = useNavigate();
+
+  const goToMain = () => {
+    fetch('http://10.58.4.71:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        id: userId,
+        phone_number: userId,
         password: userPassword,
       }),
     })
-      .then(res => res.json())
-      .then(result => {
-        if (result.messge === 'SUCCESS') {
-          navigate('/main');
-        }
-      });
+      .then(responese => responese.json())
+      .then(data => console.log('결과', data));
+    // navigate('/main');
   };
 
   const handleUserId = e => {
