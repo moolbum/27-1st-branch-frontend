@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import './Signup.scss';
+import { USER_DATA, USER_CHOICE_DATA } from './UserData';
 
 function Signup() {
   const navigate = useNavigate();
@@ -17,46 +18,15 @@ function Signup() {
     position: '',
   });
 
-  const {
-    name,
-    nickname,
-    email,
-    password,
-    passwordConfirm,
-    phoneNumber,
-    github,
-    profilePhoto,
-    description,
-    position,
-  } = inputData;
+  const { name, nickname, email, password, passwordConfirm, phoneNumber } =
+    inputData;
 
-  const onChange = e => {
-    const {
-      value,
-      name,
-      nickname,
-      email,
-      password,
-      passwordConfirm,
-      phoneNumber,
-      github,
-      profilePhoto,
-      description,
-      position,
-    } = e.target;
+  const handleInput = e => {
+    const { value, name } = e.target;
 
     setInputData({
       ...inputData,
       [name]: value,
-      [nickname]: value,
-      [email]: value,
-      [password]: value,
-      [passwordConfirm]: value,
-      [phoneNumber]: value,
-      [github]: value,
-      [profilePhoto]: value,
-      [description]: value,
-      [position]: value,
     });
   };
 
@@ -101,7 +71,8 @@ function Signup() {
   //     .then(responese => responese.json())
   //     .then(result => console.log('결과', result));
   // }, []);
-  // console.log(profilePhoto);
+
+  const isPwValid = password && password !== passwordConfirm;
 
   return (
     <div className="signup">
@@ -122,8 +93,7 @@ function Signup() {
             className="profile"
             id="chooseFile"
             type="file"
-            onChange={onChange}
-            value={profilePhoto}
+            onChange={handleInput}
           />
           <label className="profileUplode" for="chooseFile">
             <img
@@ -132,41 +102,18 @@ function Signup() {
               alt="프로필"
             />
           </label>
-
-          <input
-            name="name"
-            className="inputIdformat"
-            type="text"
-            placeholder="* 이름 입력"
-            onChange={onChange}
-            value={name}
-          />
-
-          <input
-            name="nickname"
-            className="inputIdformat"
-            type="text"
-            placeholder="* 닉네임 입력"
-            onChange={onChange}
-            value={nickname}
-          />
-          <input
-            name="email"
-            className="inputIdformat"
-            type="text"
-            placeholder="* 이메일 입력"
-            onChange={onChange}
-            value={email}
-          />
-
-          <input
-            name="password"
-            className="inputIdformat"
-            type="password"
-            placeholder="* 비밀번호 입력"
-            onChange={onChange}
-            value={password}
-          />
+          {USER_DATA.map(user => {
+            return (
+              <input
+                key={user.id}
+                name={user.name}
+                className="inputIdformat"
+                type={user.type}
+                placeholder={user.placeholder}
+                onChange={handleInput}
+              />
+            );
+          })}
 
           <p className="passwordInfomation">
             특수문자, 대문자 , 소문자, 숫자 포함 8자리 이상
@@ -177,57 +124,35 @@ function Signup() {
             className="inputIdformat"
             type="password"
             placeholder="* 비밀번호 확인"
-            onChange={onChange}
-            value={passwordConfirm}
+            onChange={handleInput}
           />
 
-          <p
-            className={
-              passwordConfirm === password
-                ? 'passwordErrorOff'
-                : 'passwordErrorOn'
-            }
-          >
-            비밀번호가 일치하지 않습니다.
-          </p>
+          {isPwValid && (
+            <p className="passwordError">비밀번호가 일치하지 않습니다.</p>
+          )}
 
           <input
             name="phoneNumber"
             className="inputIdformat"
             type="text"
             placeholder="* 핸드폰번호 입력 ('-') 제외"
-            onChange={onChange}
-            value={phoneNumber}
+            onChange={handleInput}
           />
 
           <p className="additionalInput">추가입력</p>
 
-          <input
-            name="github"
-            className="inputIdformat"
-            type="text"
-            placeholder="github 아이디 입력"
-            onChange={onChange}
-            value={github}
-          />
-
-          <input
-            name="description"
-            className="inputIdformat"
-            type="text"
-            placeholder="소개"
-            onChnage={onChange}
-            value={description}
-          />
-
-          <input
-            name="position"
-            className="inputIdformat"
-            type="text"
-            placeholder="개발직군 ex) 프론트엔드,백엔드"
-            onChange={onChange}
-            value={position}
-          />
+          {USER_CHOICE_DATA.map(user => {
+            return (
+              <input
+                key={user.id}
+                name={user.name}
+                className="inputIdformat"
+                type={user.type}
+                placeholder={user.placeholder}
+                onChange={handleInput}
+              />
+            );
+          })}
 
           <ul className="footerTextWrap">
             <li className="footerText">
