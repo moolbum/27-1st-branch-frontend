@@ -175,14 +175,14 @@ function DetailPage() {
         </div>
       </div>
       <div className="wrapPageFooter">
-        <a href="#" className="prev">
+        <Link to="/detailPage" className="prev">
           <span className="prevPage">작가의 이전글</span>
           <strong className="prevTitle">'이해'라는 당신의 오만</strong>
-        </a>
-        <a href="#" className="next">
+        </Link>
+        <Link to="/detailPage" className="next">
           <strong className="nextTitle">어느 키위 이야기</strong>
           <span className="nextPage">작가의 다음글</span>
-        </a>
+        </Link>
       </div>
     </div>
   );
