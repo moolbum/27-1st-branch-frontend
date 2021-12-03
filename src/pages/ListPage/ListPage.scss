@@ -40,7 +40,6 @@
         }
         .moreKeywords {
           display: flex;
-          align-items: center;
           font-size: 11px;
           color: #959595;
           cursor: pointer;
@@ -53,7 +52,7 @@
             display: inline-block;
             width: 7px;
             height: 4px;
-            margin: 0 0 0 3px;
+            margin: 7px 0 0 3px;
             background-position: -210px -150px;
             background: url('../../asset/images/downArrow.png') no-repeat 50% /
               cover;
@@ -63,9 +62,201 @@
     }
   }
   .contentsContainer {
-    background: #fbfbfb;
     border-top: 1px solid #ddd;
-    .wrapArticleList {
+    background-color: #fbfbfb;
+    height: 100vh;
+
+    .wrapArticleBox {
+      display: flex;
+      width: 940px;
+      margin: 0 auto;
+      padding: 30px 0 111px;
+      justify-content: space-between;
+
+      // .wrapArticleList {
+      //   width: 660px;
+      //   min-height: 180px;
+      //   position: relative;
+      //   box-sizing: border-box;
+
+      //   .listArticle {
+      //     width: 700px;
+
+      //     .listImageAnimate {
+      //       position: relative;
+      //       width: 700px;
+      //       min-height: 180px;
+      //       box-sizing: border-box;
+      //       border-bottom: 1px solid #eee;
+      //       padding: 30px 20px;
+      //       background-color: #fff;
+      //       margin-top: 15px;
+
+      //       .postTitleAndImage {
+      //         width: 520px;
+
+      //         .titleSubject {
+      //           font-weight: 200;
+      //           font-size: 20px;
+      //           letter-spacing: -1px;
+      //           white-space: nowrap;
+      //         }
+
+      //         .wrapSubContent {
+      //           display: -webkit-box;
+      //           -webkit-line-clamp: 2;
+      //           -webkit-box-orient: vertical;
+      //           overflow: hidden;
+      //           padding-top: 6px;
+
+      //           .titleSub {
+      //             display: inline-block;
+      //             padding-top: 6px;
+      //             font-size: 14px;
+      //             color: #666;
+      //             letter-spacing: -1px;
+      //           }
+
+      //           .iconBar {
+      //             display: inline-block;
+      //             width: 1px;
+      //             height: 11px;
+      //             margin: 7px 8px 0;
+      //             background: #bfbfbf;
+      //             vertical-align: top;
+      //           }
+
+      //           .articleContent {
+      //             color: #666;
+      //             font-size: 14px;
+      //             line-height: 21px;
+      //           }
+      //         }
+      //         .postAppend {
+      //           display: block;
+      //           padding-top: 20px;
+      //           color: #aaa;
+
+      //           .nameText {
+      //             font-size: 12px;
+      //           }
+
+      //           .numText {
+      //             font-size: 12px;
+      //           }
+
+      //           .iconBy {
+      //             font-size: 12px;
+      //           }
+
+      //           .postTime {
+      //             font-size: 12px;
+      //           }
+
+      //           .iconDot {
+      //             display: inline-block;
+      //             width: 2px;
+      //             height: 2px;
+      //             margin: 8px 6px 0;
+      //             background: #aaa;
+      //             vertical-align: top;
+      //           }
+      //         }
+      //       }
+      //       .postThumb {
+      //         position: absolute;
+      //         top: 30px;
+      //         right: 20px;
+      //         width: 120px;
+
+      //         .imageThumb {
+      //           width: 120px;
+      //           height: 120px;
+      //           object-fit: cover;
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
+
+      .wrapWriterList {
+        width: 220px;
+        height: 250px;
+        padding: 20px 20px 24px;
+        background-color: #fff;
+        box-sizing: border-box;
+        margin-top: 15px;
+
+        .titleRecommend {
+          display: block;
+          font-weight: 200;
+          font-size: 13px;
+          line-height: 13px;
+          font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+          color: #666;
+        }
+
+        .searchRecommend {
+          padding: 14px 0 0;
+
+          .wrapWriter {
+            position: relative;
+            display: block;
+            padding: 0 0 0 48px;
+
+            .thumbImage {
+              overflow: hidden;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 36px;
+              height: 36px;
+              border-radius: 50%;
+            }
+
+            .detailRecoomend {
+              display: table;
+              overflow: hidden;
+              width: 132px;
+              min-height: 36px;
+
+              .textRecommend {
+                display: block;
+                overflow: hidden;
+                line-height: 1;
+                font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+            }
+            .textInfo {
+              display: block;
+              line-height: 18px;
+              font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+              color: #999;
+
+              .nameText {
+                display: inline-block;
+                margin-left: 0;
+                font-size: 12px;
+              }
+
+              .iconDot {
+                display: inline-block;
+                width: 2px;
+                height: 2px;
+                margin: 8px 6px 0;
+                background: #aaa;
+                vertical-align: top;
+              }
+
+              .numText {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

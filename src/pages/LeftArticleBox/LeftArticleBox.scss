@@ -1,0 +1,108 @@
+@import '../../styles/variables.scss';
+@import '../../styles/common.scss';
+
+.wrapArticleList {
+  width: 660px;
+  min-height: 180px;
+  position: relative;
+  box-sizing: border-box;
+
+  .listArticle {
+    width: 700px;
+
+    .listImageAnimate {
+      position: relative;
+      width: 700px;
+      min-height: 180px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #eee;
+      padding: 30px 20px;
+      background-color: #fff;
+      margin-top: 15px;
+
+      .postTitleAndImage {
+        width: 520px;
+
+        .titleSubject {
+          font-weight: 200;
+          font-size: 20px;
+          letter-spacing: -1px;
+          white-space: nowrap;
+        }
+
+        .wrapSubContent {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          padding-top: 6px;
+
+          .titleSub {
+            display: inline-block;
+            padding-top: 6px;
+            font-size: 14px;
+            color: #666;
+            letter-spacing: -1px;
+          }
+
+          .iconBar {
+            display: inline-block;
+            width: 1px;
+            height: 11px;
+            margin: 7px 8px 0;
+            background: #bfbfbf;
+            vertical-align: top;
+          }
+
+          .articleContent {
+            color: #666;
+            font-size: 14px;
+            line-height: 21px;
+          }
+        }
+        .postAppend {
+          display: block;
+          padding-top: 20px;
+          color: #aaa;
+
+          .nameText {
+            font-size: 12px;
+          }
+
+          .numText {
+            font-size: 12px;
+          }
+
+          .iconBy {
+            font-size: 12px;
+          }
+
+          .postTime {
+            font-size: 12px;
+          }
+
+          .iconDot {
+            display: inline-block;
+            width: 2px;
+            height: 2px;
+            margin: 8px 6px 0;
+            background: #aaa;
+            vertical-align: top;
+          }
+        }
+      }
+      .postThumb {
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        width: 120px;
+
+        .imageThumb {
+          width: 120px;
+          height: 120px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
