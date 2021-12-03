@@ -51,5 +51,10 @@
   .NewUpDataText {
     color: $color-light-gray;
     margin-left: 10px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

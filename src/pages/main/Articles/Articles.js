@@ -1,11 +1,42 @@
-// import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SlideButton from '../SlideButton/SlideButton';
 import './Articles.scss';
 
 function Articles({ userData }) {
+  const [slidePosition, setSlidePosition] = useState(0);
+
+  const boxSize = 240; // box 컴포넌트 사이즈
+  const moveWight = 1000; //슬라이드 버튼 클릭 시 이동거리
+  const articleDataLength = boxSize * userData.length; // data 총 길이
+  const hiddenedarticle = articleDataLength - window.innerWidth;
+
+  const PrevBtn = () => {
+    if (Math.abs(slidePosition) < moveWight) {
+      setSlidePosition(0);
+    } else {
+      setSlidePosition(slidePosition + moveWight);
+    }
+  };
+
+  const NextBtn = () => {
+    if (hiddenedarticle - Math.abs(slidePosition) < moveWight) {
+      setSlidePosition(
+        slidePosition - (hiddenedarticle - Math.abs(slidePosition))
+      );
+    } else {
+      setSlidePosition(slidePosition - moveWight);
+    }
+  };
+
   return (
-    <div className="articles">
-      <div className="articlesContainer">
+    <div
+      className="articles"
+      style={!slidePosition ? { paddingLeft: '20vw' } : null}
+    >
+      <div
+        className="articlesContainer"
+        style={{ transform: `translateX(${slidePosition}px)` }}
+      >
         {userData.map(list => {
           return (
             <div className="articlesbox" key={list.id}>
@@ -14,9 +45,7 @@ function Articles({ userData }) {
                 src={list.images}
                 alt="NewFeed"
               />
-              <span className="articlesUserFeedTitle">
-                스타벅스에서 톨사이즈 주문하다 까여본적 있나요?
-              </span>
+              <span className="articlesUserFeedTitle">{list.title}</span>
               <span className="articlesUserFeedSub">
                 맥시멀 리스트 남편이 또 뭔가를 샀다. 사촌 집에서 본 크롬캐스트를
                 사서 HBO로 요즘 핫하다는 듄을 봤다. 아주 먼 미래의 이야기라
@@ -28,6 +57,15 @@ function Articles({ userData }) {
             </div>
           );
         })}
+      </div>
+      <div className="articlesButtonRight" onClick={NextBtn}>
+        <SlideButton />
+      </div>
+      <div
+        className="articlesButtonleft"
+        style={!slidePosition ? { display: 'none' } : null}
+        onClick={PrevBtn}
+      >
         <SlideButton />
       </div>
     </div>

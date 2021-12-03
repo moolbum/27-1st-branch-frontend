@@ -9,7 +9,6 @@ function Slide(props) {
     <div className="slide">
       <Title />
       <SlideImage userData={userData} />
-      {/* <SlideNumber /> */}
     </div>
   );
 }
