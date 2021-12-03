@@ -8,10 +8,8 @@ function Login() {
 
   const navigate = useNavigate();
   const goToMain = e => {
-    e.preventDefault();
     fetch('API주소', {
       method: 'POST',
-      // headers:{},
       body: JSON.stringify({
         id: userId,
         password: userPassword,
@@ -66,14 +64,14 @@ function Login() {
           <h1 className="loginTitle">Email</h1>
           <form className="loginWrap">
             <input
-              className={userId ? 'loginInput ' : 'loginInputChange'}
+              className="loginInput"
               type="text"
               placeholder="이메일, 전화번호"
               value={userId}
               onChange={handleUserId}
             />
             <input
-              className={userPassword ? 'loginInput ' : 'loginInputChange'}
+              className="loginInput"
               type="password"
               placeholder="비밀번호"
               value={userPassword}
