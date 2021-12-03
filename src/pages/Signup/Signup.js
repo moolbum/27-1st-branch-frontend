@@ -3,64 +3,66 @@ import { useNavigate } from 'react-router';
 import './Signup.scss';
 
 function Signup() {
-  const [name, setName] = useState('');
-  const [nickname, setNickname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirm, setPasswordConfirm] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [github, setGithub] = useState('');
-  const [description, setDescription] = useState('');
-  const [position, setPosition] = useState('');
-
   const navigate = useNavigate();
+  const [inputData, setInputData] = useState({
+    name: '',
+    nickname: '',
+    email: '',
+    password: '',
+    passwordConfirm: '',
+    phoneNumber: '',
+    github: '',
+    profilePhoto: '',
+    description: '',
+    position: '',
+  });
+
+  const {
+    name,
+    nickname,
+    email,
+    password,
+    passwordConfirm,
+    phoneNumber,
+    github,
+    profilePhoto,
+    description,
+    position,
+  } = inputData;
+
+  const onChange = e => {
+    const {
+      value,
+      name,
+      nickname,
+      email,
+      password,
+      passwordConfirm,
+      phoneNumber,
+      github,
+      profilePhoto,
+      description,
+      position,
+    } = e.target;
+
+    setInputData({
+      ...inputData,
+      [name]: value,
+      [nickname]: value,
+      [email]: value,
+      [password]: value,
+      [passwordConfirm]: value,
+      [phoneNumber]: value,
+      [github]: value,
+      [profilePhoto]: value,
+      [description]: value,
+      [position]: value,
+    });
+  };
+
   const goToMain = () => {
     alert(`${name + '님'} 회원가입이 되었습니다`);
     navigate('/main');
-  };
-
-  const onNameHandler = event => {
-    const { value } = event.currentTarget;
-    setName(value);
-  };
-
-  const onNicknameHandler = event => {
-    const { value } = event.currentTarget;
-    setNickname(value);
-  };
-
-  const onEmailHandler = event => {
-    const { value } = event.currentTarget;
-    setEmail(value);
-  };
-
-  const onPasswordHandler = event => {
-    const { value } = event.currentTarget;
-    setPassword(value);
-  };
-  const onPasswordConfirmHandler = event => {
-    const { value } = event.currentTarget;
-    setPasswordConfirm(value);
-  };
-
-  const onPhoneNumberHandler = event => {
-    const { value } = event.currentTarget;
-    setPhoneNumber(value);
-  };
-
-  const onGithubHandler = event => {
-    const { value } = event.currentTarget;
-    setGithub(value);
-  };
-
-  const onDescriptionHandler = event => {
-    const { value } = event.currentTarget;
-    setDescription(value);
-  };
-
-  const onPositionHandler = event => {
-    const { value } = event.currentTarget;
-    setPosition(value);
   };
 
   const emailRegex =
@@ -73,13 +75,33 @@ function Signup() {
   const passwordValueCheck = passwordRegex.test(password);
   const phoneNumberValueCheck = phoneNumberRegex.test(phoneNumber);
 
-  const isSignupButtonHandler =
+  const isSignupValid =
     name &&
     nickname &&
     emailValueCheck &&
     passwordValueCheck &&
     passwordConfirm === password &&
     phoneNumberValueCheck;
+
+  // useEffect(() => {
+  //   fetch('api주소', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       name: this.name,
+  //       nickname: this.nickname,
+  //       email: this.email,
+  //       password: this.password,
+  //       phone_number: this.phoneNumber,
+  //       github: this.github,
+  //       profile_photo: this.profilePhoto,
+  //       description: this.description,
+  //       position: this.position,
+  //     }),
+  //   })
+  //     .then(responese => responese.json())
+  //     .then(result => console.log('결과', result));
+  // }, []);
+  // console.log(profilePhoto);
 
   return (
     <div className="signup">
@@ -96,10 +118,12 @@ function Signup() {
         <form>
           <p className="essentialValue">* 필수입력</p>
           <input
-            name="profile_photo"
+            name="profilePhoto"
             className="profile"
             id="chooseFile"
             type="file"
+            onChange={onChange}
+            value={profilePhoto}
           />
           <label className="profileUplode" for="chooseFile">
             <img
@@ -114,7 +138,7 @@ function Signup() {
             className="inputIdformat"
             type="text"
             placeholder="* 이름 입력"
-            onChange={onNameHandler}
+            onChange={onChange}
             value={name}
           />
 
@@ -123,7 +147,7 @@ function Signup() {
             className="inputIdformat"
             type="text"
             placeholder="* 닉네임 입력"
-            onChange={onNicknameHandler}
+            onChange={onChange}
             value={nickname}
           />
           <input
@@ -131,7 +155,7 @@ function Signup() {
             className="inputIdformat"
             type="text"
             placeholder="* 이메일 입력"
-            onChange={onEmailHandler}
+            onChange={onChange}
             value={email}
           />
 
@@ -140,7 +164,7 @@ function Signup() {
             className="inputIdformat"
             type="password"
             placeholder="* 비밀번호 입력"
-            onChange={onPasswordHandler}
+            onChange={onChange}
             value={password}
           />
 
@@ -149,11 +173,11 @@ function Signup() {
           </p>
 
           <input
-            name="password"
+            name="passwordConfirm"
             className="inputIdformat"
             type="password"
             placeholder="* 비밀번호 확인"
-            onChange={onPasswordConfirmHandler}
+            onChange={onChange}
             value={passwordConfirm}
           />
 
@@ -168,11 +192,11 @@ function Signup() {
           </p>
 
           <input
-            name="phone_number"
+            name="phoneNumber"
             className="inputIdformat"
             type="text"
             placeholder="* 핸드폰번호 입력 ('-') 제외"
-            onChange={onPhoneNumberHandler}
+            onChange={onChange}
             value={phoneNumber}
           />
 
@@ -183,23 +207,25 @@ function Signup() {
             className="inputIdformat"
             type="text"
             placeholder="github 아이디 입력"
-            onChange={onGithubHandler}
+            onChange={onChange}
             value={github}
           />
+
           <input
             name="description"
             className="inputIdformat"
             type="text"
             placeholder="소개"
-            onChnage={onDescriptionHandler}
+            onChnage={onChange}
             value={description}
           />
+
           <input
             name="position"
             className="inputIdformat"
             type="text"
             placeholder="개발직군 ex) 프론트엔드,백엔드"
-            onChange={onPositionHandler}
+            onChange={onChange}
             value={position}
           />
 
@@ -216,7 +242,7 @@ function Signup() {
             className="signupSubmit"
             type="button"
             onClick={goToMain}
-            disabled={!isSignupButtonHandler}
+            disabled={!isSignupValid}
           >
             회원가입
           </button>
