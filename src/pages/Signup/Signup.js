@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
 import { USER_DATA, USER_CHOICE_DATA } from './UserData';
 
 function Signup() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [inputData, setInputData] = useState({
     name: '',
     nickname: '',
@@ -18,8 +18,18 @@ function Signup() {
     position: '',
   });
 
-  const { name, nickname, email, password, passwordConfirm, phoneNumber } =
-    inputData;
+  const {
+    name,
+    nickname,
+    email,
+    password,
+    passwordConfirm,
+    phoneNumber,
+    github,
+    profilePhoto,
+    description,
+    position,
+  } = inputData;
 
   const handleInput = e => {
     const { value, name } = e.target;
@@ -31,8 +41,24 @@ function Signup() {
   };
 
   const goToMain = () => {
+    fetch('http://10.58.4.71:8000/users/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: name,
+        nickname: nickname,
+        email: email,
+        password: password,
+        phone_number: phoneNumber,
+        github: github,
+        profile_photo: profilePhoto,
+        description: description,
+        position: position,
+      }),
+    })
+      .then(responese => responese.json())
+      .then(data => console.log('결과', data));
     alert(`${name + '님'} 회원가입이 되었습니다`);
-    navigate('/main');
+    // navigate('/main');
   };
 
   const emailRegex =
@@ -53,25 +79,7 @@ function Signup() {
     passwordConfirm === password &&
     phoneNumberValueCheck;
 
-  // useEffect(() => {
-  //   fetch('api주소', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       name: this.name,
-  //       nickname: this.nickname,
-  //       email: this.email,
-  //       password: this.password,
-  //       phone_number: this.phoneNumber,
-  //       github: this.github,
-  //       profile_photo: this.profilePhoto,
-  //       description: this.description,
-  //       position: this.position,
-  //     }),
-  //   })
-  //     .then(responese => responese.json())
-  //     .then(result => console.log('결과', result));
-  // }, []);
-
+  // console.log();
   const isPwValid = password && password !== passwordConfirm;
 
   return (
