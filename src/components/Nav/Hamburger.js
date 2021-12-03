@@ -1,8 +1,12 @@
 import './Hamburger.scss';
 
-function Hamburger() {
+function Hamburger({ toggleValue }) {
+  console.log(toggleValue);
   return (
-    <section className="Hamburger">
+    <section
+      className="Hamburger"
+      toggle={!toggleValue ? null : { display: 'none', left: '0' }}
+    >
       <div className="top">
         <img className="userImg" src="" alt="프로필사진" />
         <span className="infoText">you can mak anyyhing by code</span>
