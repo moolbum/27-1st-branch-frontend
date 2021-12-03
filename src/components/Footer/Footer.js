@@ -1,4 +1,6 @@
 import React from 'react';
+import './Footer.scss';
+
 import {
   FOOTER_DATA_LIST_1,
   FOOTER_DATA_LIST_2,
