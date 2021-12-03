@@ -1,0 +1,54 @@
+@import '../../styles/variables.scss';
+@import '../../styles/common.scss';
+
+.keywordShell {
+  background-color: #fff;
+  margin: 36px 0 22px;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+  .relatedKeyword {
+    display: flex;
+    width: 940px;
+
+    .wrapKeywordBtn {
+      width: 90%;
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: flex-start;
+
+      .detailKeyword {
+        border: 1px solid #d1d1d1;
+        border-radius: 14px;
+        font-size: 12px;
+        color: #959595;
+        white-space: nowrap;
+        background-color: #fff;
+        margin: 0 8px 10px 0;
+        padding: 5px 10px;
+      }
+    }
+    .moreKeywords {
+      display: flex;
+      align-items: center;
+      font-size: 11px;
+      color: #959595;
+      cursor: pointer;
+      height: 30px;
+
+      .titleMore {
+        font-style: normal;
+        margin-right: 4px;
+      }
+
+      .moreArrowBtn {
+        width: 7px;
+        height: 4px;
+        background: url('../../asset/images/downArrow.png') no-repeat 50% /
+          cover;
+      }
+    }
+  }
+}
