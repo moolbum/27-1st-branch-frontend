@@ -5,7 +5,7 @@ function ListRelatedArticle({ relatedData }) {
   return (
     <ul className="listRelatedArticle">
       {relatedData.map(data => {
-        const { id, content, sub_title, thumbnail, title, user } = data;
+        const { id, content, sub_title, thumbnail, title, nickname } = data;
         return (
           <Link to="/detailPage" key={id}>
             <li className="viewImpression">
@@ -19,7 +19,7 @@ function ListRelatedArticle({ relatedData }) {
                 <span className="subTitleRelatedDesc">{sub_title}</span>
                 <p className="descRelated">{content}</p>
               </div>
-              <span className="textName">by {user}</span>
+              <span className="textName">by {nickname}</span>
             </li>
           </Link>
         );

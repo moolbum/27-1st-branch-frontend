@@ -1,0 +1,74 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/common.scss';
+
+.wrapBodyFrame {
+  position: relative;
+  top: 450px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 11pt;
+  line-height: 22pt;
+  padding-top: 40px;
+  background: #fff;
+
+  .bodytext {
+    width: 700px;
+    margin: 0 auto;
+  }
+
+  .innerBodyInfo {
+    text-align: right;
+    width: 700px;
+    margin: 50px auto 50px auto;
+
+    .wrapKeyword {
+      float: left;
+      padding-top: 6px;
+
+      .listClass {
+        display: flex;
+
+        .linkKeyword {
+          display: block;
+          min-width: 14px;
+          padding: 0 10px;
+          margin-right: 8px;
+          border: 1px solid #ddd;
+          border-radius: 28px;
+          font-size: 12px;
+          line-height: 26px;
+          color: #959595;
+          letter-spacing: -1px;
+          text-align: center;
+        }
+      }
+    }
+
+    .wrapCommentBtn {
+      display: inline-block;
+      text-align: right;
+
+      .btnCommentIcon {
+        display: inline-block;
+        overflow: hidden;
+        width: 20px;
+        height: 20px;
+        margin-right: 4px;
+        background: url(../../../asset/images/comment.png) no-repeat 50% / cover;
+        line-height: 0;
+        text-indent: -999px;
+        vertical-align: top;
+      }
+
+      .btnComment {
+        margin-left: 8px;
+        padding: 8px 20px;
+        border: 1px solid #bbb;
+        font-size: 13px;
+        border-radius: 42px;
+        background-color: #fff;
+        color: #666;
+      }
+    }
+  }
+}

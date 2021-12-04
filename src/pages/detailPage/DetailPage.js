@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ListRelatedArticle from './ListRelatedArticle/ListRelatedArticle';
-import CommentArea from './commentArea/CommentArea';
+import CommentArea from './CommentArea/CommentArea';
+import Header from './Header/Header';
+import BodyFrame from './BodyFrame/BodyFrame';
 import './DetailPage.scss';
 
 function DetailPage() {
@@ -9,13 +11,20 @@ function DetailPage() {
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [inputComment, setInputComment] = useState([]);
   const [commentValue, setCommentValue] = useState('');
+  const [headerData, setHeaderData] = useState([]);
 
   const onChange = e => {
     setCommentValue(e.target.value);
   };
 
   useEffect(() => {
-    fetch('/ListRelatedData/listRelatedData.json')
+    fetch('/Data/headerData.json')
+      .then(res => res.json())
+      .then(res => setHeaderData(res));
+  }, []);
+
+  useEffect(() => {
+    fetch('/Data/listRelatedData.json')
       .then(res => res.json())
       .then(res => setRelaredListUserData(res));
   }, []);
@@ -41,23 +50,14 @@ function DetailPage() {
 
   return (
     <div className="detailPage">
-      <header className="pageHeader">
-        <div className="coverInner" />
-        <div className="coverSell">
-          <div className="coverTitleShell">
-            <h1 className="coverTitle">쉽게 쓰어진 에세이</h1>
-            <p className="coverSubTitle">작가는 아무나 하나요</p>
-            <div className="info">
-              <span className="infoBy">by</span>
-              <span className="infoName">미니민</span>
-              <span className="middleDot" />
-              <span className="infoDate">Nov 25, 2021</span>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header pageHeaderData={headerData} />
       <div className="wrapBodyFrame">
-        <div className="wrapContentBody">
+        <BodyFrame
+          setIsCommentOpen={setIsCommentOpen}
+          isCommentOpen={isCommentOpen}
+          inputComment={inputComment}
+        />
+        {/* <div className="wrapContentBody">
           <p className="bodytext">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -121,7 +121,7 @@ function DetailPage() {
               </button>
             </span>
           </article>
-        </div>
+        </div> */}
         {isCommentOpen && (
           <CommentArea
             addComment={addComment}
@@ -131,7 +131,7 @@ function DetailPage() {
             value={commentValue}
           />
         )}
-        <article className="wrapAuthor">
+        {/* <article className="wrapAuthor">
           <div className="innerAuthor">
             <strong className="authorName">미니민</strong>
             <span className="authorBelong">
@@ -162,7 +162,7 @@ function DetailPage() {
               </span>
             </div>
           </div>
-        </article>
+        </article> */}
         <section className="wrapArticle">
           <ListRelatedArticle relatedData={relaredListUserData} />
         </section>
