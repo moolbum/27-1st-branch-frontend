@@ -1,32 +1,41 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 function Login() {
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
-
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const goToMain = () => {
     fetch('http://10.58.4.71:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        phone_number: userId,
+        email: userId,
         password: userPassword,
       }),
     })
       .then(responese => responese.json())
-      .then(data => console.log('결과', data));
-    // navigate('/main');
+      .then(result => {
+        if (result.status === 200) {
+          localStorage.setItem('email', true);
+          navigate('/main');
+        }
+        if (result.status === 400) {
+          alert('유효하지 않은 아이디입니다.');
+        }
+        if (result.status === 401) {
+          alert('유효하지 않은 비밀번호입니다.');
+        }
+      });
   };
 
-  const handleUserId = e => {
+  const addOnuserIdValue = e => {
     const { value } = e.target;
     setUserId(value);
   };
 
-  const handleUserPassword = e => {
+  const addOnuserPasswordValue = e => {
     const { value } = e.target;
     setUserPassword(value);
   };
@@ -34,13 +43,12 @@ function Login() {
   const emailRegex =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
   const passwordRegex =
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const phoneNumberRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 
   const emailValueCheck = emailRegex.test(userId);
   const passwordValueCheck = passwordRegex.test(userPassword);
   const phoneNumberValueCheck = phoneNumberRegex.test(userId);
-
   const isUserValid =
     (emailValueCheck || phoneNumberValueCheck) && passwordValueCheck;
 
@@ -62,18 +70,18 @@ function Login() {
           <h1 className="loginTitle">Email</h1>
           <form className="loginWrap">
             <input
-              className="loginInput"
+              className={`loginInput${userId ? ' lightBorder' : ''}`}
               type="text"
               placeholder="이메일, 전화번호"
               value={userId}
-              onChange={handleUserId}
+              onChange={addOnuserIdValue}
             />
             <input
-              className="loginInput"
+              className={`loginInputPassword${userId ? ' lightBorder' : ''}`}
               type="password"
               placeholder="비밀번호"
               value={userPassword}
-              onChange={handleUserPassword}
+              onChange={addOnuserPasswordValue}
             />
             <button
               className="loginButton"
