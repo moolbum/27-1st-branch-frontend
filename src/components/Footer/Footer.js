@@ -30,7 +30,7 @@ function Footer() {
           <ul className="listWrap">
             {FOOTER_DATA_LIST_2.map(data => {
               return (
-                <li className="list" key={data.id}>
+                <li className={data.bold ? 'listBold' : 'list'} key={data.id}>
                   {data.value}
                 </li>
               );

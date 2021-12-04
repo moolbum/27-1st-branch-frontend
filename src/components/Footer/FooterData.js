@@ -34,6 +34,7 @@ export const FOOTER_DATA_LIST_2 = [
   {
     id: 3,
     value: '개인정보 처리방침',
+    bold: true,
   },
   {
     id: 4,
