@@ -11,7 +11,7 @@ function KeywordShell({ recommendKeyword }) {
   return (
     <div
       className="keywordShell"
-      style={!moreActive ? null : { height: '32px' }}
+      style={!moreActive ? { height: '32px' } : null}
     >
       <div className="relatedKeyword">
         <span className="wrapKeywordBtn">
@@ -24,10 +24,8 @@ function KeywordShell({ recommendKeyword }) {
             );
           })}
         </span>
-        <span className="moreKeywords">
-          <p className="titleMore" onClick={ActiveBtn}>
-            더보기
-          </p>
+        <span className="moreKeywords" onClick={ActiveBtn}>
+          <p className="titleMore">{!moreActive ? '더보기' : '접기'}</p>
           <span className="moreArrowBtn" />
         </span>
       </div>

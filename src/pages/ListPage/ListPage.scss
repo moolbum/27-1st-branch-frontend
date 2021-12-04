@@ -17,7 +17,7 @@
 
       .wrapWriterList {
         width: 220px;
-        height: 250px;
+        height: 350px;
         padding: 20px 20px 24px;
         background-color: #fff;
         box-sizing: border-box;
@@ -30,67 +30,12 @@
           line-height: 13px;
           font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
           color: #666;
+          margin-left: 10px;
         }
 
         .searchRecommend {
           padding: 14px 0 0;
-
-          .wrapWriter {
-            position: relative;
-            display: block;
-            padding: 0 0 0 48px;
-
-            .thumbImage {
-              overflow: hidden;
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 36px;
-              height: 36px;
-              border-radius: 50%;
-            }
-
-            .detailRecoomend {
-              display: table;
-              overflow: hidden;
-              width: 132px;
-              min-height: 36px;
-
-              .textRecommend {
-                display: block;
-                overflow: hidden;
-                line-height: 1;
-                font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-              }
-            }
-            .textInfo {
-              display: block;
-              line-height: 18px;
-              font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
-              color: #999;
-
-              .nameText {
-                display: inline-block;
-                margin-left: 0;
-                font-size: 12px;
-              }
-
-              .iconDot {
-                display: inline-block;
-                width: 2px;
-                height: 2px;
-                margin: 8px 6px 0;
-                background: #aaa;
-                vertical-align: top;
-              }
-
-              .numText {
-                font-size: 12px;
-              }
-            }
-          }
+          margin-left: 10px;
         }
       }
     }
