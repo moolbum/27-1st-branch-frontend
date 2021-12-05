@@ -3,41 +3,42 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 function Login() {
-  const [userId, setUserId] = useState('');
-  const [userPassword, setUserPassword] = useState('');
   const navigate = useNavigate();
+  const [userInputData, setUserInputData] = useState({
+    email: '',
+    phone_number: '',
+    password: '',
+  });
+
+  const { email, phoneNumber, password } = userInputData;
+  const addOnUserData = e => {
+    const { value, name } = e.target;
+    setUserInputData({
+      ...userInputData,
+      [name]: value,
+    });
+  };
 
   const goToMain = () => {
-    fetch('http://10.58.4.71:8000/users/signin', {
+    fetch('http://10.58.7.58:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        email: userId,
-        password: userPassword,
+        email: email,
+        phone_number: phoneNumber,
+        password: password,
       }),
     })
       .then(responese => responese.json())
-      .then(result => {
-        if (result.status === 200) {
-          localStorage.setItem('email', true);
+      .then(res => {
+        // console.log('결과', res);
+        if (res.MESSAGE === 'SUCCESS') {
+          localStorage.setItem('TOKEN', res.TOKEN);
           navigate('/main');
         }
-        if (result.status === 400) {
+        if (res.message === 'INVALID_USER') {
           alert('유효하지 않은 아이디입니다.');
         }
-        if (result.status === 401) {
-          alert('유효하지 않은 비밀번호입니다.');
-        }
       });
-  };
-
-  const addOnuserIdValue = e => {
-    const { value } = e.target;
-    setUserId(value);
-  };
-
-  const addOnuserPasswordValue = e => {
-    const { value } = e.target;
-    setUserPassword(value);
   };
 
   const emailRegex =
@@ -46,9 +47,9 @@ function Login() {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const phoneNumberRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 
-  const emailValueCheck = emailRegex.test(userId);
-  const passwordValueCheck = passwordRegex.test(userPassword);
-  const phoneNumberValueCheck = phoneNumberRegex.test(userId);
+  const emailValueCheck = emailRegex.test(email);
+  const passwordValueCheck = passwordRegex.test(password);
+  const phoneNumberValueCheck = phoneNumberRegex.test(phoneNumber);
   const isUserValid =
     (emailValueCheck || phoneNumberValueCheck) && passwordValueCheck;
 
@@ -70,18 +71,18 @@ function Login() {
           <h1 className="loginTitle">Email</h1>
           <form className="loginWrap">
             <input
-              className={`loginInput${userId ? ' lightBorder' : ''}`}
+              name="email"
+              className={`loginInput${email ? ' lightBorder' : ''}`}
               type="text"
               placeholder="이메일, 전화번호"
-              value={userId}
-              onChange={addOnuserIdValue}
+              onChange={addOnUserData}
             />
             <input
-              className={`loginInputPassword${userId ? ' lightBorder' : ''}`}
+              name="password"
+              className={`loginInput${password ? ' lightBorder' : ''}`}
               type="password"
               placeholder="비밀번호"
-              value={userPassword}
-              onChange={addOnuserPasswordValue}
+              onChange={addOnUserData}
             />
             <button
               className="loginButton"
