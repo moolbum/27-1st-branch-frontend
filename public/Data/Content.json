@@ -1,23 +1,63 @@
 [
   {
-    "title": "Console panel",
-    "sub_title": "개발자도구",
-    "content": "개발자 도구를 이용하면 HTML,CSS,JavaScript의 생산성을 극대화 할 수 있습니다.\n\n개발자 도구 여는 방법\ncommand + option + I\nfn + F12\nConsole\n로그 된 메시지 보기와 JavaScript 실행의 두 가지 용도로 주요 사용\n에러메시지,status 코드도 콘솔을 통해 확인 가능\n\n새로고침시 Console 내용이 지워지지 않는 법\n개발자 도구 > Settings > preserve log upon navigation 체크\n\nConsole에 기록된 로그를 모두 지울때 사용하는 메소드\nConsole에 clear()를 입력\ncommand + k\n툴바 Clear console 아이콘 클릭\nCtrl+L (Mac, Windows, Linux)을 입력\nConsole 창 내부를 우클릭하고 Clear console 클릭\n자바스크립트 코드 내에서 console.clear()를 호출\nConsole에서 Warnigs, Errors 를 제외하고 보는 방법\n툴바의 Log level에서 해당 항목을 체크 해제\n\n다른 Panel에서 Console Panel을 같이 보는 방법\n다른 패널 사용 중 Esc를 누른다.\nCustomize and control DevTools 버튼을 누른 다음 Show console drawer를 누른다.",
-    "keyword_id": ["까눌레", "IT", "책"],
+    "id": 0,
+    "header": [
+      {
+        "id": 1,
+        "nickname": "wecode",
+        "sub_title": "개발자도구",
+        "title": "Console panel",
+        "created_at": "2021-12-01"
+      }
+    ],
+    "contents": [
+      {
+        "id": 1,
+        "content": "개발자 도구를 이용하면 HTML,CSS,JavaScript의 생산성을 극대화 할 수 있습니다.\n\n개발자 도구 여는 방법\ncommand + option + I\nfn + F12\nConsole\n로그 된 메시지 보기와 JavaScript 실행의 두 가지 용도로 주요 사용\n에러메시지,status 코드도 콘솔을 통해 확인 가능\n\n새로고침시 Console 내용이 지워지지 않는 법\n개발자 도구 > Settings > preserve log upon navigation 체크\n\nConsole에 기록된 로그를 모두 지울때 사용하는 메소드\nConsole에 clear()를 입력\ncommand + k\n툴바 Clear console 아이콘 클릭\nCtrl+L (Mac, Windows, Linux)을 입력\nConsole 창 내부를 우클릭하고 Clear console 클릭\n자바스크립트 코드 내에서 console.clear()를 호출\nConsole에서 Warnigs, Errors 를 제외하고 보는 방법\n툴바의 Log level에서 해당 항목을 체크 해제\n\n다른 Panel에서 Console Panel을 같이 보는 방법\n다른 패널 사용 중 Esc를 누른다.\nCustomize and control DevTools 버튼을 누른 다음 Show console drawer를 누른다.",
+        "post_tag_name": ["까눌레", "IT", "책"]
+      }
+    ],
     "user_id": "기멜"
   },
   {
-    "title": "개발자도구 - Application",
-    "sub_title": "Local Storage, Session Storage, Cookie",
-    "content": "Application 패널의 기능은?\n브라우저 저장소의 기능을 담당. 즉, 현재 로딩된 웹 페이지에서 사용된 모든 리소스(이미지, DB, 로컬 및 세션 스토리지, 쿠키, 애플리케이션 캐시 등)를 검사할 수 있는 패널.\n\n프로그레시브 웹 앱 디버그\n스토리지, DB 및 캐시 검사 및 관리\n쿠키 검사 및 삭제\n리소스 검사\nLocal Storage, Session Storage, Cookie 차이점은?\n서버와 클라이언트가 통신을 할 때 통신이 연속적으로 이어지지 않고 한 번 통신이 되면 끊어진다. 따라서 서버는 클라이언트가 누구인지 계속 인증을 해줘야 한다. 하지만 그것은 매우 귀찮고 번거로운 일이다. 또한 웹 페이지의 로딩을 느리게 만드는 요인이 되기도 한다. 그런 번거로움을 해결하기 위해 쿠키, 세션스토리지, 로컬 스토리지를 사용한다. \n\n공통 사항 : 스토리지는 브라우저의 저장소. 값의 성격에 따라 다르게 사용이 된다. 두 스토리지 모두 html5 에서 새로운 저장 옵션으로 도입이 된 개념이다. key - value 페어 객체 형태로 데이터가 저장된다.\n\nStorage : 쿠키의 단점을 보완해서 만든 기술이다, 쿠키보다 보안이 우수하며 용량이 크다 .\n\nLocal Storage : 사용자가 지우지 않는 이상 데이터의 영구성이 보장된다. 사용자가 지우지 않는 이상 계속 클라이언트 웹브라우저에 남아있다. storage 3가지 중 허용 용량이 가장 크다(10mb).지속적으로 필요한 정보를 저장하기에 좋다.\n\nSession Storage : 윈도우나 브라우저 탭을 닫을 경우 사라진다. 즉 데이터의 영구성을 보장하지 않는다. 일회성의 데이터\n\nCookie : 스토리지 개념 도입 이전 저장소로 사용이 되던 것 4kb까지만 저장이 가능하다. 지속 시간을 설정할 수 있다(만료 기간 설정 가능). 직접적이지 않는 데이터를 저장할 때 사용된다. 쿠키는 사이트에서 방문한 페이지를 저장하거나 유저 로그인 정보를 저장하는 등, 다양한 방법으로 사용이 되지만 문자열만 저장할 수 있다는 제한이 있다.\n\nLocal Storage, Session Storage, Cookie 사용 예시\nLocal Storage : ex) 자동 로그인 정보 / 장바구니\nSession Storage : ex) 일회성 로그인 / 잠깐 동안 필요한 정보\nCookie : ex) 3일간 다시 보지 않음 팝업 창\n예전에는 토큰을 저장할 곳이 쿠키 밖에 없었지만, 지금은 LocalStorage에도 저장하는 일이 많아졌다. 하지만, LocalStorage는 말 그대로 데이터가 다 남아있으니 보안상 취약해지기 쉽기 때문에 프로젝트 성향에 맞춰 저장 장소는 그때그때 달라져야 한다.\n\nLocal Storage에 특정 데이터를 저장하고 가져오는 방\nsetItem 메서드를 이용해 key값과 value값을 지정해주고\ngetItem 메서드를 이용해 key값을 호출 할 수 있다.\n\nlocalStorage.setItem('key', 'value')\nsessionStorage.setItem('key', 'value')\nsetcookie('key', 'value', '지속시간 (초단위)')\n데이터 호출\nlocalStorage.getItem('key')\nsessionStorage.getItem('key')\ndocument.cookie\n기타 메소드\n외에도 removeItem, clear 등등의 공통 메소드 존재",
-    "keyword_id": ["야호", "치료"],
+    "id": 1,
+    "header": [
+      {
+        "id": 1,
+        "nickname": "wecode",
+        "sub_title": "Local Storage, Session Storage, Cookie",
+        "title": "개발자도구 - Application",
+        "created_at": "2021-12-01"
+      }
+    ],
+    "contents": [
+      {
+        "id": 1,
+        "content": "Application 패널의 기능은?\n브라우저 저장소의 기능을 담당. 즉, 현재 로딩된 웹 페이지에서 사용된 모든 리소스(이미지, DB, 로컬 및 세션 스토리지, 쿠키, 애플리케이션 캐시 등)를 검사할 수 있는 패널.\n\n프로그레시브 웹 앱 디버그\n스토리지, DB 및 캐시 검사 및 관리\n쿠키 검사 및 삭제\n리소스 검사\nLocal Storage, Session Storage, Cookie 차이점은?\n서버와 클라이언트가 통신을 할 때 통신이 연속적으로 이어지지 않고 한 번 통신이 되면 끊어진다. 따라서 서버는 클라이언트가 누구인지 계속 인증을 해줘야 한다. 하지만 그것은 매우 귀찮고 번거로운 일이다. 또한 웹 페이지의 로딩을 느리게 만드는 요인이 되기도 한다. 그런 번거로움을 해결하기 위해 쿠키, 세션스토리지, 로컬 스토리지를 사용한다. \n\n공통 사항 : 스토리지는 브라우저의 저장소. 값의 성격에 따라 다르게 사용이 된다. 두 스토리지 모두 html5 에서 새로운 저장 옵션으로 도입이 된 개념이다. key - value 페어 객체 형태로 데이터가 저장된다.\n\nStorage : 쿠키의 단점을 보완해서 만든 기술이다, 쿠키보다 보안이 우수하며 용량이 크다 .\n\nLocal Storage : 사용자가 지우지 않는 이상 데이터의 영구성이 보장된다. 사용자가 지우지 않는 이상 계속 클라이언트 웹브라우저에 남아있다. storage 3가지 중 허용 용량이 가장 크다(10mb).지속적으로 필요한 정보를 저장하기에 좋다.\n\nSession Storage : 윈도우나 브라우저 탭을 닫을 경우 사라진다. 즉 데이터의 영구성을 보장하지 않는다. 일회성의 데이터\n\nCookie : 스토리지 개념 도입 이전 저장소로 사용이 되던 것 4kb까지만 저장이 가능하다. 지속 시간을 설정할 수 있다(만료 기간 설정 가능). 직접적이지 않는 데이터를 저장할 때 사용된다. 쿠키는 사이트에서 방문한 페이지를 저장하거나 유저 로그인 정보를 저장하는 등, 다양한 방법으로 사용이 되지만 문자열만 저장할 수 있다는 제한이 있다.\n\nLocal Storage, Session Storage, Cookie 사용 예시\nLocal Storage : ex) 자동 로그인 정보 / 장바구니\nSession Storage : ex) 일회성 로그인 / 잠깐 동안 필요한 정보\nCookie : ex) 3일간 다시 보지 않음 팝업 창\n예전에는 토큰을 저장할 곳이 쿠키 밖에 없었지만, 지금은 LocalStorage에도 저장하는 일이 많아졌다. 하지만, LocalStorage는 말 그대로 데이터가 다 남아있으니 보안상 취약해지기 쉽기 때문에 프로젝트 성향에 맞춰 저장 장소는 그때그때 달라져야 한다.\n\nLocal Storage에 특정 데이터를 저장하고 가져오는 방\nsetItem 메서드를 이용해 key값과 value값을 지정해주고\ngetItem 메서드를 이용해 key값을 호출 할 수 있다.\n\nlocalStorage.setItem('key', 'value')\nsessionStorage.setItem('key', 'value')\nsetcookie('key', 'value', '지속시간 (초단위)')\n데이터 호출\nlocalStorage.getItem('key')\nsessionStorage.getItem('key')\ndocument.cookie\n기타 메소드\n외에도 removeItem, clear 등등의 공통 메소드 존재",
+        "post_tag_name": ["야호", "치료"]
+      }
+    ],
     "user_id": "준석"
   },
   {
-    "title": "Git으로 버전관리하기",
-    "sub_title": "개발자처럼 관리해보자",
-    "content": "git\ngit의 공식 명칭은 분산 버전 관리 시스템 (VCS) 입니다.\ngit의 구성\nCommand Line(명령 라인)\nGit 명령어를 입력할 때 사용하는 컴퓨터 프로그램.CLI\n\nRepository(저장소)\n프로젝트가 있는 디렉토리나 저장 공간. 현재기기에서 저장되고 있는 곳을local Repository, 깃허브에 저장되어 있는 가상의 저상소를 remote Repository\n\nLocal repository - 본인의 컴퓨터에 저장된 로컬 버전의 프로젝트 저장소\nRemote repository - 로컬 repository 와는 반대로 내 컴퓨터가 아닌 외부 (일반적으로 원격 서버) 버전의 프로젝트 저장소. 팀에서 작업 할 때 특히 유용합니다. 이 곳에서 프로젝트 코드를 공유할 수 있고, 다른 사람의 코드를 확인할 수도 있습니다. 또, 로컬 버전의 프로젝트와 병합하고, 변경 사항을 적용 할 수 있는 곳\nVersion Control(버전 관리)\n프로젝트 히스토리의 모든 시점의 버전을 유지하므로, 결코 잃어버리거나 겹쳐 쓰지 않을 수 있다.\n\nCommit(커밋)\n파일 및 폴더의 추가, 변경 사항을 저장소에 기록하려면 commit. 체크포인트라고 보면 된다. 그렇지만 사소한 변경사항 까지 commit을 하는것보다 어떤 기능이 추가되었다거나 이유있는 commit이어야 좋다.\n\nBranch(브랜치)\n독립적인 작업공간이다. 기본적으로 master라는 메인 브랜치가 생성된다.\nbranch로 commit을 하고 확인하는 습관을 가지는게 좋다!\n\nmarster는 신성한 공간이다.... branch에서 작업을 해야한다...\n\ngit 설치\n윈도우와 맥os 로 나뉘어져 있어 소프트웨어에 맞게 설치를 할 수 있다.\n\nhttps://git-scm.com/downloads\n\ngit 버전확인\ngit --version\n터미널에서 입력 후 버전확인이 된다면 정상적으로 설치가 되었고 준비는 끝났다!\ncommit 할 때 마다 누가 수정을 했는지 알 수 있도록 초기에 이름과 이메일을 설정해야 한다.\ngit config --global user.name '이름'\ngit config --global user.email '이메일'",
-    "keyword_id": ["스타벅스", "자바스크립트"],
+    "id": 2,
+    "header": [
+      {
+        "id": 1,
+        "nickname": "wecode",
+        "sub_title": "개발자처럼 관리해보자",
+        "title": "Git으로 버전관리하기",
+
+        "created_at": "2021-12-01"
+      }
+    ],
+    "contents": [
+      {
+        "id": 1,
+        "content": "git\ngit의 공식 명칭은 분산 버전 관리 시스템 (VCS) 입니다.\ngit의 구성\nCommand Line(명령 라인)\nGit 명령어를 입력할 때 사용하는 컴퓨터 프로그램.CLI\n\nRepository(저장소)\n프로젝트가 있는 디렉토리나 저장 공간. 현재기기에서 저장되고 있는 곳을local Repository, 깃허브에 저장되어 있는 가상의 저상소를 remote Repository\n\nLocal repository - 본인의 컴퓨터에 저장된 로컬 버전의 프로젝트 저장소\nRemote repository - 로컬 repository 와는 반대로 내 컴퓨터가 아닌 외부 (일반적으로 원격 서버) 버전의 프로젝트 저장소. 팀에서 작업 할 때 특히 유용합니다. 이 곳에서 프로젝트 코드를 공유할 수 있고, 다른 사람의 코드를 확인할 수도 있습니다. 또, 로컬 버전의 프로젝트와 병합하고, 변경 사항을 적용 할 수 있는 곳\nVersion Control(버전 관리)\n프로젝트 히스토리의 모든 시점의 버전을 유지하므로, 결코 잃어버리거나 겹쳐 쓰지 않을 수 있다.\n\nCommit(커밋)\n파일 및 폴더의 추가, 변경 사항을 저장소에 기록하려면 commit. 체크포인트라고 보면 된다. 그렇지만 사소한 변경사항 까지 commit을 하는것보다 어떤 기능이 추가되었다거나 이유있는 commit이어야 좋다.\n\nBranch(브랜치)\n독립적인 작업공간이다. 기본적으로 master라는 메인 브랜치가 생성된다.\nbranch로 commit을 하고 확인하는 습관을 가지는게 좋다!\n\nmarster는 신성한 공간이다…. branch에서 작업을 해야한다…\n\ngit 설치\n윈도우와 맥os 로 나뉘어져 있어 소프트웨어에 맞게 설치를 할 수 있다.\n\nhttps://git-scm.com/downloads\n\ngit 버전확인\ngit —version\n터미널에서 입력 후 버전확인이 된다면 정상적으로 설치가 되었고 준비는 끝났다!\ncommit 할 때 마다 누가 수정을 했는지 알 수 있도록 초기에 이름과 이메일을 설정해야 한다.\ngit config —global user.name '이름'\ngit config —global user.email '이메일'",
+        "post_tag_name": ["스타벅스", "자바스크립트"]
+      }
+    ],
     "user_id": "이야호"
   }
 ]
