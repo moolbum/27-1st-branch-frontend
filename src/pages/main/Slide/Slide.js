@@ -1,5 +1,5 @@
-import Title from './Title';
-import SlideImage from './SlideImage';
+import Title from './Title/Title';
+import SlideImage from '../Slide/SlideImage/SlideImage';
 
 function Slide(props) {
   const { userData } = props;

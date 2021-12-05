@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
 import './Writers.scss';
 
-function Writers({ userData }) {
-  const copyUserData = [...userData];
-  if (copyUserData.length > 6) {
-    copyUserData.splice(6, copyUserData.length);
+function Writers({ userData, tagData }) {
+  const newUserData = [...userData];
+
+  if (userData.length > 6) {
+    newUserData.splice(6, newUserData.length);
+  }
+
+  if (tagData.length > 3) {
+    tagData.splice(3, tagData.length);
   }
 
   return (
@@ -12,18 +17,16 @@ function Writers({ userData }) {
       <span className="title">BRANCH WRITERS</span>
       <span className="subText">브런치 추천 작가</span>
       <div className="tagContainer">
-        <Link to="" className="writersTag">
-          JavaScript
-        </Link>
-        <Link to="" className="writersTag">
-          HTML&CSS
-        </Link>
-        <Link to="" className="writersTag">
-          django
-        </Link>
+        {tagData.map(tagList => {
+          return (
+            <Link to="/" className="writersTag" key={tagList.id}>
+              {tagList.tag_name}
+            </Link>
+          );
+        })}
       </div>
       <section className="peopleContainer">
-        {copyUserData.map(list => {
+        {newUserData.map(list => {
           return (
             <div className="people" key={list.id}>
               <img className="peopleImg" src={list.images} alt="UserImage" />

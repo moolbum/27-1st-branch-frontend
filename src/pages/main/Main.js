@@ -7,7 +7,9 @@ import './Main.scss';
 
 function Main() {
   const [userData, setUserData] = useState([]);
+  const [tagData, setTagData] = useState([]);
   const [ScrollY, setScrollY] = useState(0);
+
   // 스크롤 높이값 구하는 함수 => pageYOffset 속성이 작업해준다
   const handleFollow = () => {
     setScrollY(window.scrollY);
@@ -40,11 +42,19 @@ function Main() {
       .then(res => setUserData(res));
   }, []);
 
+  useEffect(() => {
+    fetch('/data/tagData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(res => setTagData(res.result));
+  }, []);
+
   return (
     <div className="main">
       <Slide userData={userData} />
       <KeyWord />
-      <Writers userData={userData} />
+      <Writers tagData={tagData} userData={userData} />
       <Articles userData={userData} />
       <span
         className="topButton"
