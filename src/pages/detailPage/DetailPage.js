@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import ListRelatedArticle from './ListRelatedArticle/ListRelatedArticle';
 import CommentArea from './CommentArea/CommentArea';
 import Header from './Header/Header';
