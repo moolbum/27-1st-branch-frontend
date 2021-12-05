@@ -41,7 +41,7 @@ function Signup() {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.4.71:8000/users/signup', {
+    fetch('http://10.58.7.58:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         name: name,
@@ -56,10 +56,13 @@ function Signup() {
       }),
     })
       .then(responese => responese.json())
-      .then(result => {
-        if (result.status === 201) {
-          alert(`${name + '님'} 회원가입이 되었습니다`);
+      .then(res => {
+        if (res.message === 'SUCCESS!') {
+          alert(`${name + '님'}회원가입 되셨습니다! 축하드립니다!`);
           navigate('/login');
+        }
+        if (res.message === 'ALREADY_EXISTS') {
+          alert('잘못된 양식입니다. 다시입력해주세요.');
         }
       });
   };
