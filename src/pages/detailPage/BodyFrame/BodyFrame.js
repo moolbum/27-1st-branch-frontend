@@ -13,17 +13,17 @@ function WrapContentBody({ setIsCommentOpen, isCommentOpen, inputComment }) {
   return (
     <div className="wrapContentBody">
       {contentBodyData.map(bodyContentData => {
-        // const { id, content, post_tag_name } = bodyContentData;
+        const { id, content, post_tag_name } = bodyContentData;
         return (
-          <div key={bodyContentData.id}>
-            <p className="bodytext">{bodyContentData.content}</p>
+          <div key={id}>
+            <p className="bodytext">{content}</p>
             <article className="innerBodyInfo">
               <div className="wrapKeyword">
                 <ul className="listClass">
-                  {bodyContentData.post_tag_name.map(tagName => {
+                  {post_tag_name.map((tagName, i) => {
                     return (
-                      <li className="linkKeyword" key={tagName.index}>
-                        {bodyContentData.post_tag_name}
+                      <li className="linkKeyword" key={i}>
+                        {tagName}
                       </li>
                     );
                   })}

@@ -1,0 +1,91 @@
+.wrapAuthor {
+  min-width: 1020px;
+  padding: 0 0 80px;
+  background-color: #fbfbfb;
+
+  .innerAuthor {
+    position: relative;
+    width: 700px;
+    margin: 0 auto;
+    padding-top: 30px;
+
+    .authorName {
+      display: block;
+      font-size: 28px;
+      overflow: hidden;
+      width: 588px;
+      font-weight: 200;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .authorBelong {
+      display: block;
+      margin: 1px 2px;
+      font-size: 13px;
+      color: #666;
+      margin-top: 10px;
+
+      .occupation {
+        font-size: 13px;
+        color: #666;
+      }
+    }
+
+    .imgAuthor {
+      position: absolute;
+      top: -22px;
+      right: 0;
+      vertical-align: top;
+      border-radius: 100px;
+    }
+
+    .authorDesc {
+      margin-top: 20px;
+      line-height: 22px;
+      color: #959595;
+
+      p {
+        font-size: 13px;
+        font-weight: 200;
+      }
+    }
+
+    .subscription {
+      display: flex;
+      margin-top: 40px;
+
+      .infoSubscription {
+        color: #666;
+
+        .numSubscription {
+          margin-left: 5px;
+        }
+      }
+
+      .wrapSubBtn {
+        float: right;
+        margin-top: 0;
+        text-align: center;
+        margin-left: 450px;
+
+        button {
+          width: 80px;
+          height: 32px;
+          border: 1px solid #bbb;
+          border-radius: 40px;
+          font-size: 13px;
+          font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+          color: #666;
+          background: #fff;
+          margin-left: 10px;
+        }
+
+        .btnFollow {
+          border: 1px solid #00c3bd;
+          color: #00c3bd;
+        }
+      }
+    }
+  }
+}
