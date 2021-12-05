@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
 import { USER_DATA, USER_CHOICE_DATA } from './UserData';
 
 function Signup() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [inputData, setInputData] = useState({
     name: '',
     nickname: '',
@@ -56,15 +56,18 @@ function Signup() {
       }),
     })
       .then(responese => responese.json())
-      .then(data => console.log('결과', data));
-    alert(`${name + '님'} 회원가입이 되었습니다`);
-    // navigate('/main');
+      .then(result => {
+        if (result.status === 201) {
+          alert(`${name + '님'} 회원가입이 되었습니다`);
+          navigate('/login');
+        }
+      });
   };
 
   const emailRegex =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
   const passwordRegex =
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const phoneNumberRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 
   const emailValueCheck = emailRegex.test(email);
@@ -79,7 +82,6 @@ function Signup() {
     passwordConfirm === password &&
     phoneNumberValueCheck;
 
-  // console.log();
   const isPwValid = password && password !== passwordConfirm;
 
   return (
@@ -110,6 +112,7 @@ function Signup() {
               alt="프로필"
             />
           </label>
+
           {USER_DATA.map(user => {
             return (
               <input
@@ -126,7 +129,6 @@ function Signup() {
           <p className="passwordInfomation">
             특수문자, 대문자 , 소문자, 숫자 포함 8자리 이상
           </p>
-
           <input
             name="passwordConfirm"
             className="inputIdformat"
@@ -134,11 +136,9 @@ function Signup() {
             placeholder="* 비밀번호 확인"
             onChange={handleInput}
           />
-
           {isPwValid && (
             <p className="passwordError">비밀번호가 일치하지 않습니다.</p>
           )}
-
           <input
             name="phoneNumber"
             className="inputIdformat"
@@ -146,7 +146,6 @@ function Signup() {
             placeholder="* 핸드폰번호 입력 ('-') 제외"
             onChange={handleInput}
           />
-
           <p className="additionalInput">추가입력</p>
 
           {USER_CHOICE_DATA.map(user => {
