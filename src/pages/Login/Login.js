@@ -20,17 +20,16 @@ function Login() {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.7.58:8000/users/signin', {
+    fetch('API', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
-        phone_number: phoneNumber,
+        // phone_number: phoneNumber,
         password: password,
       }),
     })
       .then(responese => responese.json())
       .then(res => {
-        // console.log('결과', res);
         if (res.MESSAGE === 'SUCCESS') {
           localStorage.setItem('TOKEN', res.TOKEN);
           navigate('/main');
@@ -50,6 +49,7 @@ function Login() {
   const emailValueCheck = emailRegex.test(email);
   const passwordValueCheck = passwordRegex.test(password);
   const phoneNumberValueCheck = phoneNumberRegex.test(phoneNumber);
+
   const isUserValid =
     (emailValueCheck || phoneNumberValueCheck) && passwordValueCheck;
 
@@ -74,7 +74,7 @@ function Login() {
               name="email"
               className={`loginInput${email ? ' lightBorder' : ''}`}
               type="text"
-              placeholder="이메일, 전화번호"
+              placeholder="이메일"
               onChange={addOnUserData}
             />
             <input
