@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SlideButton from '../SlideButton/SlideButton';
+import SlideButton from '../Slide/SlideImage/SlideButton/SlideButton';
 import './Articles.scss';
 
 function Articles({ userData }) {

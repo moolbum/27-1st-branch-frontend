@@ -1,6 +1,6 @@
 import './SlideList.scss';
 
-function SlideList({ userData, slideSize, SLIDE_MOVING_WIGHT }) {
+function SlideList({ userData, slideSize, SLIDE_MOVING_WIDTH }) {
   return (
     <>
       {userData.map(list => {
@@ -9,7 +9,7 @@ function SlideList({ userData, slideSize, SLIDE_MOVING_WIGHT }) {
             className="bestBranchContainer"
             key={list.id}
             style={{
-              transform: `translateX(${-slideSize * SLIDE_MOVING_WIGHT}px)`,
+              transform: `translateX(${-slideSize * SLIDE_MOVING_WIDTH}px)`,
             }}
           >
             <section className="bestBranchSection">
