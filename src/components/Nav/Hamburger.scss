@@ -5,8 +5,12 @@
   font-weight: 300;
   position: absolute;
   top: 0;
-  // left: -260px;
-  // display: none;
+  // transition: transform 0.3s;
+
+  // &.active {
+  //   left: -260px;
+  //   visibility: hidden;
+  // }
 
   .top {
     display: flex;
