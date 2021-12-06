@@ -11,7 +11,7 @@ function Main() {
   const [writerData, setWriterData] = useState([]);
   // const [ScrollY, setScrollY] = useState(0);
   const [choiceTag, setChoiceTag] = useState(2);
-  console.log(choiceTag);
+  // console.log(choiceTag);
 
   // 클릭하면 스크롤이 위로 올라가는 함수
   const handleTop = () => {
