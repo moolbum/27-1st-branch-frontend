@@ -8,6 +8,7 @@ import './Main.scss';
 function Main() {
   const [userData, setUserData] = useState([]);
   const [tagData, setTagData] = useState([]);
+  const [writerData, setWriterData] = useState([]);
   const [ScrollY, setScrollY] = useState(0);
 
   // 스크롤 높이값 구하는 함수 => pageYOffset 속성이 작업해준다
@@ -25,6 +26,24 @@ function Main() {
   };
 
   useEffect(() => {
+    fetch('/data/detailData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(res => setUserData(res));
+
+    fetch('/data/tagData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(res => setTagData(res.result));
+
+    fetch('/data/writerData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(res => setWriterData(res));
+
     const watch = () => {
       window.addEventListener('scroll', handleFollow);
     };
@@ -32,29 +51,13 @@ function Main() {
     return () => {
       window.removeEventListener('scroll', handleFollow);
     };
-  });
-
-  useEffect(() => {
-    fetch('/data/detailData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(res => setUserData(res));
-  }, []);
-
-  useEffect(() => {
-    fetch('/data/tagData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(res => setTagData(res.result));
   }, []);
 
   return (
     <div className="main">
       <Slide userData={userData} />
       <KeyWord />
-      <Writers tagData={tagData} userData={userData} />
+      <Writers tagData={tagData} writerData={writerData} />
       <Articles userData={userData} />
       <span
         className="topButton"

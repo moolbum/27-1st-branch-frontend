@@ -1,8 +1,6 @@
 import './SlideList.scss';
 
-function SlideList({ userData, slideSize }) {
-  const SLIDE_MOVING_UNIT = 1000; //슬라이드 버튼 클릭 시 움직일 길이 1000px
-
+function SlideList({ userData, slideSize, SLIDE_MOVING_WIGHT }) {
   return (
     <>
       {userData.map(list => {
@@ -11,7 +9,7 @@ function SlideList({ userData, slideSize }) {
             className="bestBranchContainer"
             key={list.id}
             style={{
-              transform: `translateX(${-slideSize * SLIDE_MOVING_UNIT}px)`,
+              transform: `translateX(${-slideSize * SLIDE_MOVING_WIGHT}px)`,
             }}
           >
             <section className="bestBranchSection">

@@ -2,7 +2,7 @@
 
 import './SlideNumber.scss';
 
-function SlideNumber({ userData, setSlideSize, slideSize }) {
+function SlideNumber({ userData, setSlideSize }) {
   // console.log(userData); ///마우스 휠 사용하면 계속 호출함;;;;;
   // console.log(slideSize);
   const userData2 = [...userData];
@@ -19,7 +19,7 @@ function SlideNumber({ userData, setSlideSize, slideSize }) {
             className="slideNumberIndex"
             key={data.id}
             onClick={() => {
-              setSlideSize((slideSize = data.id - 1));
+              setSlideSize(data.id - 1);
             }}
           >
             {data.id}
