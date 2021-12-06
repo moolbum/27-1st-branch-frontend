@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Signup from './pages/Signup/Signup';
-import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
+import Footer from './components/Footer/Footer';
 
 function Router() {
   return (

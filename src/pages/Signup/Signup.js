@@ -108,7 +108,7 @@ function Signup() {
             type="file"
             onChange={handleInput}
           />
-          <label className="profileUplode" for="chooseFile">
+          <label className="profileUplode" htmlFor="chooseFile">
             <img
               className="profilePicture"
               src="./images/Signup/profile.png"
