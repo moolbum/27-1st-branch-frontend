@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import ListRelatedArticle from './ListRelatedArticle/ListRelatedArticle';
-import CommentArea from './CommentArea/CommentArea';
+import CommentArea from './commentArea/CommentArea';
 import Header from './Header/Header';
 import BodyFrame from './BodyFrame/BodyFrame';
 import WrapAuthor from './WrapAuthor/WrapAuthor';
