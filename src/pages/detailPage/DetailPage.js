@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import ListRelatedArticle from './ListRelatedArticle/ListRelatedArticle';
 import CommentArea from './CommentArea/CommentArea';
 import Header from './Header/Header';
@@ -7,7 +8,7 @@ import WrapAuthor from './WrapAuthor/WrapAuthor';
 import FooterBar from './FooterBar/FooterBar';
 import './DetailPage.scss';
 
-function DetailPage() {
+function DetailPage(props) {
   const [relaredListUserData, setRelaredListUserData] = useState([]);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [inputComment, setInputComment] = useState([]);
@@ -15,9 +16,26 @@ function DetailPage() {
   const [headerData, setHeaderData] = useState([]);
   const [authorData, setAuthorData] = useState([]);
   const [footerBarData, setFooterData] = useState([]);
+  const [contentBodyData, setContentData] = useState([]);
+
+  useEffect(() => {
+    fetch('/Data/bodyFrame.json')
+      .then(res => res.json())
+      .then(res => setContentData(res));
+  }, []);
 
   const onChange = e => {
     setCommentValue(e.target.value);
+  };
+
+  const onChangePostContent = postId => {
+    fetch('/Data/Content.json')
+      .then(res => res.json())
+      .then(res => {
+        const data = res[postId];
+        setHeaderData(data.header);
+        setContentData(data.contents);
+      });
   };
 
   useEffect(() => {
@@ -65,6 +83,7 @@ function DetailPage() {
           setIsCommentOpen={setIsCommentOpen}
           isCommentOpen={isCommentOpen}
           inputComment={inputComment}
+          contentBodyData={contentBodyData}
         />
         {isCommentOpen && (
           <CommentArea
@@ -87,7 +106,10 @@ function DetailPage() {
           />
         </div>
       </div>
-      <FooterBar footerBar={footerBarData} />
+      <FooterBar
+        footerBar={footerBarData}
+        onChangePostContent={onChangePostContent}
+      />
     </div>
   );
 }

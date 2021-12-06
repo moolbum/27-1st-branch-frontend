@@ -1,7 +1,23 @@
 import { Link } from 'react-router-dom';
 import './WrapAuthor.scss';
+import { useState } from 'react';
 
 function WrapAuthor({ authorData }) {
+  const [subscribeBtnTxt, setSubscribeBtnTxt] = useState('구독하기');
+  const [subscribeCount, setSubscribeCount] = useState(0);
+
+  const onClickSubscribeBtn = e => {
+    e.preventDefault();
+    setSubscribeBtnTxt(
+      e.target.innerText === '구독하기' ? '구독중' : '구독하기'
+    );
+    setSubscribeCount(
+      e.target.innerText === '구독하기'
+        ? subscribeCount + 1
+        : subscribeCount - 1
+    );
+  };
+
   return (
     <article className="wrapAuthor">
       {authorData.map(author => {
@@ -19,13 +35,15 @@ function WrapAuthor({ authorData }) {
             <div className="subscription">
               <span className="infoSubscription">
                 <span>구독자</span>
-                <span className="numSubscription">0</span>
+                <span className="numSubscription">{subscribeCount}</span>
               </span>
               <span className="wrapSubBtn">
                 <Link to="/myPage">
                   <button className="btnSuggest">개발자보기</button>
                 </Link>
-                <button className="btnFollow">구독하기</button>
+                <button className="btnFollow" onClick={onClickSubscribeBtn}>
+                  {subscribeBtnTxt}
+                </button>
               </span>
             </div>
           </div>

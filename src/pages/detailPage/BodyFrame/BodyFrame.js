@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react';
 import './BodyFrame.scss';
 
-function WrapContentBody({ setIsCommentOpen, isCommentOpen, inputComment }) {
-  const [contentBodyData, setContentData] = useState([]);
-
-  useEffect(() => {
-    fetch('/Data/bodyFrame.json')
-      .then(res => res.json())
-      .then(res => setContentData(res));
-  }, []);
-
+function WrapContentBody({
+  setIsCommentOpen,
+  isCommentOpen,
+  inputComment,
+  contentBodyData,
+}) {
   return (
     <div className="wrapContentBody">
       {contentBodyData.map(bodyContentData => {
