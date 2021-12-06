@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import TagKeyword from '../TagKeyword/TagKeyword';
-import LeftArticleBox from '../LeftArticleBox/LeftArticleBox';
-import RightAuthorBox from '../RightAuthorBox/RightAuthorBox';
+import TagKeyword from '../ListPage/TagKeyword/TagKeyword';
+import LeftArticleBox from '../ListPage/LeftArticleBox/LeftArticleBox';
+import RightAuthorBox from '../ListPage/RightAuthorBox/RightAuthorBox';
+import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 import './ListPage.scss';
 
 function ListPage() {
   const [listPageData, setListPageData] = useState([]);
   const [keywordData, setKeywordData] = useState([]);
   const [authorData, setAuthorData] = useState([]);
+
+  const [listItems, setListItems] = useState(
+    Array.from(Array(1).keys(), n => n + 1)
+  );
+  const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
 
   useEffect(() => {
     fetch('/data/ListPageData.json')
@@ -27,12 +33,28 @@ function ListPage() {
       .then(res => setAuthorData(res));
   }, []);
 
+  function fetchMoreListItems() {
+    setTimeout(() => {
+      setListItems(prevState => [
+        ...prevState,
+        ...Array.from(Array(1).keys(), n => n + prevState.length + 1),
+      ]);
+      setIsFetching(false);
+    }, 1000);
+  }
+
   return (
     <div className="ListPage">
       <TagKeyword recommendKeyword={keywordData} />
       <section className="contentsContainer">
         <div className="wrapArticleBox">
-          <LeftArticleBox articleBoxData={listPageData} />
+          <div className="wrapList">
+            {listItems.map(listItem => (
+              <LeftArticleBox key={listItem} articleBoxData={listPageData}>
+                List Item {listItem}
+              </LeftArticleBox>
+            ))}
+          </div>
           <div className="wrapWriterList">
             <p className="titleRecommend">추천작가</p>
             <div className="searchRecommend">

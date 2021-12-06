@@ -10,8 +10,8 @@ function KeywordShell({ recommendKeyword }) {
 
   return (
     <div
-      className="keywordShell"
-      style={!moreActive ? { height: '32px' } : null}
+      className={`keywordShell ${moreActive ? 'setKeywordShell' : null}`}
+      // style={!moreActive ? { height: '32px' } : null}
     >
       <div className="relatedKeyword">
         <span className="wrapKeywordBtn">

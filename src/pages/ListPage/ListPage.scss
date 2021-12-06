@@ -10,18 +10,29 @@
 
     .wrapArticleBox {
       display: flex;
+      justify-content: space-between;
       width: 940px;
       margin: 0 auto;
       padding: 30px 0 111px;
-      justify-content: space-between;
+
+      .wrapLeftBox {
+        position: relative;
+
+        .leftBoxInfinite {
+          margin: 25px 15px 25px 30px;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, 320px);
+          grid-gap: 25px;
+        }
+      }
 
       .wrapWriterList {
         width: 220px;
         height: 350px;
+        margin-top: 15px;
         padding: 20px 20px 24px;
         background-color: #fff;
         box-sizing: border-box;
-        margin-top: 15px;
 
         .titleRecommend {
           display: block;

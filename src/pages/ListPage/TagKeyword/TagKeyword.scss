@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
-@import '../../styles/common.scss';
+@import '../../../styles/variables.scss';
+@import '../../../styles/common.scss';
 
 .keywordShell {
   display: flex;
@@ -8,6 +8,13 @@
   margin: 36px 10% 22px;
   background-color: #fff;
   overflow: hidden;
+  max-height: 32px;
+  transition: max-height 0.3s ease-in;
+
+  &.setKeywordShell {
+    max-height: 70px;
+    transition: max-height 0.3s ease-out;
+  }
 
   .relatedKeyword {
     width: 930px;
@@ -43,7 +50,7 @@
       .moreArrowBtn {
         width: 7px;
         height: 4px;
-        background: url('../../asset/images/downArrow.png') no-repeat 50% /
+        background: url('../../../asset/images/downArrow.png') no-repeat 50% /
           cover;
       }
     }
