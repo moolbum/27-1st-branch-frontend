@@ -22,7 +22,7 @@ function Articles({ userData }) {
   return (
     <div
       className="articles"
-      style={!slidePosition ? { paddingLeft: '20vw' } : null}
+      // style={!slidePosition ? { paddingLeft: '20vw' } : null}
     >
       <div
         className="container"

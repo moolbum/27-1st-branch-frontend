@@ -5,7 +5,7 @@
   position: relative;
   width: 100vw;
   overflow: hidden;
-  padding-left: 20vw;
+  padding-left: 16vw;
 
   .leftButton {
     position: absolute;
@@ -16,6 +16,6 @@
   .rightButton {
     position: absolute;
     top: 50%;
-    transform: translate(-240%, -50%);
+    transform: translate(-16vw, -50%);
   }
 }
