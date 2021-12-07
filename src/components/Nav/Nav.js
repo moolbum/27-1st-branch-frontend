@@ -5,7 +5,7 @@ import './Nav.scss';
 
 function Nav() {
   const [hamburgerToggle, setHamburgerToggle] = useState(false);
-  console.log(hamburgerToggle);
+  // console.log(hamburgerToggle);
   const openHamburger = () => {
     setHamburgerToggle(!hamburgerToggle);
   };

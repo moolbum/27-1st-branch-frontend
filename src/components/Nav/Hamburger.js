@@ -1,8 +1,6 @@
 import './Hamburger.scss';
 
 function Hamburger({ openHamburger, hamburgerToggle }) {
-  // const width = window.innerWidth;
-
   return (
     <section
       className="Hamburger"
