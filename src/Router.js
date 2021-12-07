@@ -9,9 +9,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Login />} /> */}
-        <Route path="/" element={<Nav />} />
-        {/* <Route path="/" element={<Hamburger />} /> */}
+        <Route path="/" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
