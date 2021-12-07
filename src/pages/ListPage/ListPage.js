@@ -54,6 +54,7 @@ function ListPage() {
                 List Item {listItem}
               </LeftArticleBox>
             ))}
+            <div className="loeadingItem">{isFetching && '로딩중...'}</div>
           </div>
           <div className="wrapWriterList">
             <p className="titleRecommend">추천작가</p>

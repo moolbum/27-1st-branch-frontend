@@ -15,6 +15,14 @@
       margin: 0 auto;
       padding: 30px 0 111px;
 
+      .wrapList {
+        .loeadingItem {
+          margin: 20px 0 0 300px;
+          font-size: 15px;
+          color: $color-Highlight;
+        }
+      }
+
       .wrapLeftBox {
         position: relative;
 
