@@ -14,7 +14,7 @@ function Main() {
   const [tagData, setTagData] = useState([]);
   const [writerData, setWriterData] = useState([]);
   const [choiceTag, setChoiceTag] = useState(0);
-  console.log(choiceTag);
+  // console.log(choiceTag);
 
   // 클릭하면 스크롤이 위로 올라가는 함수
   const handleTop = () => {
