@@ -5,7 +5,7 @@ function Writers({ writerData, tagData, setChoiceTag }) {
   const newtagDataArr = [...tagData];
   const newWiterDataArr = [...writerData];
   //배열에서 랜덤한 데이터 n개를 가져오는 로직
-  console.log(newtagDataArr);
+  // console.log(newtagDataArr);
   newtagDataArr.sort(() => Math.random() - Math.random()).slice(0, 3);
 
   if (tagData.length > 3) {
