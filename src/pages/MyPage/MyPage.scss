@@ -12,7 +12,7 @@
     width: 700px;
     margin: 0 auto;
 
-    img.profileImage {
+    .profileImage {
       position: absolute;
       right: 0;
       top: -55px;
@@ -20,6 +20,7 @@
       height: 100px;
       border-radius: 50px;
       border: none;
+      background-color: $color-dark-gray;
     }
   }
 
