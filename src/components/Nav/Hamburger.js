@@ -4,7 +4,22 @@ function Hamburger({ openHamburger, hamburgerToggle }) {
   // const width = window.innerWidth;
 
   return (
-    <section className="Hamburger">
+    <section
+      className="Hamburger"
+      style={
+        hamburgerToggle
+          ? {
+              visibility: 'visible',
+              left: '0px',
+              transition: 'all 0.3s',
+            }
+          : {
+              visibility: 'hidden',
+              left: '-260px',
+              transition: 'all 0.3s',
+            }
+      }
+    >
       <div className="HamburgerLeftContainer">
         <div className="top">
           <img

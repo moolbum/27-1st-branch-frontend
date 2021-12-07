@@ -7,7 +7,6 @@
   left: 0;
   z-index: 999;
   display: flex;
-  height: 100vh;
 
   .HamburgerLeftContainer {
     width: 260px;
@@ -128,7 +127,7 @@
           padding: 10px;
           margin: 0 6px;
           border-radius: 50px;
-          border: 1px solid lightgray;
+          border: 1px solid red;
         }
       }
     }
@@ -136,5 +135,6 @@
 
   .dim {
     width: 100vw;
+    // background-color: red;
   }
 }
