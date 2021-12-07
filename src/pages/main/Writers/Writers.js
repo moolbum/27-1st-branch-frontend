@@ -1,16 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Writers.scss';
 
 function Writers({ writerData, tagData, setChoiceTag }) {
-  const newtagDataArr = [...tagData];
+  const [randomTags, setRandomTags] = useState([]);
+  // const newtagDataArr = [...tagData];
   const newWiterDataArr = [...writerData];
   //배열에서 랜덤한 데이터 n개를 가져오는 로직
   // console.log(newtagDataArr);
-  newtagDataArr.sort(() => Math.random() - Math.random()).slice(0, 3);
+  // newtagDataArr.sort(() => Math.random() - Math.random()).slice(0, 3);
 
   if (tagData.length > 3) {
-    newtagDataArr.splice(3, tagData.length);
+    randomTags.splice(3, tagData.length);
   }
+
+  console.log(randomTags);
+  useEffect(() => {
+    setRandomTags(
+      [...tagData].sort(() => Math.random() - Math.random()).slice(0, 3)
+    );
+  }, [tagData]);
 
   if (writerData.length > 6) {
     newWiterDataArr.splice(6, writerData.length);
@@ -21,7 +29,7 @@ function Writers({ writerData, tagData, setChoiceTag }) {
       <span className="title">BRANCH WRITERS</span>
       <span className="subText">브런치 추천 작가</span>
       <div className="tagContainer">
-        {newtagDataArr.map(tagList => {
+        {randomTags.map(tagList => {
           return (
             <span
               className="writersTag"

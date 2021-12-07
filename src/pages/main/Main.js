@@ -3,6 +3,7 @@ import Slide from './Slide/Slide';
 import KeyWord from './KeyWord/KeyWord';
 import Writers from './Writers/Writers';
 import Articles from './Articles/Articles';
+import Scroll from './Scroll';
 
 // import NavBanner from '../Nav/NavBanner';
 // import Nav from '../Nav/Nav';
@@ -77,20 +78,7 @@ function Main() {
         setChoiceTag={setChoiceTag}
       />
       <Articles userData={userData} />
-      <span
-        className="topButton"
-        onClick={handleTop}
-        // style={window.scrollY < 260 ? { display: 'none' } : null}
-      >
-        <span className="topButtonText">
-          Top
-          <img
-            className="topButtonImg"
-            src="./images/Main/iconmonstr-arrow-right-thin.svg"
-            alt="TopButton"
-          />
-        </span>
-      </span>
+      <Scroll handleTop={handleTop} />
     </div>
   );
 }
