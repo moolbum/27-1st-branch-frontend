@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from 'react';
-
-function Scroll({ handleTop }) {
-  const [scroll, setScroll] = useState(0);
-  const handleFollow = () => {
-    setScroll(window.pageYOffset);
+function Scroll() {
+  const handleTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   };
 
-  useEffect(() => {
-    const watch = () => {
-      window.addEventListener('scroll', handleFollow);
-    };
-    watch(); // addEventListener 함수를 실행
-    return () => {
-      window.removeEventListener('scroll', handleFollow); // addEventListener 함수를 삭제
-    };
-  });
   return (
     <span
       className="topButton"

@@ -3,22 +3,17 @@ import './Writers.scss';
 
 function Writers({ writerData, tagData, setChoiceTag }) {
   const [randomTags, setRandomTags] = useState([]);
-  // const newtagDataArr = [...tagData];
   const newWiterDataArr = [...writerData];
-  //배열에서 랜덤한 데이터 n개를 가져오는 로직
-  // console.log(newtagDataArr);
-  // newtagDataArr.sort(() => Math.random() - Math.random()).slice(0, 3);
 
-  if (tagData.length > 3) {
-    randomTags.splice(3, tagData.length);
-  }
-
-  console.log(randomTags);
   useEffect(() => {
     setRandomTags(
       [...tagData].sort(() => Math.random() - Math.random()).slice(0, 3)
     );
   }, [tagData]);
+
+  if (tagData.length > 3) {
+    randomTags.splice(3, tagData.length);
+  }
 
   if (writerData.length > 6) {
     newWiterDataArr.splice(6, writerData.length);
