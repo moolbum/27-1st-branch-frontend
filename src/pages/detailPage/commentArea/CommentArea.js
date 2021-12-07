@@ -2,7 +2,14 @@ import React, { useRef, useLayoutEffect } from 'react';
 import './CommentArea.scss';
 
 function BranchComment(props) {
-  const { addComment, deleteComment, onChange, inputComment, value } = props;
+  const {
+    addComment,
+    deleteComment,
+    onChange,
+    inputComment,
+    value,
+    moveComment,
+  } = props;
   const textareaRef = useRef(null);
 
   useLayoutEffect(() => {
@@ -15,7 +22,7 @@ function BranchComment(props) {
   const inputActiveBtn = !!value.trim();
 
   return (
-    <div className="branchComment">
+    <div className="branchComment" ref={moveComment}>
       <div className="commentHead">
         <strong className="titleComment">
           댓글

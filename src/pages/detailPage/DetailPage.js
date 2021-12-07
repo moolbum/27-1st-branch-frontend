@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
 import ListRelatedArticle from './ListRelatedArticle/ListRelatedArticle';
 import CommentArea from './commentArea/CommentArea';
 import Header from './Header/Header';
 import BodyFrame from './BodyFrame/BodyFrame';
 import WrapAuthor from './WrapAuthor/WrapAuthor';
 import FooterBar from './FooterBar/FooterBar';
+import Nav from '../../components/Nav/Nav';
 import './DetailPage.scss';
 
 function DetailPage() {
@@ -17,6 +17,7 @@ function DetailPage() {
   const [authorData, setAuthorData] = useState([]);
   const [footerBarData, setFooterData] = useState([]);
   const [contentBodyData, setContentData] = useState([]);
+  const [commentLocation, setCommentLocation] = useState(0);
 
   useEffect(() => {
     fetch('/Data/bodyFrame.json')
@@ -36,6 +37,10 @@ function DetailPage() {
         setHeaderData(data.header);
         setContentData(data.contents);
       });
+  };
+
+  const commentToMove = () => {
+    window.scrollTo({ top: 2000, left: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -77,6 +82,7 @@ function DetailPage() {
 
   return (
     <div className="detailPage">
+      <Nav commentToMove={commentToMove} />
       <Header pageHeaderData={headerData} />
       <div className="wrapBodyFrame">
         <BodyFrame
