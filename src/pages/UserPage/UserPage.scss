@@ -12,6 +12,10 @@
     width: 700px;
     margin: 0 auto;
 
+    .profileImageLabel {
+      display: none;
+    }
+
     img.profileImage {
       position: absolute;
       right: 0;

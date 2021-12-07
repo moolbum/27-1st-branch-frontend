@@ -3,22 +3,6 @@ import './UserPage.scss';
 
 function MyPage() {
   const [myPageData, setMyPageData] = useState([]);
-  // const [userInfoData, setUserInfoData] = useState({
-  //   nickname: '',
-  //   position: '',
-  //   description: '',
-  //   profile_photo: '',
-  //   mysubscription: '',
-  //   writer: '',
-  // });
-
-  // const changeTextHandler = e => {
-  //   const { value, name } = e.target;
-  //   setUserInfoData({
-  //     ...userInfoData,
-  //     [name]: value,
-  //   });
-  // };
 
   useEffect(() => {
     fetch('data/MyPageData.json', {
@@ -30,21 +14,10 @@ function MyPage() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   fetch('data/MyPageData.json', {
-  //     method: 'POST',
-  //     body: JSON.stringify({}),
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       setMyPageData(res);
-  //     });
-  // }, []);
-
   const subscribeToggleHandler = e => {
-    const { innerText } = e.target;
-    if (innerText === '구독하기') {
-    }
+    e.target.innerText === '구독하기'
+      ? (e.target.innerText = '구독중')
+      : (e.target.innerText = '구독하기');
   };
 
   return (
@@ -100,13 +73,6 @@ function MyPage() {
                     >
                       구독하기
                     </button>
-                    {/* <button
-                      className="writingButton"
-                      type="button"
-                      onClick={userDataSavaHandler}
-                    >
-                      저장하기
-                    </button> */}
                   </div>
                 </div>
               </div>

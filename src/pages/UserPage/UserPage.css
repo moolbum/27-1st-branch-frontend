@@ -14,6 +14,10 @@
   margin: 0 auto;
 }
 
+.myPage .profileImageWrap .profileImageLabel {
+  display: none;
+}
+
 .myPage .profileImageWrap img.profileImage {
   position: absolute;
   right: 0;

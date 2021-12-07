@@ -8,8 +8,6 @@ function MyPage() {
     position: '',
     description: '',
     profile_photo: '',
-    mysubscription: '',
-    writer: '',
   });
 
   const changeTextHandler = e => {
@@ -17,6 +15,17 @@ function MyPage() {
     setUserInfoData({
       ...userInfoData,
       [name]: value,
+    });
+    console.log(value);
+  };
+
+  const userDataResetHandler = () => {
+    setMyPageData({
+      id: 1,
+      nickname: '',
+      position: '',
+      description: '',
+      profile_photo: '',
     });
   };
 
@@ -30,16 +39,16 @@ function MyPage() {
       });
   }, []);
 
-  useEffect(() => {
-    fetch('data/MyPageData.json', {
-      method: 'POST',
-      body: JSON.stringify({}),
-    })
-      .then(res => res.json())
-      .then(res => {
-        setMyPageData(res);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('data/MyPageData.json', {
+  //     method: 'POST',
+  //     body: JSON.stringify({}),
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       setMyPageData(res);
+  //     });
+  // }, []);
 
   return (
     <div className="myPage">
@@ -48,32 +57,39 @@ function MyPage() {
         return (
           <div key={user.id}>
             <div className="profileImageWrap">
-              <img
-                className="profileImage"
-                src={user.profile_photo}
-                alt="프로필사진"
-              />
+              <label>
+                <input
+                  className="profileImageLabel"
+                  type="file"
+                  onChange={changeTextHandler}
+                />
+                <img
+                  className="profileImage"
+                  src={user.profile_photo}
+                  alt="프로필사진"
+                />
+              </label>
             </div>
 
             <main className="mainContainer">
               <div className="profile">
                 <form className="profile">
-                  <h2
+                  <input
                     name="nickname"
                     type="text"
                     className="nickname"
                     placeholder="이용우"
-                  >
-                    {user.nickname}
-                  </h2>
-                  <p
+                    value={user.nickname}
+                    onChange={changeTextHandler}
+                  />
+                  <input
                     name="position"
                     type="text"
                     className="position"
                     placeholder="프론트엔드"
-                  >
-                    {user.position}
-                  </p>
+                    value={user.position}
+                    onChange={changeTextHandler}
+                  />
                 </form>
                 <div className="subscriber">
                   <div className="subscriberFlex">
@@ -87,7 +103,11 @@ function MyPage() {
                     </div>
                   </div>
                   <div>
-                    <button className="writingButton" type="button">
+                    <button
+                      className="writingButton"
+                      type="button"
+                      onClick={userDataResetHandler}
+                    >
                       편집하기
                     </button>
                     <button
@@ -114,6 +134,7 @@ function MyPage() {
                     rows="4"
                     cols="30"
                     value={user.description}
+                    onChange={changeTextHandler}
                   />
                 </form>
               </div>
@@ -121,7 +142,6 @@ function MyPage() {
           </div>
         );
       })}
-      ;
     </div>
   );
 }
