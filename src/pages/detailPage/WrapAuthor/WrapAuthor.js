@@ -1,16 +1,25 @@
 import { Link } from 'react-router-dom';
 import './WrapAuthor.scss';
 import { useState } from 'react';
+import BtnSub from '../../BtnSub';
+import BtnActiveSub from '../../BtnActiveSub';
 
 function WrapAuthor({ authorData }) {
-  const [subscribeBtnTxt, setSubscribeBtnTxt] = useState('구독하기');
   const [subscribeCount, setSubscribeCount] = useState(0);
+
+  const [btnSubValue, setBtnSubValue] = useState(false);
+  const [btnActiveSubValue, setBtnActiveSubValue] = useState(false);
+
+  const changeBtn = () => {
+    setBtnSubValue(!btnSubValue);
+  };
+
+  const changeActiveBtn = () => {
+    setBtnActiveSubValue(!btnSubValue);
+  };
 
   const onClickSubscribeBtn = e => {
     e.preventDefault();
-    setSubscribeBtnTxt(
-      e.target.innerText === '구독하기' ? '구독중' : '구독하기'
-    );
     setSubscribeCount(
       e.target.innerText === '구독하기'
         ? subscribeCount + 1
@@ -41,12 +50,22 @@ function WrapAuthor({ authorData }) {
                 <Link to="/myPage">
                   <button className="btnSuggest">개발자보기</button>
                 </Link>
-                <button
-                  className={`'btnFollow' ?  ${'btnFollow'} : ${'btnFollowing'} `}
-                  onClick={onClickSubscribeBtn}
-                >
-                  {subscribeBtnTxt}
-                </button>
+                {!btnSubValue === !btnActiveSubValue ? (
+                  <BtnSub
+                    setBtnSubValue={setBtnSubValue}
+                    btnSubValue={btnSubValue}
+                    changeBtn={changeBtn}
+                    onClick={onClickSubscribeBtn}
+                  />
+                ) : (
+                  <BtnActiveSub
+                    setBtnSubValue={setBtnSubValue}
+                    btnActiveSubValue={btnActiveSubValue}
+                    changeActiveBtn={changeActiveBtn}
+                    changeBtn={changeBtn}
+                    onClick={onClickSubscribeBtn}
+                  />
+                )}
               </span>
             </div>
           </div>
