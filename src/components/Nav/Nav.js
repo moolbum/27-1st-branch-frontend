@@ -4,8 +4,8 @@ import HamburgerLogin from './HamburgerLogin';
 import './Nav.scss';
 
 function Nav() {
-  const [hamburgerToggle, setHamburgerToggle] = useState(false);
   const loginToken = localStorage.getItem('TOKEN');
+  const [hamburgerToggle, setHamburgerToggle] = useState(false);
 
   const openHamburger = () => {
     setHamburgerToggle(!hamburgerToggle);
@@ -30,18 +30,18 @@ function Nav() {
           alt="검색"
         />
       </div>
-      {hamburgerToggle &&
-        (!loginToken ? (
-          <Hamburger
-            openHamburger={openHamburger}
-            hamburgerToggle={hamburgerToggle}
-          />
-        ) : (
-          <HamburgerLogin
-            openHamburger={openHamburger}
-            hamburgerToggle={hamburgerToggle}
-          />
-        ))}
+
+      {!loginToken ? (
+        <Hamburger
+          openHamburger={openHamburger}
+          hamburgerToggle={hamburgerToggle}
+        />
+      ) : (
+        <HamburgerLogin
+          openHamburger={openHamburger}
+          hamburgerToggle={hamburgerToggle}
+        />
+      )}
     </section>
   );
 }
