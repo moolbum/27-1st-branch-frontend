@@ -84,6 +84,18 @@
         .btnFollow {
           border: 1px solid #00c3bd;
           color: #00c3bd;
+          background: #fff;
+
+          .btnFollowing {
+            color: #fff;
+            background: #00c3bd;
+          }
+
+          &:hover {
+            color: #fff;
+            background: #00c3bd;
+            transition: 0.3s;
+          }
         }
       }
     }

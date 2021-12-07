@@ -41,7 +41,10 @@ function WrapAuthor({ authorData }) {
                 <Link to="/myPage">
                   <button className="btnSuggest">개발자보기</button>
                 </Link>
-                <button className="btnFollow" onClick={onClickSubscribeBtn}>
+                <button
+                  className={`'btnFollow' ?  ${'btnFollow'} : ${'btnFollowing'} `}
+                  onClick={onClickSubscribeBtn}
+                >
                   {subscribeBtnTxt}
                 </button>
               </span>

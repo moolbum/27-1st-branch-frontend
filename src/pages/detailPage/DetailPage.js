@@ -8,7 +8,7 @@ import WrapAuthor from './WrapAuthor/WrapAuthor';
 import FooterBar from './FooterBar/FooterBar';
 import './DetailPage.scss';
 
-function DetailPage(props) {
+function DetailPage() {
   const [relaredListUserData, setRelaredListUserData] = useState([]);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [inputComment, setInputComment] = useState([]);
