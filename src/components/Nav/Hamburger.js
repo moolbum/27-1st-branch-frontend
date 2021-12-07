@@ -1,19 +1,25 @@
 import './Hamburger.scss';
 
-function Hamburger() {
+function Hamburger({ openHamburger, hamburgerToggle }) {
+  // const width = window.innerWidth;
+
   return (
     <section className="Hamburger">
       <div className="HamburgerLeftContainer">
         <div className="top">
-          <img className="userImg" src="" alt="프로필사진" />
+          <img
+            className="userImg"
+            src="./images/Nav/microsoft-edge-FAaz8lkinzs-unsplash.jpg"
+            alt="프로필사진"
+          />
           <span className="infoText">you can mak anyyhing by code</span>
           <span className="infoName">- G.T.Brac -</span>
           <span className="startButton">브랜치 시작하기</span>
         </div>
         <div className="buttom">
           <ul className="list">
-            <li className="listIndex">브랜치 홈</li>
-            <li className="listIndex">브랜치 나우</li>
+            <li className="listIndex list1">내 브런치</li>
+            <li className="listIndex">작가의 서랍</li>
           </ul>
           <div className="bestCode">
             오늘의 감성코드 보기
@@ -22,6 +28,7 @@ function Hamburger() {
           <div className="findID">계정을 잊어버리셨나요?</div>
         </div>
       </div>
+      <div className="dim" onClick={openHamburger} />
     </section>
   );
 }
