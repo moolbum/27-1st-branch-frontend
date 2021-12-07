@@ -3,7 +3,7 @@ import './Hamburger.scss';
 function Hamburger({ openHamburger, hamburgerToggle }) {
   return (
     <section
-      className="Hamburger"
+      className="hamburger"
       style={
         hamburgerToggle
           ? {
@@ -18,7 +18,7 @@ function Hamburger({ openHamburger, hamburgerToggle }) {
             }
       }
     >
-      <div className="HamburgerLeftContainer">
+      <div className="hamburgerLeftContainer">
         <div className="top">
           <img
             className="userImg"

@@ -3,7 +3,7 @@ import './HamburgerLogin.scss';
 function HamburgerLogin({ openHamburger, hamburgerToggle }) {
   return (
     <section
-      className="Hamburger"
+      className="hamburgerLogin"
       style={
         hamburgerToggle
           ? {
@@ -18,7 +18,7 @@ function HamburgerLogin({ openHamburger, hamburgerToggle }) {
             }
       }
     >
-      <div className="HamburgerLeftContainer">
+      <div className="hamburgerLeftContainer">
         <div className="top">
           <img
             className="userImg"
