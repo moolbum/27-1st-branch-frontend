@@ -1,0 +1,106 @@
+@import '../../styles/variables.scss';
+
+.Hamburger {
+  font-weight: 300;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+
+  .HamburgerLeftContainer {
+    width: 260px;
+
+    .top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $color-light-gray;
+      border-top: none;
+      border-bottom: none;
+      background-color: $color-deep-white;
+      min-height: 30vh;
+
+      .userImg {
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+        background-color: black;
+      }
+
+      .infoText {
+        text-align: center;
+        margin: 10px 0;
+        color: $color-dark-gray;
+        @include itelic;
+        font-style: italic;
+      }
+
+      .infoName {
+        font-size: 12px;
+        color: $color-middle-gray;
+        @include itelic;
+        font-style: italic;
+      }
+
+      .startButton {
+        padding: 8px 14px;
+        margin-top: 20px;
+        border: 1px solid $color-Highlight;
+        border-radius: 50px;
+        color: $color-Highlight;
+        background-color: white;
+        font-size: 12px;
+        font-weight: 300;
+      }
+    }
+
+    .buttom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid $color-light-gray;
+      background-color: white;
+      min-height: 100vh - 30vh;
+
+      .list {
+        text-align: center;
+
+        .listIndex {
+          margin-bottom: 30px;
+          font-weight: 300;
+
+          &.list1 {
+            text-align: center;
+            margin-top: 40px;
+          }
+        }
+      }
+
+      .bestCode {
+        color: $color-middle-gray;
+        margin: 30px 0;
+        font-weight: 300;
+
+        .underLine {
+          width: 100%;
+          border-top: 2px solid black;
+          margin-top: 10px;
+        }
+      }
+
+      .findID {
+        color: $color-middle-gray;
+        text-decoration: underline;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .dim {
+    // width: 100vw;
+    width: 100px;
+    // background-color: yellowgreen;
+  }
+}

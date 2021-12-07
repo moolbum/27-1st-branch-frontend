@@ -1,0 +1,92 @@
+@import '../../styles/variables.scss';
+
+.login {
+  @include flexCenter;
+  height: 100vh;
+
+  .leftWrap {
+    margin-right: 45px;
+
+    .title {
+      margin-left: 30px;
+      color: $color-black;
+      font-size: 25px;
+      letter-spacing: -1px;
+    }
+    .subtitle {
+      margin: 10px 0 0 30px;
+      color: $color-middle-gray;
+      font-size: 13px;
+      line-height: 16px;
+    }
+    .imagesWrap img {
+      width: 480px;
+      margin-top: 30px;
+    }
+  }
+
+  .rightWrap {
+    padding: 70px;
+    border: 1px solid $color-light-gray;
+
+    .loginTitle {
+      margin-bottom: 30px;
+      font-size: 32px;
+      letter-spacing: -1px;
+    }
+    .loginWrap {
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+
+      .loginInput {
+        padding: 15px 0;
+        border-bottom: 2px solid $color-light-gray;
+        transition: 0.2s;
+
+        &.lightBorder {
+          padding: 15px 0;
+          border-bottom: 2px solid $color-middle-gray;
+          transition: 0.2s;
+        }
+      }
+
+      .loginHolder {
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+
+        .loginCheckbox {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+
+        .loginCheckboxText {
+          margin-left: 5px;
+          cursor: pointer;
+        }
+      }
+
+      .loginButton {
+        margin-top: 30px;
+        padding: 15px 0;
+        border-radius: 5px;
+        border: none;
+        background-color: #fee500;
+        font-size: 15px;
+        transition: 0.3s;
+      }
+    }
+  }
+  .signupWrap {
+    @include flexSpaceBetweenCenter;
+    margin-top: 20px;
+
+    .signupText {
+      color: $color-dark-gray;
+      outline: none;
+      font-size: 13px;
+    }
+  }
+}
