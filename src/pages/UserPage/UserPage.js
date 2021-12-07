@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import './MyPage.scss';
+import './UserPage.scss';
 
 function MyPage() {
   const [myPageData, setMyPageData] = useState([]);
-  const [userInfoData, setUserInfoData] = useState({
-    nickname: '',
-    position: '',
-    description: '',
-    profile_photo: '',
-    mysubscription: '',
-    writer: '',
-  });
+  // const [userInfoData, setUserInfoData] = useState({
+  //   nickname: '',
+  //   position: '',
+  //   description: '',
+  //   profile_photo: '',
+  //   mysubscription: '',
+  //   writer: '',
+  // });
 
-  const changeTextHandler = e => {
-    const { value, name } = e.target;
-    setUserInfoData({
-      ...userInfoData,
-      [name]: value,
-    });
-  };
+  // const changeTextHandler = e => {
+  //   const { value, name } = e.target;
+  //   setUserInfoData({
+  //     ...userInfoData,
+  //     [name]: value,
+  //   });
+  // };
 
   useEffect(() => {
     fetch('data/MyPageData.json', {
@@ -30,16 +30,22 @@ function MyPage() {
       });
   }, []);
 
-  useEffect(() => {
-    fetch('data/MyPageData.json', {
-      method: 'POST',
-      body: JSON.stringify({}),
-    })
-      .then(res => res.json())
-      .then(res => {
-        setMyPageData(res);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('data/MyPageData.json', {
+  //     method: 'POST',
+  //     body: JSON.stringify({}),
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       setMyPageData(res);
+  //     });
+  // }, []);
+
+  const subscribeToggleHandler = e => {
+    const { innerText } = e.target;
+    if (innerText === '구독하기') {
+    }
+  };
 
   return (
     <div className="myPage">
@@ -87,16 +93,20 @@ function MyPage() {
                     </div>
                   </div>
                   <div>
-                    <button className="writingButton" type="button">
-                      편집하기
-                    </button>
                     <button
                       className="writingButton"
                       type="button"
-                      // onClick={userDataSavaHandler}
+                      onClick={subscribeToggleHandler}
+                    >
+                      구독하기
+                    </button>
+                    {/* <button
+                      className="writingButton"
+                      type="button"
+                      onClick={userDataSavaHandler}
                     >
                       저장하기
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>

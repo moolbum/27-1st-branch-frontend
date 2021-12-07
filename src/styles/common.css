@@ -1,0 +1,28 @@
+/* Color */
+/* Font size */
+/* Size */
+/* Margin */
+/* Universal tags */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 50px;
+  background-color: #fff;
+}
+/*# sourceMappingURL=common.css.map */

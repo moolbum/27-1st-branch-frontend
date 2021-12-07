@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "nickname": "물범",
+    "position": "프론트엔드 개발자",
+    "mysubscription": 10,
+    "writer": 25,
+    "description": "안녕하세요 프론트엔드 개발자를 지망하는 물범입니다!",
+    "profile_photo": "https://images.pexels.com/photos/10391671/pexels-photo-10391671.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+  }
+]
