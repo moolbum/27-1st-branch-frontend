@@ -1,10 +1,6 @@
-// import React, { useState, useEffect } from 'react';
-
 import './SlideNumber.scss';
 
 function SlideNumber({ userData, setSlideSize }) {
-  // console.log(userData); ///마우스 휠 사용하면 계속 호출함;;;;;
-  // console.log(slideSize);
   const userData2 = [...userData];
 
   if (userData2.length > 10) {

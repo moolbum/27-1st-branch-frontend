@@ -10,34 +10,55 @@ function Main() {
   const [userData, setUserData] = useState([]);
   const [tagData, setTagData] = useState([]);
   const [writerData, setWriterData] = useState([]);
-  const [choiceTag, setChoiceTag] = useState(0);
 
+  const [choiceTag, setChoiceTag] = useState(33);
   useEffect(() => {
-    fetch(`http://10.58.4.128:8000/users/?user_tag_id=${choiceTag}`)
+    fetch(`http://10.58.4.135:8000/users/?user_tag_id=${choiceTag}`)
       .then(res => res.json())
-      .then(result => setWriterData(result));
+      .then(res => setWriterData(res.SUCCESS));
   }, [choiceTag]);
 
   useEffect(() => {
-    fetch('/data/detailData.json')
+    fetch('http://10.58.4.135:8000/branch_tags/userTagList')
+      .then(res => res.json())
+      .then(res => setTagData(res.result));
+  }, []);
+
+  useEffect(() => {
+    fetch('/data/userData.json')
       .then(res => res.json())
       .then(res => setUserData(res));
   }, []);
 
-  useEffect(() => {
-    fetch('/data/tagData.json')
-      .then(res => res.json())
-      .then(res => setTagData(res.result));
-  }, []);
+  const randomTag = [...tagData]
+    .sort(() => Math.random() - Math.random())
+    .slice(0, 3);
+
+  //TSET ==============================
+  // useEffect(() => {
+  //   fetch('/data/writerData.json')
+  //     .then(res => res.json())
+  //     .then(res => setWriterData(res));
+  // }, []);
+
+  // useEffect(() => {
+  //   fetch('/data/tagData.json')
+  //     .then(res => res.json())
+  //     .then(res => setTagData(res.result));
+  // }, []);
+  //TSET ==============================
 
   return (
     <div className="main">
       <Slide userData={userData} />
       <KeyWord />
       <Writers
-        tagData={tagData}
+        // tagData={tagData}
+        // randomTags={randomTags}
+        // choiceTag={choiceTag}
         writerData={writerData}
         setChoiceTag={setChoiceTag}
+        randomTag={randomTag}
       />
       <Articles userData={userData} />
       <Scroll />

@@ -1,56 +1,50 @@
-import { useEffect, useState } from 'react';
 import './Writers.scss';
 
-function Writers({ writerData, tagData, setChoiceTag }) {
-  const [randomTags, setRandomTags] = useState([]);
-  // const newWiterDataArr = [...writerData];
-
-  useEffect(() => {
-    setRandomTags(
-      [...tagData].sort(() => Math.random() - Math.random()).slice(0, 3)
-    );
-  }, [tagData]);
-
-  if (tagData.length > 3) {
-    randomTags.splice(3, tagData.length);
+function Writers({ writerData, setChoiceTag, randomTag }) {
+  const newWiterDataArr = [...writerData];
+  if (writerData.length > 6) {
+    newWiterDataArr.splice(6, writerData.length);
   }
-
-  // if (writerData.length > 6) {
-  //   newWiterDataArr.splice(6, writerData.length);
-  // }
 
   return (
     <div className="writers">
       <span className="title">BRANCH WRITERS</span>
       <span className="subText">브런치 추천 작가</span>
       <div className="tagContainer">
-        {randomTags.map(tagList => {
+        {randomTag.map(tagList => {
           return (
             <span
               className="writersTag"
-              key={tagList.tag_id}
+              key={tagList.id}
               onClick={() => {
-                setChoiceTag(tagList.tag_id);
+                setChoiceTag(tagList.id);
               }}
             >
-              {tagList.tag_name}
+              {tagList.name}
             </span>
           );
         })}
       </div>
       <section className="peopleContainer">
-        {writerData.map(list => {
+        {newWiterDataArr.map((list, index) => {
           return (
-            <div className="people" key={list.id}>
-              <img className="peopleImg" src={list.images} alt="UserImage" />
-              <span className="peopleName">{list.userName}</span>
-              <span className="peopleJob">{list.subName}</span>
-              <span className="peopleIntro">{list.info}</span>
+            <div className="people" key={index}>
+              <img
+                className="peopleImg"
+                src={list.profile_photo}
+                alt="UserImage"
+              />
+              <span className="peopleName">{list.name}</span>
+              <span className="peopleJob">{list.posting}</span>
+              <span className="peopleIntro">{list.description}</span>
               <div className="peopleTag">
-                {list.tagName.map((tagName, i) => {
+                {list.tags.map(tagName => {
+                  if (list.tags.length > 2) {
+                    list.tags.splice(2, list.tags.length);
+                  }
                   return (
-                    <span className="writersTag" key={i}>
-                      {tagName}
+                    <span className="writersTag" key={tagName.id}>
+                      {tagName.tag_name}
                     </span>
                   );
                 })}

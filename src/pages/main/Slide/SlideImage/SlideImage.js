@@ -26,7 +26,7 @@ function SlideImage({ userData }) {
         <SlideList
           slideSize={slideSize}
           userData={userData}
-          SLIDE_MOVING_WIDTH={SLIDE_MOVING_WIDTH}
+          slideMovingWidth={SLIDE_MOVING_WIDTH}
         />
         {slideSize && (
           <div className="rightButton" onClick={prevSlide}>
