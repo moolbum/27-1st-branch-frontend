@@ -55,13 +55,11 @@ function MyPage() {
             <div className="subscriberFlex">
               <div className="subscriberWrap">
                 <p className="subscriberText">구독자</p>
-                <p className="subscriberNumber">
-                  {userPageData.mysubscription}
-                </p>
+                <p className="subscriberNumber">15</p>
               </div>
               <div className="subscriberWrap">
                 <p className="subscriberText">관심작가</p>
-                <p className="subscriberNumber">{userPageData.writer}</p>
+                <p className="subscriberNumber">10</p>
               </div>
             </div>
             <div>

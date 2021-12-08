@@ -7,7 +7,6 @@ function Login() {
   const navigate = useNavigate();
   const [userInputData, setUserInputData] = useState({
     email: '',
-    // phone_number: '',
     password: '',
   });
 
@@ -25,14 +24,15 @@ function Login() {
       method: 'POST',
       body: JSON.stringify({
         email: email,
-        // phone_number: phoneNumber,
         password: password,
       }),
     })
       .then(responese => responese.json())
       .then(res => {
         if (res.MESSAGE === 'SUCCESS') {
+          console.log(res);
           localStorage.setItem('TOKEN', res.TOKEN);
+          localStorage.setItem('ID', res.name);
           navigate('/main');
         }
         if (res.message === 'INVALID_USER') {
