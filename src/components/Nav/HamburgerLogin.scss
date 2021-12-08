@@ -1,40 +1,37 @@
 @import '../../styles/variables.scss';
 
-.Hamburger {
-  font-weight: 300;
+.hamburgerLogin {
   position: absolute;
   top: 0;
-  left: 0;
+  font-weight: 300;
   z-index: 999;
   display: flex;
 
-  .HamburgerLeftContainer {
+  .hamburgerLeftContainer {
     width: 260px;
+    display: flex;
+    flex-direction: column;
 
     .top {
-      display: flex;
+      @include flexCenter;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       border: 1px solid $color-light-gray;
       border-top: none;
-      border-bottom: none;
       background-color: $color-deep-white;
-      min-height: 30vh;
+      min-height: 260px;
+      z-index: 20;
 
       .userImg {
         width: 60px;
         height: 60px;
         border-radius: 50px;
-        background-color: black;
       }
 
       .userName {
-        text-align: center;
-        margin: 10px 0;
-        color: $color-dark-gray;
         @include itelic;
         font-style: italic;
+        color: $color-dark-gray;
+        margin: 10px 0;
       }
 
       .userCode {
@@ -61,12 +58,17 @@
     }
 
     .buttom {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100vh;
+      padding-top: 260px;
       display: flex;
       flex-direction: column;
       align-items: center;
       border: 1px solid $color-light-gray;
       background-color: white;
-      height: 300px;
       overflow: scroll;
 
       .list {
@@ -106,7 +108,6 @@
         font-weight: 300;
 
         .underLine {
-          width: 100%;
           border-top: 2px solid black;
           margin-top: 10px;
         }
@@ -120,14 +121,14 @@
 
       .buttonContainer {
         display: flex;
-        padding: 40px 20px 30px;
+        margin: 40px 20px 30px;
 
         .settings,
         .logout {
           padding: 10px;
           margin: 0 6px;
           border-radius: 50px;
-          border: 1px solid red;
+          border: 1px solid lightgrey;
         }
       }
     }
@@ -135,6 +136,6 @@
 
   .dim {
     width: 100vw;
-    // background-color: red;
+    height: 100vh;
   }
 }
