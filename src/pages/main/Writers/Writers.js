@@ -3,7 +3,7 @@ import './Writers.scss';
 
 function Writers({ writerData, tagData, setChoiceTag }) {
   const [randomTags, setRandomTags] = useState([]);
-  const newWiterDataArr = [...writerData];
+  // const newWiterDataArr = [...writerData];
 
   useEffect(() => {
     setRandomTags(
@@ -15,9 +15,9 @@ function Writers({ writerData, tagData, setChoiceTag }) {
     randomTags.splice(3, tagData.length);
   }
 
-  if (writerData.length > 6) {
-    newWiterDataArr.splice(6, writerData.length);
-  }
+  // if (writerData.length > 6) {
+  //   newWiterDataArr.splice(6, writerData.length);
+  // }
 
   return (
     <div className="writers">
@@ -39,7 +39,7 @@ function Writers({ writerData, tagData, setChoiceTag }) {
         })}
       </div>
       <section className="peopleContainer">
-        {newWiterDataArr.map(list => {
+        {writerData.map(list => {
           return (
             <div className="people" key={list.id}>
               <img className="peopleImg" src={list.images} alt="UserImage" />

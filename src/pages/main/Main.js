@@ -12,11 +12,11 @@ function Main() {
   const [writerData, setWriterData] = useState([]);
   const [choiceTag, setChoiceTag] = useState(0);
 
-  // useEffect(() => {
-  //   fetch(`http://10.58.4.128:8000/users/?user_tag_id=${choiceTag}`)
-  //     .then(res => res.json())
-  //     .then(result => console.log(result));
-  // }, [choiceTag]);
+  useEffect(() => {
+    fetch(`http://10.58.4.128:8000/users/?user_tag_id=${choiceTag}`)
+      .then(res => res.json())
+      .then(result => setWriterData(result));
+  }, [choiceTag]);
 
   useEffect(() => {
     fetch('/data/detailData.json')
@@ -28,12 +28,6 @@ function Main() {
     fetch('/data/tagData.json')
       .then(res => res.json())
       .then(res => setTagData(res.result));
-  }, []);
-
-  useEffect(() => {
-    fetch('/data/writerData.json')
-      .then(res => res.json())
-      .then(res => setWriterData(res));
   }, []);
 
   return (

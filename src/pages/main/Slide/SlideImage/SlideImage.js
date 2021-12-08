@@ -4,27 +4,20 @@ import SlideNumber from '../SlideImage/SlideNumber/SlideNumber';
 import SlideList from '../SlideImage/SlideList/SlideList';
 import './SlideImage.scss';
 
-const SLIDE_MOVING_WIDTH = 320; //슬라이드 버튼 클릭 시 움직일 길이 1000px
-const SLIDE_LENGTH = 18; //슬라이드 길이
+const SLIDE_MOVING_WIDTH = 320;
+const SLIDE_LENGTH = 18;
 
 function SlideImage({ userData }) {
   const [slideSize, setSlideSize] = useState(0);
-  // console.log(slideSize);
 
   const prevSlide = () => {
-    if (slideSize === 0) {
-      return; // 클릭시 작동 x
-    } else {
-      setSlideSize(slideSize - 3);
-    }
+    if (slideSize === 0) return;
+    setSlideSize(slideSize - 3);
   };
 
   const nextBtnSlide = () => {
-    if (slideSize >= SLIDE_LENGTH) {
-      return; // 클릭시 작동 x
-    } else {
-      setSlideSize(slideSize + 3);
-    }
+    if (slideSize >= SLIDE_LENGTH) return;
+    setSlideSize(slideSize + 3);
   };
 
   return (
@@ -40,10 +33,13 @@ function SlideImage({ userData }) {
             <SlideButton />
           </div>
         )}
-        <div className="leftButton" onClick={nextBtnSlide}>
-          <SlideButton />
-        </div>
+        {slideSize !== 18 && (
+          <div className="leftButton" onClick={nextBtnSlide}>
+            <SlideButton />
+          </div>
+        )}
       </div>
+
       <SlideNumber
         userData={userData}
         setSlideSize={setSlideSize}

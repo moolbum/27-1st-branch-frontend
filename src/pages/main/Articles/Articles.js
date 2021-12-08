@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 import SlideButton from '../Slide/SlideImage/SlideButton/SlideButton';
 import './Articles.scss';
 
+const SLIDE_MOVING_UNIT = 1200;
+const SLID_LENGTH = 4;
+
 function Articles({ userData }) {
   const [slidePosition, setSlidePosition] = useState(0);
 
-  const SLIDE_MOVING_UNIT = 1000;
-
   const prevBtn = () => {
-    if (slidePosition > 0) {
-      setSlidePosition(slidePosition - 1);
-    } else {
-      setSlidePosition(0);
-    }
+    if (slidePosition === 0) return;
+    setSlidePosition(slidePosition - 1);
   };
 
   const nextBtn = () => {
+    if (slidePosition >= SLID_LENGTH) return;
     setSlidePosition(slidePosition + 1);
   };
 
@@ -47,9 +46,11 @@ function Articles({ userData }) {
           );
         })}
       </div>
-      <div className="buttonRight" onClick={nextBtn}>
-        <SlideButton />
-      </div>
+      {slidePosition !== 4 && (
+        <div className="buttonRight" onClick={nextBtn}>
+          <SlideButton />
+        </div>
+      )}
       <div
         className="buttonleft"
         style={!slidePosition ? { display: 'none' } : null}
