@@ -47,8 +47,8 @@
           font-weight: 200;
           font-size: 13px;
           line-height: 13px;
-          font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
-          color: #666;
+          @include notoSansLight;
+          color: $color-dark-gray;
           margin-left: 10px;
         }
 

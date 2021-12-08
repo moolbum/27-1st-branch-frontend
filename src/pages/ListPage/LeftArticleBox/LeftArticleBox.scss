@@ -41,7 +41,7 @@
             display: inline-block;
             padding-top: 6px;
             font-size: 14px;
-            color: #666;
+            color: $color-dark-gray;
             letter-spacing: -1px;
           }
 
@@ -55,7 +55,7 @@
           }
 
           .articleContent {
-            color: #666;
+            color: $color-dark-gray;
             font-size: 14px;
             line-height: 21px;
           }
@@ -63,7 +63,7 @@
         .postAppend {
           display: block;
           padding-top: 20px;
-          color: #aaa;
+          color: $color-middle-gray;
 
           .nameText {
             font-size: 12px;
@@ -86,7 +86,7 @@
             width: 2px;
             height: 2px;
             margin: 8px 6px 0;
-            background: #aaa;
+            background: $color-middle-gray;
             vertical-align: top;
           }
         }

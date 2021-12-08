@@ -28,7 +28,7 @@
       display: block;
       overflow: hidden;
       line-height: 1;
-      font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+      @include notoSansLight;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
@@ -36,8 +36,8 @@
   .textInfo {
     display: block;
     line-height: 18px;
-    font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
-    color: #999;
+    @include notoSansLight;
+    color: $color-middle-gray;
 
     .nameText {
       display: inline-block;
