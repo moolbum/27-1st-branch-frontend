@@ -1,0 +1,62 @@
+@import '../../styles/variables.scss';
+@import '../../styles/common.scss';
+
+.ListPage {
+  font-weight: 200;
+
+  .contentsContainer {
+    border-top: 1px solid #ddd;
+    background-color: #fbfbfb;
+
+    .wrapArticleBox {
+      display: flex;
+      justify-content: space-between;
+      width: 940px;
+      margin: 0 auto;
+      padding: 30px 0 111px;
+
+      .wrapList {
+        .loeadingItem {
+          margin: 20px 0 0 300px;
+          font-size: 15px;
+          color: $color-Highlight;
+        }
+      }
+
+      .wrapLeftBox {
+        position: relative;
+
+        .leftBoxInfinite {
+          margin: 25px 15px 25px 30px;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, 320px);
+          grid-gap: 25px;
+        }
+      }
+
+      .wrapWriterList {
+        width: 220px;
+        height: 350px;
+        margin-top: 15px;
+        padding: 20px 20px 24px;
+        background-color: #fff;
+        box-sizing: border-box;
+
+        .titleRecommend {
+          display: block;
+          font-weight: 200;
+          font-size: 13px;
+          line-height: 13px;
+          @include notoSansLight;
+          color: $color-dark-gray;
+          margin-left: 10px;
+        }
+
+        .searchRecommend {
+          padding: 14px 0 0;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

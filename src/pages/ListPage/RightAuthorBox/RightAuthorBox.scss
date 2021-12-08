@@ -1,0 +1,61 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/common.scss';
+
+.wrapWriter {
+  position: relative;
+  display: block;
+  padding: 0 0 0 48px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+
+  .thumbImage {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+
+  .detailRecoomend {
+    display: table;
+    overflow: hidden;
+    width: 132px;
+    min-height: 36px;
+
+    .textRecommend {
+      display: block;
+      overflow: hidden;
+      line-height: 1;
+      @include notoSansLight;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+  .textInfo {
+    display: block;
+    line-height: 18px;
+    @include notoSansLight;
+    color: $color-middle-gray;
+
+    .nameText {
+      display: inline-block;
+      margin-left: 0;
+      font-size: 12px;
+    }
+
+    .iconDot {
+      display: inline-block;
+      width: 2px;
+      height: 2px;
+      margin: 8px 6px 0;
+      background: #aaa;
+      vertical-align: top;
+    }
+
+    .numText {
+      font-size: 12px;
+    }
+  }
+}

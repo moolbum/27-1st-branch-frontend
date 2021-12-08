@@ -38,3 +38,7 @@ $margin-center: 0 auto;
 @mixin itelic {
   font-family: 'Playfair Display', serif;
 }
+
+@mixin notoSansLight {
+  font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+}

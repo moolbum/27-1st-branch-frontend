@@ -1,0 +1,88 @@
+@import '../../../styles/variables.scss';
+
+.wrapAuthor {
+  min-width: 1020px;
+  padding: 0 0 80px;
+  background-color: $color-deep-white;
+
+  .innerAuthor {
+    position: relative;
+    width: 700px;
+    margin: $margin-center;
+    padding-top: 30px;
+
+    .authorName {
+      display: block;
+      font-size: 28px;
+      overflow: hidden;
+      width: 588px;
+      font-weight: 200;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .authorBelong {
+      display: block;
+      margin: 1px 2px;
+      font-size: 13px;
+      color: $color-dark-gray;
+      margin-top: 10px;
+
+      .occupation {
+        font-size: 13px;
+        color: $color-dark-gray;
+      }
+    }
+
+    .imgAuthor {
+      position: absolute;
+      top: -22px;
+      right: 0;
+      vertical-align: top;
+      border-radius: 100px;
+    }
+
+    .authorDesc {
+      margin-top: 20px;
+      line-height: 22px;
+      color: $color-middle-gray;
+
+      p {
+        font-size: 13px;
+        font-weight: 200;
+      }
+    }
+
+    .subscription {
+      display: flex;
+      margin-top: 40px;
+
+      .infoSubscription {
+        color: $color-dark-gray;
+
+        .numSubscription {
+          margin-left: 5px;
+        }
+      }
+
+      .wrapSubBtn {
+        // float: right;
+        margin-top: 0;
+        text-align: center;
+        margin-left: 450px;
+
+        .btnSuggest {
+          width: 80px;
+          height: 32px;
+          border: 1px solid #bbb;
+          border-radius: 40px;
+          font-size: 13px;
+          @include notoSansLight;
+          color: $color-dark-gray;
+          background: #fff;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "nickname": "wecode",
+    "profile_photo": "/images/DetailPage/authorProfile.jpg",
+    "description": "안녕하세요 저는 위코드입니다. 개발자를 양성하는 부트캠프입니다.",
+    "position": "Front-End"
+  }
+]
