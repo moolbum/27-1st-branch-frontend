@@ -1,0 +1,22 @@
+@import '../../styles/variables.scss';
+
+.navBanner {
+  width: 100vw;
+  min-width: 800px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fef5e4;
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .subTitle {
+    font-size: 19px;
+    font-weight: 300;
+    padding-left: 10px;
+  }
+}
