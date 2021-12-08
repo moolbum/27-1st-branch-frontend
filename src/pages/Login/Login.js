@@ -30,9 +30,7 @@ function Login() {
       .then(responese => responese.json())
       .then(res => {
         if (res.MESSAGE === 'SUCCESS') {
-          console.log(res);
           localStorage.setItem('TOKEN', res.TOKEN);
-          localStorage.setItem('ID', res.name);
           navigate('/main');
         }
         if (res.message === 'INVALID_USER') {
