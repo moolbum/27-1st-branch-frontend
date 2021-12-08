@@ -1,0 +1,82 @@
+@import '../../styles/variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400&display=swap');
+
+.footer {
+  width: 100%;
+  height: 360px;
+  background-color: $color-black;
+
+  .footerWrap {
+    @include flexSpaceBetweenCenter;
+    width: 960px;
+    margin: 0 auto;
+    padding: 50px 0;
+    color: #fff;
+
+    .copyright {
+      margin-right: 100px;
+      line-height: 24px;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 16px;
+      font-weight: 100;
+      font-style: italic;
+
+      .copyrightAccent {
+        font-family: 'Noto Serif KR', serif;
+        font-size: 18px;
+        font-weight: 600;
+        font-style: italic;
+      }
+    }
+
+    .listContainer {
+      display: flex;
+    }
+
+    .listWrap {
+      margin-left: 100px;
+
+      .list {
+        padding: 9px;
+        color: $color-middle-gray;
+        font-weight: 300;
+        font-size: 13px;
+      }
+      .listBold {
+        padding: 9px;
+        color: $color-middle-gray;
+        font-weight: 500;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .centerLine {
+    width: 960px;
+    margin: 0 auto;
+    border-top: 1px solid $color-dark-gray;
+  }
+
+  .storeWrap {
+    @include flexSpaceBetweenCenter;
+    width: 960px;
+    margin: 20px auto;
+
+    .company {
+      color: $color-dark-gray;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 14px;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .playstore {
+      width: 20px;
+      margin-right: 20px;
+    }
+
+    .apple {
+      width: 25px;
+    }
+  }
+}
