@@ -1,0 +1,14 @@
+{
+  "result": [
+    { "id": 1, "tag_name": "백엔드" },
+    { "id": 2, "tag_name": "영상" },
+    { "id": 3, "tag_name": "어린이" },
+    { "id": 4, "tag_name": "학교" },
+    { "id": 5, "tag_name": "프론트" },
+    { "id": 6, "tag_name": "오늘도" },
+    { "id": 7, "tag_name": "즐거운" },
+    { "id": 8, "tag_name": "하루" },
+    { "id": 9, "tag_name": "사이다" },
+    { "id": 10, "tag_name": "맛있다" }
+  ]
+}
