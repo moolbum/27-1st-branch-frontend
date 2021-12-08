@@ -1,0 +1,66 @@
+@import '../../../styles/common.scss';
+@import '../../../styles/variables.scss';
+
+.listRelatedArticle {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 1020px;
+  margin: $margin-center;
+  line-height: 1.5;
+
+  .viewImpression {
+    width: 300px;
+    margin: 0 20px 35px;
+
+    .relatedCover {
+      width: 100%;
+      height: 170px;
+      z-index: 40;
+    }
+
+    .titleRelated {
+      display: block;
+      max-height: 62px;
+      margin-top: 26px;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 32px;
+      font-family: 'Nanum Myeongjo', sans-serif;
+      color: #666;
+    }
+
+    .wrapRelatedDesc {
+      // max-height: 66px;
+      margin-top: 8px;
+      font-size: 12px;
+      @include notoSansLight;
+      color: #959595;
+
+      .subTitleRelatedDesc {
+        color: #666;
+      }
+
+      .descRelated {
+        width: 300px;
+        margin-top: 8px;
+        font-size: 13px;
+        @include notoSansLight;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        word-wrap: break-word;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        line-height: 25px;
+        letter-spacing: 1px;
+        color: #bbb;
+      }
+    }
+
+    .textName {
+      font-size: $font-small;
+      color: #bbb;
+    }
+  }
+}
