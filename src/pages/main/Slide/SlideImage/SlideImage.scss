@@ -1,0 +1,21 @@
+@import '../../../../styles/variables.scss';
+
+.slideImage {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+  padding-left: 16vw;
+
+  .leftButton {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%) rotate(180deg);
+  }
+  .rightButton {
+    position: absolute;
+    top: 50%;
+    transform: translate(-16vw, -50%);
+  }
+}
