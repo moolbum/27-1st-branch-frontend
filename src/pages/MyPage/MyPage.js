@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { API } from '../../config';
 import './MyPage.scss';
 
 function MyPage() {
+  const navigate = useNavigate();
   const [myPageData, setMyPageData] = useState({});
   const [userInfoData, setUserInfoData] = useState({
     nickname: '',
@@ -30,8 +32,11 @@ function MyPage() {
         if (data.message === 'SUCCESS') {
           setMyPageData(data.result);
         }
+        if (data.Status === 401) {
+          navigate('/main');
+        }
       });
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="myPage">
