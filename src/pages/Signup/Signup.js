@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Signup.scss';
 import { USER_DATA, USER_CHOICE_DATA } from './UserData';
+import { API } from '../../config';
+import './Signup.scss';
 
 function Signup() {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ function Signup() {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.7.58:8000/users/signup', {
+    fetch(`${API.SIGNUP}`, {
       method: 'POST',
       body: JSON.stringify({
         name: name,
@@ -58,7 +59,7 @@ function Signup() {
       .then(responese => responese.json())
       .then(res => {
         if (res.message === 'SUCCESS!') {
-          alert(`${name + '님'}회원가입 되셨습니다! 축하드립니다!`);
+          alert(`${name + '님'} 회원가입 되셨습니다! 축하드립니다!`);
           navigate('/login');
         }
         if (res.message === 'ALREADY_EXISTS') {
@@ -70,7 +71,7 @@ function Signup() {
   const emailRegex =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
   const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,}$/;
   const phoneNumberRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 
   const emailValueCheck = emailRegex.test(email);
