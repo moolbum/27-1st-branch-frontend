@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.scrollContainer {
+  width: 100%;
+  position: fixed;
+  top: 70px;
+  background: #fff;
+  height: 2px;
+  z-index: 100;
+
+  .progressMainStyle {
+    background: #222;
+    height: 2px;
+  }
+}

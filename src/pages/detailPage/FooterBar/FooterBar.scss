@@ -1,0 +1,62 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/common.scss';
+
+.wrapPageFooter {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #eee;
+  background: #fff;
+  padding: 0 30px;
+
+  .prev {
+    @include notoSansLight;
+
+    .prevPage {
+      margin: -1px 0 0 15px;
+      font-size: 12px;
+      line-height: 60px;
+      color: $color-middle-gray;
+      font-weight: 200;
+    }
+    .prevTitle {
+      display: inline-block;
+      font-weight: 200;
+      font-size: 15px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #333;
+      margin-left: 13px;
+    }
+  }
+
+  .next {
+    @include notoSansLight;
+    padding-right: 90px;
+
+    .nextTitle {
+      font-weight: 300;
+      font-size: 15px;
+      @include notoSansLight;
+      max-width: 350px;
+      display: inline-block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #333;
+      margin-top: 5px;
+    }
+
+    .nextPage {
+      margin-left: 13px;
+      font-size: $font-small;
+      font-weight: 200;
+      color: #959595;
+      margin-bottom: 2px;
+    }
+  }
+}

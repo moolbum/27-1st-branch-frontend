@@ -1,10 +1,14 @@
-@import "./variables.scss";
+@import './variables.scss';
 
+html {
+  scroll-behavior: smooth;
+}
 /* Universal tags */
 * {
   box-sizing: border-box;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
+  font-weight: normal;
 }
 
 a {
