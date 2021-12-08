@@ -6,6 +6,7 @@ import BodyFrame from './BodyFrame/BodyFrame';
 import WrapAuthor from './WrapAuthor/WrapAuthor';
 import FooterBar from './FooterBar/FooterBar';
 import Nav from '../../components/Nav/Nav';
+import { API } from '../../config';
 import './DetailPage.scss';
 
 function DetailPage() {
@@ -15,7 +16,7 @@ function DetailPage() {
   const [commentValue, setCommentValue] = useState('');
   const [headerData, setHeaderData] = useState([]);
   const [authorData, setAuthorData] = useState([]);
-  const [footerBarData, setFooterData] = useState([]);
+  const [footerBarData, setFooterData] = useState({});
   const [contentBodyData, setContentData] = useState([]);
   const [test, setTest] = useState([]);
   //=====================
@@ -42,7 +43,9 @@ function DetailPage() {
   };
 
   const onChangePostContent = postId => {
-    fetch('/Data/Content.json')
+    fetch(`${API.DETAIL_PAGE}`, {
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(res => {
         const data = res[postId];
@@ -64,9 +67,14 @@ function DetailPage() {
       .then(res => res.json())
       .then(res => setAuthorData(res));
 
-    fetch('/Data/FooterBar.json')
+    fetch(`${API.DETAIL_PAGE}`, {
+      method: 'GET',
+    })
       .then(res => res.json())
-      .then(res => setFooterData(res));
+      .then(res => {
+        setFooterData(res.results);
+        // console.log(res.results);
+      });
   }, []);
 
   const addComment = () => {
