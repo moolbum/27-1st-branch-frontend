@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 1020px;
-  margin: 0 auto;
+  margin: $margin-center;
   line-height: 1.5;
 
   .viewImpression {
@@ -34,7 +34,7 @@
       // max-height: 66px;
       margin-top: 8px;
       font-size: 12px;
-      font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+      @include notoSansLight;
       color: #959595;
 
       .subTitleRelatedDesc {
@@ -45,7 +45,7 @@
         width: 300px;
         margin-top: 8px;
         font-size: 13px;
-        font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+        @include notoSansLight;
         text-overflow: ellipsis;
         display: -webkit-box;
         word-wrap: break-word;
@@ -59,7 +59,7 @@
     }
 
     .textName {
-      font-size: 12px;
+      font-size: $font-small;
       color: #bbb;
     }
   }

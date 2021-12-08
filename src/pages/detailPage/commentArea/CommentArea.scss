@@ -10,7 +10,7 @@
     margin: 0 auto 13px;
     width: 700px;
     height: 30px;
-    font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+    @include notoSansLight;
 
     .titleComment {
       font-size: 16px;
@@ -20,7 +20,7 @@
 
       .txtNum {
         padding-left: 5px;
-        color: #00c3bd;
+        color: $color-Highlight;
         font-family: 'SF Pro Light', sans-serif;
         font-size: 16px;
       }
@@ -28,7 +28,7 @@
   }
   .commentContent {
     width: 700px;
-    margin: 0 auto;
+    margin: $margin-center;
 
     .listComment {
       display: block;
@@ -41,7 +41,7 @@
 
     .commentWrite {
       width: 700px;
-      margin: 0 auto;
+      margin: $margin-center;
 
       .wrapInputComment {
         position: relative;
@@ -51,7 +51,7 @@
         border-bottom: 1px solid #eee;
 
         &:hover {
-          background-color: rgb(242, 242, 242);
+          background-color: #eee;
         }
 
         .wrapNewComment {
@@ -71,7 +71,7 @@
             .addNewComment {
               line-height: 22px;
               font-weight: 200;
-              font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+              @include notoSansLight;
               animation: animation_up 0.2s;
               transition: opacity 0.2s ease-out 0s, transform 0.2s ease-out 0s;
             }
@@ -142,7 +142,7 @@
           top: 15px;
           left: 18px;
           line-height: 22px;
-          color: #959595;
+          color: $color-middle-gray;
         }
 
         .aditorArea {
@@ -152,7 +152,7 @@
           min-height: 45px;
           border: none;
           line-height: 22px;
-          color: #666;
+          color: $color-dark-gray;
           z-index: 1;
           vertical-align: middle;
           border: none;
@@ -194,11 +194,11 @@
           width: 56px;
           height: 30px;
           margin-left: 5px;
-          border: 1px solid #00c3bd;
+          border: 1px solid $color-Highlight;
           border-radius: 32px;
           font-size: 12px;
           line-height: 28px;
-          color: #00c3bd;
+          color: $color-Highlight;
           box-sizing: border-box;
           font-family: 'Noto Sans KR', sans-serif;
           font-size: 14px;

@@ -24,7 +24,6 @@
     margin: 50px auto 50px auto;
 
     .wrapKeyword {
-      float: left;
       padding-top: 6px;
 
       .listClass {
@@ -39,7 +38,7 @@
           border-radius: 28px;
           font-size: 12px;
           line-height: 26px;
-          color: #959595;
+          color: $color-middle-gray;
           letter-spacing: -1px;
           text-align: center;
         }
@@ -69,7 +68,7 @@
         font-size: 13px;
         border-radius: 42px;
         background-color: #fff;
-        color: #666;
+        color: $color-dark-gray;
       }
     }
   }

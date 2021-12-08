@@ -15,13 +15,13 @@
   padding: 0 30px;
 
   .prev {
-    font-family: 'Noto Sans Light', 'Malgun Gothic', sans-seri;
+    @include notoSansLight;
 
     .prevPage {
       margin: -1px 0 0 15px;
       font-size: 12px;
       line-height: 60px;
-      color: #959595;
+      color: $color-middle-gray;
       font-weight: 200;
     }
     .prevTitle {
@@ -36,12 +36,13 @@
   }
 
   .next {
-    font-family: 'Noto Sans Light', 'Malgun Gothic', sans-seri;
+    @include notoSansLight;
     padding-right: 90px;
+
     .nextTitle {
       font-weight: 300;
       font-size: 15px;
-      font-family: 'Noto Sans Light', 'Malgun Gothic', sans-serif;
+      @include notoSansLight;
       max-width: 350px;
       display: inline-block;
       white-space: nowrap;
@@ -49,9 +50,10 @@
       color: #333;
       margin-top: 5px;
     }
+
     .nextPage {
       margin-left: 13px;
-      font-size: 12px;
+      font-size: $font-small;
       font-weight: 200;
       color: #959595;
       margin-bottom: 2px;

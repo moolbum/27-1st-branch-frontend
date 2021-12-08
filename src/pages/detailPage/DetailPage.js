@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import ListRelatedArticle from './ListRelatedArticle/ListRelatedArticle';
 import CommentArea from './commentArea/CommentArea';
 import Header from './Header/Header';
@@ -17,12 +17,24 @@ function DetailPage() {
   const [authorData, setAuthorData] = useState([]);
   const [footerBarData, setFooterData] = useState([]);
   const [contentBodyData, setContentData] = useState([]);
-  const [commentLocation, setCommentLocation] = useState(0);
+  const [test, setTest] = useState([]);
+  //=====================
+  // useEffect(()=>{
+  //   fetch('',
+  //   method:'POST')b
+  // }, [inputComment])
+  // //=====================
 
   useEffect(() => {
     fetch('/Data/bodyFrame.json')
       .then(res => res.json())
       .then(res => setContentData(res));
+  }, []);
+
+  useEffect(() => {
+    fetch('/Data/comment.json')
+      .then(res => res.json())
+      .then(res => setTest(res));
   }, []);
 
   const onChange = e => {
@@ -37,10 +49,6 @@ function DetailPage() {
         setHeaderData(data.header);
         setContentData(data.contents);
       });
-  };
-
-  const commentToMove = () => {
-    window.scrollTo({ top: 2000, left: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -68,7 +76,7 @@ function DetailPage() {
       ...element,
       {
         id: inputComment.length + 1,
-        userName: 'harry',
+        userName: 'token',
         userComment: commentValue,
       },
     ]);
@@ -82,7 +90,7 @@ function DetailPage() {
 
   return (
     <div className="detailPage">
-      <Nav commentToMove={commentToMove} />
+      <Nav setIsCommentOpen={setIsCommentOpen} />
       <Header pageHeaderData={headerData} />
       <div className="wrapBodyFrame">
         <BodyFrame
@@ -91,15 +99,18 @@ function DetailPage() {
           inputComment={inputComment}
           contentBodyData={contentBodyData}
         />
-        {isCommentOpen && (
-          <CommentArea
-            addComment={addComment}
-            deleteComment={deleteComment}
-            inputComment={inputComment}
-            onChange={onChange}
-            value={commentValue}
-          />
-        )}
+        <div id="section2">
+          {isCommentOpen && (
+            <CommentArea
+              addComment={addComment}
+              deleteComment={deleteComment}
+              inputComment={inputComment}
+              onChange={onChange}
+              value={commentValue}
+              test={test}
+            />
+          )}
+        </div>
         <WrapAuthor authorData={authorData} />
         <section className="wrapArticle">
           <ListRelatedArticle relatedData={relaredListUserData} />
