@@ -6,24 +6,17 @@ function MyPage() {
   const [userPageData, setUserPageData] = useState([]);
   const params = useParams();
 
-  const {
-    nickname,
-    position,
-    mysubscription,
-    writer,
-    description,
-    profile_photo,
-  } = userPageData;
-
   useEffect(() => {
-    fetch(`API/${params.email}`, {
+    fetch(`http://10.58.7.225:8000/users/${params.name}`, {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(res => {
-        setUserPageData(res);
+      .then(data => {
+        if (data.message === 'SUCCESS') {
+          setUserPageData(data.result);
+        }
       });
-  });
+  }, [params.name]);
 
   const subscribeToggleHandler = e => {
     e.target.innerText === '구독하기'
@@ -33,20 +26,20 @@ function MyPage() {
 
   return (
     <div className="myPage">
-      <div className="header" />
-      <div className="profileImageWrap">
-        <div
-          className="profileImage"
-          style={{ backgroundImage: `url(${profile_photo})` }}
-          alt="프로필사진"
-        />
+      <div className="header">
+        <div className="profileImageWrap">
+          <div
+            className="profileImage"
+            style={{ backgroundImage: `url(${userPageData.profile_photo})` }}
+            alt="프로필사진"
+          />
+        </div>
       </div>
-
       <main className="mainContainer">
         <div className="profile">
           <form className="profile">
             <h2 name="nickname" type="text" className="nickname" placeholder="">
-              {nickname}
+              {userPageData.nickname}
             </h2>
             <p
               name="position"
@@ -54,18 +47,20 @@ function MyPage() {
               className="position"
               placeholder="프론트엔드"
             >
-              {position}
+              {userPageData.email}
             </p>
           </form>
           <div className="subscriber">
             <div className="subscriberFlex">
               <div className="subscriberWrap">
                 <p className="subscriberText">구독자</p>
-                <p className="subscriberNumber">{mysubscription}</p>
+                <p className="subscriberNumber">
+                  {userPageData.mysubscription}
+                </p>
               </div>
               <div className="subscriberWrap">
                 <p className="subscriberText">관심작가</p>
-                <p className="subscriberNumber">{writer}</p>
+                <p className="subscriberNumber">{userPageData.writer}</p>
               </div>
             </div>
             <div>
@@ -92,7 +87,7 @@ function MyPage() {
               placeholder="작가소개"
               rows="4"
               cols="30"
-              value={description}
+              value={userPageData.description}
               disabled="true"
             />
           </form>

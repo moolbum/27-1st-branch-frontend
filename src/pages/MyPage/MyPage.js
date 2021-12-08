@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+
 import './MyPage.scss';
 
 function MyPage() {
+  const params = useParams();
   const [myPageData, setMyPageData] = useState({});
   const [userInfoData, setUserInfoData] = useState({
     nickname: '',
-    position: '',
+    email: '',
     description: '',
     profile_photo: '',
   });
 
-  const { nickname, position, description, profile_photo } = myPageData;
-
+  const { nickname, email, description, profile_photo } = myPageData;
   const changeTextHandler = e => {
     const { value, name } = e.target;
     setUserInfoData({
@@ -19,16 +21,17 @@ function MyPage() {
       [name]: value,
     });
   };
-
   useEffect(() => {
-    fetch(`API`, {
+    fetch(`http://10.58.7.225:8000/users/${params.name}`, {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(res => {
-        setMyPageData(res);
+      .then(data => {
+        if (data.message === 'SUCCESS') {
+          setMyPageData(data.result);
+        }
       });
-  }, []);
+  }, [params.name]);
 
   return (
     <div className="myPage">
@@ -66,7 +69,7 @@ function MyPage() {
               placeholder=""
               onChange={changeTextHandler}
             >
-              {position}
+              {email}
             </p>
           </form>
           <div className="subscriber">
