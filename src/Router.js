@@ -14,11 +14,7 @@ function Router() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/userpage/:name" element={<UserPage />} />
-        {localStorage.getItem('TOKEN') ? (
-          <Route path="/mypage/:name" element={<MyPage />} />
-        ) : (
-          <Route path="/login" element={<Login />} />
-        )}
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

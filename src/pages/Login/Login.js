@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { API } from '../../config';
 import './Login.scss';
 
 function Login() {
@@ -20,7 +21,7 @@ function Login() {
   };
 
   const goToMain = () => {
-    fetch('API', {
+    fetch(`${API.LOGIN}`, {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -43,7 +44,7 @@ function Login() {
   const emailRegex =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
   const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,}$/;
   const phoneNumberRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 
   const emailValueCheck = emailRegex.test(email);

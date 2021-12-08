@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+import { API } from '../../config';
 import './UserPage.scss';
 
 function MyPage() {
@@ -7,7 +8,7 @@ function MyPage() {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://10.58.7.225:8000/users/${params.name}`, {
+    fetch(`${API.USER_PAGE}/${params.name}`, {
       method: 'GET',
     })
       .then(res => res.json())

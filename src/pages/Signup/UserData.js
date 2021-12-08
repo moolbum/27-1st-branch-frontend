@@ -49,6 +49,6 @@ export const USER_CHOICE_DATA = [
     name: 'position',
     className: 'inputIdformat',
     type: 'text',
-    placeholder: '개발직군 ex) 프론트엔드,백엔드',
+    placeholder: '개발직군 ex) Frontend or Backend or Fullstack',
   },
 ];

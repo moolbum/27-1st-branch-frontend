@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
-
+import { API } from '../../config';
 import './MyPage.scss';
 
 function MyPage() {
-  const params = useParams();
   const [myPageData, setMyPageData] = useState({});
   const [userInfoData, setUserInfoData] = useState({
     nickname: '',
@@ -22,8 +20,9 @@ function MyPage() {
     });
   };
   useEffect(() => {
-    fetch(`http://10.58.7.225:8000/users/${params.name}`, {
+    fetch(`${API.MYPAGE}`, {
       method: 'GET',
+      headers: { Authorization: localStorage.getItem('TOKEN') },
     })
       .then(res => res.json())
       .then(data => {
@@ -31,7 +30,7 @@ function MyPage() {
           setMyPageData(data.result);
         }
       });
-  }, [params.name]);
+  }, []);
 
   return (
     <div className="myPage">
