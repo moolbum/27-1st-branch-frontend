@@ -1,0 +1,41 @@
+@import '../../../styles/variables.scss';
+
+.keyWord {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0;
+
+  .title {
+    @include itelic;
+    font-size: 24px;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+  }
+
+  .subText {
+    font-size: $font-small;
+    color: $color-middle-gray;
+    margin-bottom: 40px;
+  }
+
+  .container {
+    .containerLine {
+      display: flex;
+
+      .contents {
+        width: 120px;
+        height: 120px;
+        border: 1px solid $color-light-gray;
+        font-weight: 200;
+        cursor: pointer;
+        @include flexCenter;
+
+        &:hover {
+          border: 1px solid $color-Highlight;
+          color: $color-Highlight;
+        }
+      }
+    }
+  }
+}

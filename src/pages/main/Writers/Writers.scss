@@ -1,0 +1,89 @@
+@import '../../../styles/variables.scss';
+
+.writers {
+  background-color: $color-deep-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0;
+
+  .title {
+    @include itelic;
+    font-size: 24px;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+  }
+
+  .subText {
+    font-size: $font-small;
+    color: $color-middle-gray;
+    margin-bottom: 40px;
+  }
+
+  .tagContainer {
+    margin-bottom: 80px;
+
+    .writersTag {
+      padding: 10px;
+      margin: 0 6px;
+      font-size: 12px;
+      border: 1px solid $color-light-gray;
+      border-radius: 50px;
+      color: $color-middle-gray;
+    }
+  }
+}
+.peopleContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  cursor: pointer;
+
+  .people {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 46px 40px;
+    margin: 10px;
+
+    .peopleImg {
+      width: 80px;
+      height: 80px;
+      border-radius: 50px;
+    }
+
+    .peopleName {
+      padding: 30px 0 20px;
+      font-size: 20px;
+    }
+
+    .peopleJob {
+      font-size: 12px;
+      color: $color-middle-gray;
+    }
+
+    .peopleIntro {
+      width: 230px;
+      height: 80px;
+      padding: 20px 0 20px 0;
+      margin-bottom: 20px;
+      font-size: 12px;
+      line-height: 20px;
+      overflow: hidden;
+      color: $color-middle-gray;
+    }
+
+    .peopleTag {
+      margin: 30px 0 20px 0;
+
+      .writersTag {
+        padding: 10px;
+        margin: 0 6px;
+        font-size: 12px;
+        border-radius: 50px;
+        border: 1px solid $color-light-gray;
+      }
+    }
+  }
+}

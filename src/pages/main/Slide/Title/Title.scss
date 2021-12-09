@@ -1,0 +1,64 @@
+@import '../../../../styles/variables.scss';
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 16%;
+
+  .mainTitle {
+    font-size: 40px;
+    color: $color-black;
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    @include itelic;
+    min-width: 700px;
+
+    .img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50px;
+      position: relative;
+      top: -10px;
+      margin-left: 10px;
+    }
+  }
+
+  .mainSubTitleContainer {
+    min-width: 700px;
+
+    .mainSubTitle {
+      font-size: 32px;
+      padding-bottom: 10px;
+      color: $color-light-gray;
+      @include itelic;
+    }
+
+    .mainSubTitle2 {
+      font-size: 32px;
+      padding-bottom: 10px;
+      color: $color-light-gray;
+      @include itelic;
+    }
+  }
+}
+
+.newUpData {
+  display: flex;
+  justify-content: right;
+  color: $color-Highlight;
+  @include itelic;
+  font-style: italic;
+  font-size: 11px;
+  margin: 20px 20%;
+
+  .Text {
+    color: $color-light-gray;
+    margin-left: 10px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
