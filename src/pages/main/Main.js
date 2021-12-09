@@ -15,23 +15,24 @@ function Main() {
   const [ditailList, setDitailList] = useState([]);
   const [writerData, setWriterData] = useState([]);
   const [keywords, setKeywords] = useState([]);
-
-  const choiceTag = 33;
-
-  const randomTag = [...tagData]
-    .sort(() => Math.random() - Math.random())
-    .slice(0, 3);
+  const [changeId, setChangeId] = useState('');
 
   useEffect(() => {
-    fetch(`${API.WRITERDATA + choiceTag}`)
+    fetch(`${API.WRITERDATA + changeId}`)
       .then(res => res.json())
       .then(res => setWriterData(res.SUCCESS));
-  }, [choiceTag]);
+  }, [changeId]);
 
   useEffect(() => {
     fetch(`${API.TAGDATA}`)
       .then(res => res.json())
-      .then(res => setTagData(res.result));
+      .then(res => {
+        const randomTag = res.result
+          .sort(() => Math.random() - Math.random())
+          .slice(0, 3);
+        setChangeId(randomTag[0].id);
+        setTagData(randomTag);
+      });
   }, []);
 
   useEffect(() => {
@@ -59,8 +60,8 @@ function Main() {
       <KeyWord keywords={keywords} />
       <Writers
         writerData={writerData}
-        choiceTag={choiceTag}
-        randomTag={randomTag}
+        randomTag={tagData}
+        setChangeId={setChangeId}
       />
       <Articles ditailList={ditailList} />
       <Scroll />
