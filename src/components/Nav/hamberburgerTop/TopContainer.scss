@@ -1,0 +1,45 @@
+@import '../../../styles/variables.scss';
+
+.top {
+  @include flexCenter;
+  flex-direction: column;
+  border: 1px solid $color-light-gray;
+  border-top: none;
+  background-color: $color-deep-white;
+  min-height: 260px;
+  z-index: 20;
+
+  .userImg {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: $color-Highlight;
+  }
+
+  .infoText {
+    @include itelic;
+    font-style: italic;
+    color: $color-dark-gray;
+    margin: 10px 0;
+    color: $color-middle-gray;
+  }
+
+  .infoName {
+    @include itelic;
+    font-style: italic;
+    color: $color-middle-gray;
+    margin: 10px 0;
+    font-size: 10px;
+  }
+
+  .startButton {
+    padding: 8px 14px;
+    margin: 20px 6px 0;
+    border: 1px solid $color-Highlight;
+    border-radius: 50px;
+    color: $color-Highlight;
+    background-color: white;
+    font-size: 12px;
+    font-weight: 300;
+  }
+}

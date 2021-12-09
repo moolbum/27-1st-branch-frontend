@@ -8,7 +8,6 @@ import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import UserPage from './pages/UserPage/UserPage';
 import MyPage from './pages/MyPage/MyPage';
-import Footer from './components/Footer/Footer';
 
 function Router() {
   return (
@@ -22,7 +21,6 @@ function Router() {
         <Route path="/userpage/:user_id" element={<UserPage />} />
         <Route path="/mypage" element={<MyPage />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

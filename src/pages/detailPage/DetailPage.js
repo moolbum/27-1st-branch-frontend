@@ -5,7 +5,7 @@ import Header from './Header/Header';
 import BodyFrame from './BodyFrame/BodyFrame';
 import WrapAuthor from './WrapAuthor/WrapAuthor';
 import FooterBar from './FooterBar/FooterBar';
-import Nav from '../../components/Nav/Nav';
+import MainNav from '../../components/Nav/MainNav';
 import { API } from '../../config';
 import './DetailPage.scss';
 
@@ -98,7 +98,7 @@ function DetailPage() {
 
   return (
     <div className="detailPage">
-      <Nav setIsCommentOpen={setIsCommentOpen} />
+      <MainNav setIsCommentOpen={setIsCommentOpen} />
       <Header pageHeaderData={headerData} />
       <div className="wrapBodyFrame">
         <BodyFrame

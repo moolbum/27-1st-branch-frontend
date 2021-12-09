@@ -1,13 +1,13 @@
 import './SlideList.scss';
 
-function SlideList({ userData, slideSize, slideMovingWidth }) {
+function SlideList({ slideSize, slideMovingWidth, newDitailList }) {
   return (
     <>
-      {userData.map(list => {
+      {newDitailList.map((list, index) => {
         return (
           <span
             className="bestBranchContainer"
-            key={list.id}
+            key={index}
             style={{
               transform: `translateX(${-slideSize * slideMovingWidth}px)`,
             }}
@@ -16,14 +16,14 @@ function SlideList({ userData, slideSize, slideMovingWidth }) {
               <div className="branchImageBox">
                 <img
                   className="branchCover"
-                  src={list.images}
+                  src={list.thumbnail}
                   alt="BranchImage"
                 />
                 <div className="branchCoverDim" />
               </div>
               <div className="bestBranchText">
                 <span className="bestBranchTitle">{list.title}</span>
-                <span className="bestBranchName">by {list.userName}</span>
+                <span className="bestBranchName">by {list.user}</span>
               </div>
             </section>
           </span>

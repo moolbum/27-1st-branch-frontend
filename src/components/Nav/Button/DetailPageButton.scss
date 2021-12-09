@@ -1,0 +1,18 @@
+.navRight {
+  display: flex;
+  align-items: center;
+
+  .favorite {
+    width: 28px;
+  }
+
+  .comment {
+    width: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  .searchIcon {
+    margin-left: 14px;
+  }
+}

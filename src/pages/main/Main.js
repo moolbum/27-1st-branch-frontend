@@ -1,67 +1,71 @@
 import React, { useState, useEffect } from 'react';
+import { API } from '../../config';
 import Slide from './Slide/Slide';
 import KeyWord from './KeyWord/KeyWord';
 import Writers from './Writers/Writers';
 import Articles from './Articles/Articles';
 import Scroll from './Scroll';
+import MainNav from '../../components/Nav/MainNav';
+import Footer from '../../components/Footer/Footer';
 import './Main.scss';
 
 function Main() {
   const [userData, setUserData] = useState([]);
   const [tagData, setTagData] = useState([]);
+  const [ditailList, setDitailList] = useState([]);
   const [writerData, setWriterData] = useState([]);
+  const [keywords, setKeywords] = useState([]);
+  const [changeId, setChangeId] = useState('');
 
-  const [choiceTag, setChoiceTag] = useState(33);
   useEffect(() => {
-    fetch(`http://10.58.7.225:8000/users/?user_tag_id=${choiceTag}`)
+    fetch(`${API.WRITERDATA + changeId}`)
       .then(res => res.json())
       .then(res => setWriterData(res.SUCCESS));
-  }, [choiceTag]);
+  }, [changeId]);
 
   useEffect(() => {
-    fetch('http://10.58.7.225:8000/branch_tags/userTagList')
+    fetch(`${API.TAGDATA}`)
       .then(res => res.json())
-      .then(res => setTagData(res.result));
+      .then(res => {
+        const randomTag = res.result
+          .sort(() => Math.random() - Math.random())
+          .slice(0, 3);
+        setChangeId(randomTag[0].id);
+        setTagData(randomTag);
+      });
   }, []);
 
   useEffect(() => {
-    fetch('/data/userData.json')
+    fetch(`${API.DITAILLIST}`)
+      .then(res => res.json())
+      .then(res => setDitailList(res.result));
+  }, []);
+
+  useEffect(() => {
+    fetch(`${API.KEYWORDS}`)
+      .then(res => res.json())
+      .then(res => setKeywords(res.result));
+  }, []);
+
+  useEffect(() => {
+    fetch('./data/userData.json')
       .then(res => res.json())
       .then(res => setUserData(res));
   }, []);
 
-  const randomTag = [...tagData]
-    .sort(() => Math.random() - Math.random())
-    .slice(0, 3);
-
-  //TSET ==============================
-  // useEffect(() => {
-  //   fetch('/data/writerData.json')
-  //     .then(res => res.json())
-  //     .then(res => setWriterData(res));
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch('/data/tagData.json')
-  //     .then(res => res.json())
-  //     .then(res => setTagData(res.result));
-  // }, []);
-  //TSET ==============================
-
   return (
     <div className="main">
-      <Slide userData={userData} />
-      <KeyWord />
+      <MainNav />
+      <Slide userData={userData} ditailList={ditailList} />
+      <KeyWord keywords={keywords} />
       <Writers
-        // tagData={tagData}
-        // randomTags={randomTags}
-        // choiceTag={choiceTag}
         writerData={writerData}
-        setChoiceTag={setChoiceTag}
-        randomTag={randomTag}
+        randomTag={tagData}
+        setChangeId={setChangeId}
       />
-      <Articles userData={userData} />
+      <Articles ditailList={ditailList} />
       <Scroll />
+      <Footer />
     </div>
   );
 }
