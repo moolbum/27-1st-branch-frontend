@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { API } from '../../config';
 import './UserPage.scss';
 
-function MyPage() {
+function UserPage() {
   const [userPageData, setUserPageData] = useState([]);
   const params = useParams();
 
@@ -96,4 +96,4 @@ function MyPage() {
   );
 }
 
-export default MyPage;
+export default UserPage;

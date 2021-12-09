@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { API } from '../../config';
-import { useNavigate } from 'react-router-dom';
 import './MyPage.scss';
 
 function MyPage() {

@@ -6,7 +6,7 @@ import Header from './Header/Header';
 import BodyFrame from './BodyFrame/BodyFrame';
 import WrapAuthor from './WrapAuthor/WrapAuthor';
 import FooterBar from './FooterBar/FooterBar';
-import Nav from '../../components/Nav/Nav';
+import MainNav from '../../components/Nav/MainNav';
 import { API } from '../../config';
 import './DetailPage.scss';
 
@@ -18,23 +18,6 @@ function DetailPage() {
   const [contentBodyData, setContentData] = useState([]);
   const [test, setTest] = useState([]);
   const params = useParams();
-  //=====================
-  // useEffect(()=>{
-  //   fetch('',
-  //   method:'POST')b
-  // }, [inputComment])
-  // //=====================
-
-  // let contentBody = setContentData({ ...contentBodyData, [name]: value });
-
-  //  const handleInput = e => {
-  //     const { value, name } = e.target;
-
-  //     setInputData({
-  //       ...inputData,
-  //       [name]: value,
-  //     });
-  //   };
 
   useEffect(() => {
     fetch(`${API.DETAIL_PAGE}/${params.id}`, {
@@ -85,7 +68,7 @@ function DetailPage() {
 
   return contentBodyData.results ? (
     <div className="detailPage">
-      <Nav setIsCommentOpen={setIsCommentOpen} />
+      <MainNav setIsCommentOpen={setIsCommentOpen} />
       <Header pageHeaderData={contentBodyData} />
       <div className="wrapBodyFrame">
         {contentBodyData && (

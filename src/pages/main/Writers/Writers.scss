@@ -30,6 +30,7 @@
       border: 1px solid $color-light-gray;
       border-radius: 50px;
       color: $color-middle-gray;
+      cursor: pointer;
     }
   }
 }
@@ -46,6 +47,7 @@
     background-color: white;
     padding: 46px 40px;
     margin: 10px;
+    color: black;
 
     .peopleImg {
       width: 80px;

@@ -1,28 +1,19 @@
-import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './KeyWord.scss';
 
-function KeyWord() {
-  const [keyData, setKeyData] = useState([]);
-
-  useEffect(() => {
-    fetch('/data/keyData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(keyData => setKeyData(keyData));
-  }, []);
-
+function KeyWord({ keywords }) {
+  const newKeywords = [...keywords].splice(0, 18);
   return (
     <span className="keyWord">
       <span className="title">BRANCH KEYWORD</span>
       <span className="subText">키워드로 분류된 다양한 글 모음</span>
       <section className="container">
         <div className="containerLine">
-          {keyData.map(KeyList => {
+          {newKeywords.map(KeyList => {
             return (
-              <div className="contents" key={KeyList.id}>
-                {KeyList.keyData}
-              </div>
+              <Link to="/listPage" className="contents" key={KeyList.id}>
+                {KeyList.name}
+              </Link>
             );
           })}
         </div>

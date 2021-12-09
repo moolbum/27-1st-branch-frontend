@@ -11,8 +11,6 @@
     padding: 100px 0;
     transition: transform 0.35s;
 
-    // position: relative;
-
     .box {
       display: flex;
       flex-direction: column;
@@ -44,6 +42,12 @@
       .userFeedSub {
         padding-bottom: 20px;
         line-height: 20px;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .userFeedName {
+        margin-top: 20px;
       }
     }
   }

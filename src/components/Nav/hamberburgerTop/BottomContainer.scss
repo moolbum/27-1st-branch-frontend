@@ -1,0 +1,46 @@
+@import '../../../styles/variables.scss';
+
+.buttom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  padding-top: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid $color-light-gray;
+  background-color: white;
+
+  .list {
+    text-align: center;
+
+    .listIndex {
+      margin-bottom: 30px;
+      font-weight: 300;
+
+      &.list1 {
+        text-align: center;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .bestCode {
+    color: $color-middle-gray;
+    margin: 30px 0;
+    font-weight: 300;
+
+    .underLine {
+      border-top: 2px solid black;
+      margin-top: 10px;
+    }
+  }
+
+  .findID {
+    color: $color-middle-gray;
+    text-decoration: underline;
+    font-weight: 300;
+  }
+}
