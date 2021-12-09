@@ -5,8 +5,7 @@ import BottomLoginContainer from './hamberburgerTop/BottomLoginContainer';
 import './Hamburger.scss';
 
 function Hamburger({ openHamburger, hamburgerToggle }) {
-  // const loginToken = localStorage.getItem('TOKEN');
-  const loginToken = false;
+  const loginToken = !!localStorage.getItem('TOKEN');
 
   return (
     <section
@@ -26,8 +25,8 @@ function Hamburger({ openHamburger, hamburgerToggle }) {
       }
     >
       <div className="hamburgerLeftContainer">
-        {loginToken ? <TopContainer /> : <TopLoginContainer />}
-        {loginToken ? <BottomContainer /> : <BottomLoginContainer />}
+        {loginToken ? <TopLoginContainer /> : <TopContainer />}
+        {loginToken ? <BottomLoginContainer /> : <BottomContainer />}
       </div>
       <div className="dim" onClick={openHamburger} />
     </section>

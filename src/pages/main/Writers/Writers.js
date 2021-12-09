@@ -1,12 +1,14 @@
+import { Link, useParams } from 'react-router-dom';
+import { API } from '../../../config';
 import './Writers.scss';
 
 function Writers({ writerData, randomTag, setChangeId }) {
+  const params = useParams();
   const newWiterDataArr = [...writerData];
 
   if (writerData.length > 6) {
     newWiterDataArr.splice(6, writerData.length);
   }
-
   return (
     <div className="writers">
       <span className="title">BsetTagRANCH WRITERS</span>
@@ -27,7 +29,11 @@ function Writers({ writerData, randomTag, setChangeId }) {
       <section className="peopleContainer">
         {newWiterDataArr.map((list, index) => {
           return (
-            <div className="people" key={index}>
+            <Link
+              to={`${API.USER_PAGE}${params.user_id}`}
+              className="people"
+              key={index}
+            >
               <img
                 className="peopleImg"
                 src={list.profile_photo}
@@ -49,7 +55,7 @@ function Writers({ writerData, randomTag, setChangeId }) {
                 })}
                 <span className="writersTag">...</span>
               </div>
-            </div>
+            </Link>
           );
         })}
       </section>

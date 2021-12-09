@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom';
 import './MainButton.scss';
 
 function MainButton() {
   return (
     <div className="navRight">
-      <div className="startButton">시작하기</div>
+      <Link to="signup" className="startButton">
+        시작하기
+      </Link>
       <img
         className="searchIcon"
         src="/images/Nav/iconmonstr-search-thin.svg"

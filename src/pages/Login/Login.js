@@ -31,7 +31,7 @@ function Login() {
       .then(res => {
         if (res.MESSAGE === 'SUCCESS') {
           localStorage.setItem('TOKEN', res.TOKEN);
-          navigate('/main');
+          navigate('/');
         }
         if (res.message === 'INVALID_USER') {
           alert('유효하지 않은 아이디입니다.');

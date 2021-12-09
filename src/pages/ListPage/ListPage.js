@@ -3,6 +3,7 @@ import TagKeyword from '../ListPage/TagKeyword/TagKeyword';
 import LeftArticleBox from '../ListPage/LeftArticleBox/LeftArticleBox';
 import RightAuthorBox from '../ListPage/RightAuthorBox/RightAuthorBox';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
+import { API } from '../../config';
 import './ListPage.scss';
 
 function ListPage() {
