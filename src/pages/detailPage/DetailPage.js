@@ -57,10 +57,12 @@ function DetailPage() {
   };
 
   useEffect(() => {
-    fetch('/Data/listRelatedData.json')
+    fetch(`${API.RELATED}/${params.id}?limit=${6}`)
       .then(res => res.json())
-      .then(res => setRelaredListUserData(res));
-  }, []);
+      .then(res => {
+        setRelaredListUserData(res);
+      });
+  }, [params.id]);
 
   const addComment = () => {
     if (commentValue.trim().length === 0) return;
@@ -83,7 +85,7 @@ function DetailPage() {
 
   return contentBodyData.results ? (
     <div className="detailPage">
-      <Nav />
+      <Nav setIsCommentOpen={setIsCommentOpen} />
       <Header pageHeaderData={contentBodyData} />
       <div className="wrapBodyFrame">
         {contentBodyData && (
@@ -119,10 +121,7 @@ function DetailPage() {
           />
         </div>
       </div>
-      <FooterBar
-        footerBar={contentBodyData}
-        // onChangePostContent={onChangePostContent}
-      />
+      <FooterBar footerBar={contentBodyData} />
     </div>
   ) : null;
 }

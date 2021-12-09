@@ -8,7 +8,7 @@ function MyPage() {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`${API.USER_PAGE}/${params.name}`, {
+    fetch(`${API.USER_PAGE}/${params.user_id}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -17,7 +17,7 @@ function MyPage() {
           setUserPageData(data.result);
         }
       });
-  }, [params.name]);
+  }, [params.user_id]);
 
   const subscribeToggleHandler = e => {
     e.target.innerText === '구독하기'

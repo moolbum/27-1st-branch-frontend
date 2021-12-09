@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './WrapAuthor.scss';
 import { useState } from 'react';
 import BtnSub from '../../BtnSub';
@@ -6,6 +6,7 @@ import BtnActiveSub from '../../BtnActiveSub';
 
 function WrapAuthor({ authorData }) {
   const { nickname, description, position } = authorData.results;
+  const params = useParams();
 
   const [subscribeCount, setSubscribeCount] = useState(0);
   const [btnSubValue, setBtnSubValue] = useState(false);
@@ -49,7 +50,8 @@ function WrapAuthor({ authorData }) {
             <span className="numSubscription">{subscribeCount}</span>
           </span>
           <span className="wrapSubBtn">
-            <Link to="/myPage">
+            {console.log(params.id)}
+            <Link to={`/userpage/${5}`}>
               <button className="btnSuggest">개발자보기</button>
             </Link>
             {!btnSubValue === !btnActiveSubValue ? (

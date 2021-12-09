@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { API } from '../../config';
+import { useNavigate } from 'react-router-dom';
 import './MyPage.scss';
 
 function MyPage() {
+  const navigate = useNavigate();
   const [myPageData, setMyPageData] = useState({});
   const [userInfoData, setUserInfoData] = useState({
     nickname: '',
@@ -29,9 +31,12 @@ function MyPage() {
       .then(data => {
         if (data.message === 'SUCCESS') {
           setMyPageData(data.result);
+        } else {
+          alert('로그인 후 이용 가능합니다.');
+          navigate('/login');
         }
       });
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="myPage">
