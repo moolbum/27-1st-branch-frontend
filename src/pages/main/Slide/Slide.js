@@ -1,13 +1,11 @@
 import Title from './Title/Title';
 import SlideImage from '../Slide/SlideImage/SlideImage';
 
-function Slide(props) {
-  const { userData } = props;
-
+function Slide({ userData, ditailList }) {
   return (
     <div className="slide">
       <Title />
-      <SlideImage userData={userData} />
+      <SlideImage ditailList={ditailList} userData={userData} />
     </div>
   );
 }

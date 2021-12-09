@@ -7,7 +7,10 @@ import './SlideImage.scss';
 const SLIDE_MOVING_WIDTH = 320;
 const SLIDE_LENGTH = 18;
 
-function SlideImage({ userData }) {
+function SlideImage({ userData, ditailList }) {
+  const newDitailList = [...ditailList];
+  newDitailList.splice(21, ditailList.length);
+
   const [slideSize, setSlideSize] = useState(0);
 
   const prevSlide = () => {
@@ -25,7 +28,7 @@ function SlideImage({ userData }) {
       <div className="slideImage">
         <SlideList
           slideSize={slideSize}
-          userData={userData}
+          newDitailList={newDitailList}
           slideMovingWidth={SLIDE_MOVING_WIDTH}
         />
         {slideSize && (
