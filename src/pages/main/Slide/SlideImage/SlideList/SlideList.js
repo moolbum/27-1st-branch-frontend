@@ -1,13 +1,15 @@
+import { Link } from 'react-router-dom';
 import './SlideList.scss';
 
 function SlideList({ slideSize, slideMovingWidth, newDitailList }) {
   return (
     <>
-      {newDitailList.map((list, index) => {
+      {newDitailList.map(list => {
         return (
-          <span
+          <Link
+            to={`/detailPage/${list.posting_id}`}
             className="bestBranchContainer"
-            key={index}
+            key={list.posting_id}
             style={{
               transform: `translateX(${-slideSize * slideMovingWidth}px)`,
             }}
@@ -26,7 +28,7 @@ function SlideList({ slideSize, slideMovingWidth, newDitailList }) {
                 <span className="bestBranchName">by {list.user}</span>
               </div>
             </section>
-          </span>
+          </Link>
         );
       })}
     </>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SlideButton from '../Slide/SlideImage/SlideButton/SlideButton';
 import './Articles.scss';
 
@@ -28,14 +29,18 @@ function Articles({ ditailList }) {
           transform: `translateX(${-slidePosition * SLIDE_MOVING_UNIT}px)`,
         }}
       >
-        {newDitailList.map((list, index) => {
+        {newDitailList.map(list => {
           return (
-            <div className="box" key={index}>
+            <Link
+              to={`/detailPage/${list.posting_id}`}
+              className="box"
+              key={list.posting_id}
+            >
               <img className="userFeedImg" src={list.thumbnail} alt="NewFeed" />
               <span className="userFeedTitle">{list.title}</span>
               <span className="userFeedSub">{list.content}</span>
               <span className="userFeedName">by {list.user}</span>
-            </div>
+            </Link>
           );
         })}
       </div>
