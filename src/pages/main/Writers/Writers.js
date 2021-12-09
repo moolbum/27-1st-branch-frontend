@@ -8,8 +8,8 @@ function Writers({ writerData, choiceTag, randomTag }) {
     newWiterDataArr.splice(6, writerData.length);
   }
 
-  console.log(newRandomTag);
-  console.log(newRandomTag[0]);
+  // console.log(newRandomTag);
+  // console.log(newRandomTag[0]);
   // console.log(newRandomTag[0].id);
   const pushIdValue = () => {
     choiceTag = newRandomTag[0];
@@ -23,7 +23,7 @@ function Writers({ writerData, choiceTag, randomTag }) {
         {newRandomTag.map(tagList => {
           return (
             <span className="writersTag" key={tagList.id} onClick={pushIdValue}>
-              {tagList.tag_name}
+              {tagList.name}
             </span>
           );
         })}

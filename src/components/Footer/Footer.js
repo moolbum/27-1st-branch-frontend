@@ -50,14 +50,6 @@ function Footer() {
       <div className="centerLine" />
       <div className="storeWrap">
         <p className="company">© Branch Corp.</p>
-        <div className="store">
-          <img
-            className="playstore"
-            src="./images/Footer/playstore.png"
-            alt="playstore"
-          />
-          <img className="apple" src="./images/Footer/apple.png" alt="apple" />
-        </div>
       </div>
     </footer>
   );

@@ -21,10 +21,7 @@ function Articles({ ditailList }) {
   };
 
   return (
-    <div
-      className="articles"
-      // style={!slidePosition ? { paddingLeft: '20vw' } : null}
-    >
+    <div className="articles">
       <div
         className="container"
         style={{

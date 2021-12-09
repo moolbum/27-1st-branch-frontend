@@ -5,7 +5,7 @@ import KeyWord from './KeyWord/KeyWord';
 import Writers from './Writers/Writers';
 import Articles from './Articles/Articles';
 import Scroll from './Scroll';
-import Nav from '../../components/Nav/Nav';
+import MainNav from '../../components/Nav/MainNav';
 import Footer from '../../components/Footer/Footer';
 import './Main.scss';
 
@@ -15,10 +15,8 @@ function Main() {
   const [ditailList, setDitailList] = useState([]);
   const [writerData, setWriterData] = useState([]);
   const [keywords, setKeywords] = useState([]);
-  // const [choiceTag, setChoiceTag] = useState(32);
 
   const choiceTag = 33;
-  console.log(choiceTag);
 
   const randomTag = [...tagData]
     .sort(() => Math.random() - Math.random())
@@ -56,7 +54,7 @@ function Main() {
 
   return (
     <div className="main">
-      <Nav />
+      <MainNav />
       <Slide userData={userData} ditailList={ditailList} />
       <KeyWord keywords={keywords} />
       <Writers

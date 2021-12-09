@@ -14,31 +14,17 @@
     display: flex;
     align-items: center;
 
+    .hamburgerButton {
+      cursor: pointer;
+    }
+
     .logo {
       margin-left: 14px;
       @include itelic;
       font-style: italic;
       font-size: 16px;
       text-decoration: underline;
-    }
-  }
-
-  .navRight {
-    display: flex;
-    align-items: center;
-
-    .favorite {
-      width: 28px;
-    }
-
-    .comment {
-      width: 30px;
-      margin-left: 10px;
-      cursor: pointer;
-    }
-
-    .searchIcon {
-      margin-left: 14px;
+      color: $color-black;
     }
   }
 }
