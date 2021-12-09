@@ -1,8 +1,7 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Writers.scss';
 
 function Writers({ writerData, randomTag, setChangeId }) {
-  const params = useParams();
   const newWiterDataArr = [...writerData];
 
   if (writerData.length > 6) {
