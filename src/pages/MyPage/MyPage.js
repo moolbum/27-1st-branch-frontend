@@ -31,9 +31,9 @@ function MyPage() {
       .then(data => {
         if (data.message === 'SUCCESS') {
           setMyPageData(data.result);
-        }
-        if (data.Status === 401) {
-          navigate('/main');
+        } else {
+          alert('로그인 후 이용 가능합니다.');
+          navigate('/login');
         }
       });
   }, [navigate]);

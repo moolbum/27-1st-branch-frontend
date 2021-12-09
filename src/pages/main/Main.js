@@ -13,13 +13,13 @@ function Main() {
 
   const [choiceTag, setChoiceTag] = useState(33);
   useEffect(() => {
-    fetch(`http://10.58.4.135:8000/users/?user_tag_id=${choiceTag}`)
+    fetch(`http://10.58.7.225:8000/users/?user_tag_id=${choiceTag}`)
       .then(res => res.json())
       .then(res => setWriterData(res.SUCCESS));
   }, [choiceTag]);
 
   useEffect(() => {
-    fetch('http://10.58.4.135:8000/branch_tags/userTagList')
+    fetch('http://10.58.7.225:8000/branch_tags/userTagList')
       .then(res => res.json())
       .then(res => setTagData(res.result));
   }, []);
