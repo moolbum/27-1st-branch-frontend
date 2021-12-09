@@ -3,21 +3,19 @@ import { useParams } from 'react-router';
 import { API } from '../../config';
 import './UserPage.scss';
 
-function MyPage() {
+function UserPage() {
   const [userPageData, setUserPageData] = useState([]);
   const params = useParams();
 
   useEffect(() => {
-    fetch(`${API.USER_PAGE}/${params.name}`, {
-      method: 'GET',
-    })
+    fetch(`${API.USER_PAGE}${params.user_id}`)
       .then(res => res.json())
       .then(data => {
         if (data.message === 'SUCCESS') {
           setUserPageData(data.result);
         }
       });
-  }, [params.name]);
+  }, [params.user_id]);
 
   const subscribeToggleHandler = e => {
     e.target.innerText === '구독하기'
@@ -96,4 +94,4 @@ function MyPage() {
   );
 }
 
-export default MyPage;
+export default UserPage;

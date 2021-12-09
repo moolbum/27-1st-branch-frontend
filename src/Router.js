@@ -19,7 +19,7 @@ function Router() {
         <Route path="/detailPage" element={<DetailPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/userpage/:name" element={<UserPage />} />
+        <Route path="/userpage/:user_id" element={<UserPage />} />
         <Route path="/mypage" element={<MyPage />} />
       </Routes>
       <Footer />
