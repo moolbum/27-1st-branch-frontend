@@ -5,24 +5,24 @@ function WrapPageFooter({ footerBar }) {
   return (
     <div className="wrapPageFooter">
       <div className="wrapPageFooter">
-        {footerBar.results?.prev_posting && (
+        {footerBar.prev_posting && (
           <Link
-            to={`/detailPage/${footerBar.results?.prev_posting.id}`}
+            to={`/detailPage/${footerBar.prev_posting.id}`}
             className="prev"
           >
             <span className="prevPage">작가의 이전글</span>
             <strong className="prevTitle">
-              {footerBar.results?.prev_posting.title}
+              {footerBar.prev_posting.title}
             </strong>
           </Link>
         )}
-        {footerBar.results?.next_posting && (
+        {footerBar.next_posting && (
           <Link
-            to={`/detailPage/${footerBar.results?.next_posting.id}`}
+            to={`/detailPage/${footerBar.next_posting.id}`}
             className="next"
           >
             <strong className="nextTitle">
-              {footerBar.results?.next_posting.title}
+              {footerBar.next_posting.title}
             </strong>
             <span className="nextPage">작가의 다음글</span>
           </Link>

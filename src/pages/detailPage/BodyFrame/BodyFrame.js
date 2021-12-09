@@ -12,13 +12,15 @@ function WrapContentBody({
         const { id, content, post_tag_name } = bodyContentData;
         return ( */}
       <div>
-        <p className="bodytext">{contentBodyData.results?.content}</p>
+        <p className="bodytext">{contentBodyData.content}</p>
         <article className="innerBodyInfo">
           <div className="wrapKeyword">
             <ul className="listClass">
-              <li className="linkKeyword">{/* {tagName} */}</li>
-
-              {/* })} */}
+              {contentBodyData.posting_tags?.map((tag, idx) => (
+                <li key={idx} className="linkKeyword">
+                  {tag.name}
+                </li>
+              ))}
             </ul>
           </div>
           <span className="wrapCommentBtn">

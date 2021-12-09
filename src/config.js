@@ -1,4 +1,4 @@
-const BASE_URL = 'http://10.58.3.206:8000';
+const BASE_URL = 'http://10.58.7.225:8000';
 
 export const API = {
   MAIN: `${BASE_URL}/main`,
@@ -11,4 +11,5 @@ export const API = {
   KEYWORDS: `${BASE_URL}/keywords/list`,
   LOGIN: `${BASE_URL}/users/signin`,
   DETAIL_PAGE: `${BASE_URL}/postings/detail`,
+  RELATED: `${BASE_URL}/postings`,
 };

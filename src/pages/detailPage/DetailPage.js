@@ -6,7 +6,7 @@ import Header from './Header/Header';
 import BodyFrame from './BodyFrame/BodyFrame';
 import WrapAuthor from './WrapAuthor/WrapAuthor';
 import FooterBar from './FooterBar/FooterBar';
-import MainNav from '../../components/Nav/MainNav';
+import DetailNav from '../../components/Nav/DetailNav';
 import { API } from '../../config';
 import './DetailPage.scss';
 
@@ -25,9 +25,11 @@ function DetailPage() {
     })
       .then(res => res.json())
       .then(res => {
-        setContentData(res);
+        setContentData(res.results);
       });
   }, [params.id]);
+
+  console.log(contentBodyData);
 
   useEffect(() => {
     fetch('/Data/comment.json')
@@ -66,9 +68,9 @@ function DetailPage() {
     setInputComment(inputComment.filter(commentList => commentList.id !== id));
   };
 
-  return contentBodyData.results ? (
+  return (
     <div className="detailPage">
-      <MainNav setIsCommentOpen={setIsCommentOpen} />
+      <DetailNav setIsCommentOpen={setIsCommentOpen} />
       <Header pageHeaderData={contentBodyData} />
       <div className="wrapBodyFrame">
         {contentBodyData && (
@@ -106,7 +108,7 @@ function DetailPage() {
       </div>
       <FooterBar footerBar={contentBodyData} />
     </div>
-  ) : null;
+  );
 }
 
 export default DetailPage;

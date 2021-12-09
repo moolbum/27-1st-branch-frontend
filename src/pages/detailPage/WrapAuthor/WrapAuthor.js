@@ -5,7 +5,7 @@ import BtnSub from '../../BtnSub';
 import BtnActiveSub from '../../BtnActiveSub';
 
 function WrapAuthor({ authorData }) {
-  const { nickname, description, position } = authorData.results;
+  const { nickname, description, position } = authorData;
   const params = useParams();
 
   const [subscribeCount, setSubscribeCount] = useState(0);
@@ -50,8 +50,7 @@ function WrapAuthor({ authorData }) {
             <span className="numSubscription">{subscribeCount}</span>
           </span>
           <span className="wrapSubBtn">
-            {console.log(params.id)}
-            <Link to={`/userpage/${5}`}>
+            <Link to={`/userpage/${params.id}`}>
               <button className="btnSuggest">개발자보기</button>
             </Link>
             {!btnSubValue === !btnActiveSubValue ? (

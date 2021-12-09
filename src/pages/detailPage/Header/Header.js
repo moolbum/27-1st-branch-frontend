@@ -1,7 +1,7 @@
 import './Header.scss';
 
 function PageHeader({ pageHeaderData }) {
-  const { title, sub_title, nickname, created_at } = pageHeaderData.results;
+  const { title, sub_title, nickname, created_at } = pageHeaderData;
 
   return (
     <header className="pageHeader">
