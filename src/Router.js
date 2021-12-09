@@ -9,7 +9,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/detailPage" element={<DetailPage />} />
+        <Route path="/detailPage/:id" element={<DetailPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
