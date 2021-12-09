@@ -6,5 +6,5 @@ export const API = {
   USER_PAGE: `${BASE_URL}/users`,
   SIGNUP: `${BASE_URL}/users/signup`,
   LOGIN: `${BASE_URL}/users/signin`,
-  DETAIL_PAGE: `${BASE_URL}/postings/datail/15`,
+  DETAIL_PAGE: `${BASE_URL}/postings/detail/12`,
 };

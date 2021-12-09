@@ -73,7 +73,7 @@ function DetailPage() {
       .then(res => res.json())
       .then(res => {
         setFooterData(res.results);
-        // console.log(res.results);
+        console.log(res);
       });
   }, []);
 
