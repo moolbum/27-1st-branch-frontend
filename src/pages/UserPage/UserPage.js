@@ -9,7 +9,7 @@ function UserPage() {
 
   useEffect(() => {
     // ${API.USER_PAGE}/${params.user_id}
-    fetch(`${API.USER_PAGE}${params.user_id}`)
+    fetch(`${API.USER_PAGE}/${params.user_id}`)
       .then(res => res.json())
       .then(data => {
         if (data.message === 'SUCCESS') {

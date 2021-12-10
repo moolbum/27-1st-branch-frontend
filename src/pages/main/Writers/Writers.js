@@ -3,7 +3,7 @@ import './Writers.scss';
 
 function Writers({ writerData, randomTag, setChangeId }) {
   const newWiterDataArr = [...writerData];
-
+  console.log(randomTag);
   if (writerData.length > 6) {
     newWiterDataArr.splice(6, writerData.length);
   }

@@ -11,4 +11,5 @@ export const API = {
   KEYWORDS: `${BASE_URL}/keywords/list`,
   LOGIN: `${BASE_URL}/users/signin`,
   DETAIL_PAGE: `${BASE_URL}/postings/detail`,
+  RELATED: `${BASE_URL}/postings`,
 };

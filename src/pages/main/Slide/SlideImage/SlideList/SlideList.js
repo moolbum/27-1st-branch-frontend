@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import './SlideList.scss';
 
 function SlideList({ slideSize, slideMovingWidth, newDitailList }) {
+  console.log(newDitailList);
   return (
     <>
       {newDitailList.map(list => {
