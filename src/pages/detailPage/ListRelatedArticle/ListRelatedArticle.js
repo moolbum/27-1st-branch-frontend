@@ -4,10 +4,10 @@ import './ListRelatedArticle.scss';
 function ListRelatedArticle({ relatedData }) {
   return (
     <ul className="listRelatedArticle">
-      {relatedData.map(data => {
-        const { id, content, sub_title, thumbnail, title, nickname } = data;
+      {relatedData.result?.map((data, idx) => {
+        const { id, content, sub_title, thumbnail, title, user } = data;
         return (
-          <Link to="/detailPage" key={id}>
+          <Link to={`/detailPage/${id}`} key={idx}>
             <li className="viewImpression">
               <img
                 src={thumbnail}
@@ -19,7 +19,7 @@ function ListRelatedArticle({ relatedData }) {
                 <span className="subTitleRelatedDesc">{sub_title}</span>
                 <p className="descRelated">{content}</p>
               </div>
-              <span className="textName">by {nickname}</span>
+              <span className="textName">by {user}</span>
             </li>
           </Link>
         );

@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.top {
+.loginTop {
   @include flexCenter;
   flex-direction: column;
   border: 1px solid $color-light-gray;

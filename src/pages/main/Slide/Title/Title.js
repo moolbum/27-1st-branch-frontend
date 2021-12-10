@@ -21,7 +21,7 @@ function Title() {
         </span>
       </div>
       <span className="newUpData">
-        <span>Updata</span>
+        <span>Update</span>
         <span className="Text">댓글 쓰기 허용 기능과 유저 차단 기능 추가</span>
       </span>
     </>

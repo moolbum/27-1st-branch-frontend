@@ -3,6 +3,7 @@ import TagKeyword from '../ListPage/TagKeyword/TagKeyword';
 import LeftArticleBox from '../ListPage/LeftArticleBox/LeftArticleBox';
 import RightAuthorBox from '../ListPage/RightAuthorBox/RightAuthorBox';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
+import MainNav from '../../components/Nav/MainNav';
 import { API } from '../../config';
 import './ListPage.scss';
 
@@ -10,28 +11,27 @@ function ListPage() {
   const [listPageData, setListPageData] = useState([]);
   const [keywordData, setKeywordData] = useState([]);
   const [authorData, setAuthorData] = useState([]);
-
   const [listItems, setListItems] = useState(
     Array.from(Array(1).keys(), n => n + 1)
   );
   const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
 
   useEffect(() => {
-    fetch('/data/ListPageData.json')
+    fetch(`${API.DITAILLIST}?limit=${12}`)
       .then(res => res.json())
-      .then(res => setListPageData(res));
+      .then(res => setListPageData(res.result));
   }, []);
 
   useEffect(() => {
-    fetch('/data/TagKeyword.json')
+    fetch(`${API.TAGDATA}`)
       .then(res => res.json())
-      .then(res => setKeywordData(res));
+      .then(res => setKeywordData(res.result));
   }, []);
 
   useEffect(() => {
-    fetch('/data/RightAuthorBox.json')
+    fetch(`${API.RELATED}?limit=${6}`)
       .then(res => res.json())
-      .then(res => setAuthorData(res));
+      .then(res => setAuthorData(res.result));
   }, []);
 
   function fetchMoreListItems() {
@@ -46,6 +46,7 @@ function ListPage() {
 
   return (
     <div className="ListPage">
+      <MainNav />
       <TagKeyword recommendKeyword={keywordData} />
       <section className="contentsContainer">
         <div className="wrapArticleBox">

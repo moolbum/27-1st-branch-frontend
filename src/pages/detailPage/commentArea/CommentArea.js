@@ -37,7 +37,7 @@ function BranchComment(props) {
                 <div className="wrapNewComment">
                   <div className="commentProfile">
                     <img
-                      src="images/DetailPage/authorProfile.jpg"
+                      src="../images/DetailPage/authorProfile.jpg"
                       alt="추가댓글프로필사진"
                       className="imgThumb"
                     />
@@ -61,13 +61,13 @@ function BranchComment(props) {
             <div className="commentProfile">
               {loginTokn ? (
                 <img
-                  src="images/DetailPage/authorProfile.jpg"
+                  src="../images/DetailPage/authorProfile.jpg"
                   alt="댓글프로필사진"
                   className="imgThumb"
                 />
               ) : (
                 <img
-                  src="images/DetailPage/default.png"
+                  src="../images/DetailPage/default.png"
                   alt="기본프로필"
                   className="imgThumb"
                 />

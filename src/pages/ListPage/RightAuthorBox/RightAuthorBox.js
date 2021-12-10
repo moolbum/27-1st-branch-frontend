@@ -4,12 +4,12 @@ function SearchRecommend({ authorBoxData }) {
   return (
     <>
       {authorBoxData.map(authorData => {
-        const { id, user, profile_photo } = authorData;
+        const { posting_id, user, thumbnail } = authorData;
         return (
-          <div className="wrapWriter" key={id}>
+          <div className="wrapWriter" key={posting_id}>
             <span className="thumbImage">
               <img
-                src={profile_photo}
+                src={thumbnail}
                 className="thumbItemImage"
                 alt="추천작가섬네일이미지"
               />
@@ -19,7 +19,7 @@ function SearchRecommend({ authorBoxData }) {
               <div className="textInfo">
                 <span className="nameText">글 135</span>
                 <span className="iconDot" />
-                <span className="numText">구독자 671</span>
+                <span className="numText">구독자 41</span>
               </div>
             </div>
           </div>

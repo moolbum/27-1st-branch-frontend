@@ -18,6 +18,7 @@
     @include notoSansLight;
 
     .prevPage {
+      align-self: flex-start;
       margin: -1px 0 0 15px;
       font-size: 12px;
       line-height: 60px;
@@ -25,6 +26,7 @@
       font-weight: 200;
     }
     .prevTitle {
+      align-self: flex-end;
       display: inline-block;
       font-weight: 200;
       font-size: 15px;
@@ -36,6 +38,8 @@
   }
 
   .next {
+    position: absolute;
+    right: 0;
     @include notoSansLight;
     padding-right: 90px;
 
