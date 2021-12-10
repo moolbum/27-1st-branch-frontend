@@ -16,7 +16,7 @@ function Main() {
   const [writerData, setWriterData] = useState([]);
   const [keywords, setKeywords] = useState([]);
   const [changeId, setChangeId] = useState('');
-  console.log(changeId);
+
   useEffect(() => {
     fetch(`${API.WRITERDATA + changeId}`)
       .then(res => res.json())
