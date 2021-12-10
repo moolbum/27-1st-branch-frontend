@@ -2,6 +2,10 @@ import { Link } from 'react-router-dom';
 import './BottomLoginContainer.scss';
 
 function TopLoginContainer() {
+  const logout = () => {
+    localStorage.removeItem('TOKEN');
+    window.location.reload();
+  };
   return (
     <div className="buttom">
       <ul className="list">
@@ -33,7 +37,9 @@ function TopLoginContainer() {
       <div className="findID">계정을 잊어버리셨나요?</div>
       <div className="buttonContainer">
         <div className="settings">설정</div>
-        <div className="logout">로그아웃</div>
+        <div className="logout" onClick={logout}>
+          로그아웃
+        </div>
       </div>
     </div>
   );

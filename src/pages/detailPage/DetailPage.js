@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 import ListRelatedArticle from './ListRelatedArticle/ListRelatedArticle';
 import CommentArea from './commentArea/CommentArea';
 import Header from './Header/Header';
 import BodyFrame from './BodyFrame/BodyFrame';
 import WrapAuthor from './WrapAuthor/WrapAuthor';
 import FooterBar from './FooterBar/FooterBar';
-import MainNav from '../../components/Nav/MainNav';
+import DetailNav from '../../components/Nav/DetailNav';
 import { API } from '../../config';
 import './DetailPage.scss';
 
@@ -14,23 +15,19 @@ function DetailPage() {
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [inputComment, setInputComment] = useState([]);
   const [commentValue, setCommentValue] = useState('');
-  const [headerData, setHeaderData] = useState([]);
-  const [authorData, setAuthorData] = useState([]);
-  const [footerBarData, setFooterData] = useState({});
   const [contentBodyData, setContentData] = useState([]);
   const [test, setTest] = useState([]);
-  //=====================
-  // useEffect(()=>{
-  //   fetch('',
-  //   method:'POST')b
-  // }, [inputComment])
-  // //=====================
+  const params = useParams();
 
   useEffect(() => {
-    fetch('/Data/bodyFrame.json')
+    fetch(`${API.DETAIL_PAGE}/${params.id}`, {
+      method: 'GET',
+    })
       .then(res => res.json())
-      .then(res => setContentData(res));
-  }, []);
+      .then(res => {
+        setContentData(res.results);
+      });
+  }, [params.id]);
 
   useEffect(() => {
     fetch('/Data/comment.json')
@@ -42,40 +39,13 @@ function DetailPage() {
     setCommentValue(e.target.value);
   };
 
-  const onChangePostContent = postId => {
-    fetch(`${API.DETAIL_PAGE}`, {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(res => {
-        const data = res[postId];
-        setHeaderData(data.header);
-        setContentData(data.contents);
-      });
-  };
-
   useEffect(() => {
-    fetch('/Data/headerData.json')
-      .then(res => res.json())
-      .then(res => setHeaderData(res));
-
-    fetch('/Data/listRelatedData.json')
-      .then(res => res.json())
-      .then(res => setRelaredListUserData(res));
-
-    fetch('/Data/WrapAuthor.json')
-      .then(res => res.json())
-      .then(res => setAuthorData(res));
-
-    fetch(`${API.DETAIL_PAGE}`, {
-      method: 'GET',
-    })
+    fetch(`${API.RELATED}/${params.id}?limit=${6}`)
       .then(res => res.json())
       .then(res => {
-        setFooterData(res.results);
-        console.log(res);
+        setRelaredListUserData(res);
       });
-  }, []);
+  }, [params.id]);
 
   const addComment = () => {
     if (commentValue.trim().length === 0) return;
@@ -98,15 +68,18 @@ function DetailPage() {
 
   return (
     <div className="detailPage">
-      <MainNav setIsCommentOpen={setIsCommentOpen} />
-      <Header pageHeaderData={headerData} />
+      <DetailNav setIsCommentOpen={setIsCommentOpen} />
+      <Header pageHeaderData={contentBodyData} />
       <div className="wrapBodyFrame">
-        <BodyFrame
-          setIsCommentOpen={setIsCommentOpen}
-          isCommentOpen={isCommentOpen}
-          inputComment={inputComment}
-          contentBodyData={contentBodyData}
-        />
+        {contentBodyData && (
+          <BodyFrame
+            setIsCommentOpen={setIsCommentOpen}
+            isCommentOpen={isCommentOpen}
+            inputComment={inputComment}
+            contentBodyData={contentBodyData}
+            // contentBodyData={contentBody}
+          />
+        )}
         <div id="section2">
           {isCommentOpen && (
             <CommentArea
@@ -119,7 +92,7 @@ function DetailPage() {
             />
           )}
         </div>
-        <WrapAuthor authorData={authorData} />
+        <WrapAuthor authorData={contentBodyData} />
         <section className="wrapArticle">
           <ListRelatedArticle relatedData={relaredListUserData} />
         </section>
@@ -131,10 +104,7 @@ function DetailPage() {
           />
         </div>
       </div>
-      <FooterBar
-        footerBar={footerBarData}
-        onChangePostContent={onChangePostContent}
-      />
+      <FooterBar footerBar={contentBodyData} />
     </div>
   );
 }

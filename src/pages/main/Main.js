@@ -23,13 +23,23 @@ function Main() {
       .then(res => setWriterData(res.SUCCESS));
   }, [changeId]);
 
+  // useEffect(() => {
+  //   fetch(`${API.TAGDATA}`)
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       const randomTag = res.result
+  //         .sort(() => Math.random() - Math.random())
+  //         .slice(0, 3);
+  //       setChangeId(randomTag[0].id);
+  //       setTagData(randomTag);
+  //     });
+  // }, []);
+
   useEffect(() => {
     fetch(`${API.TAGDATA}`)
       .then(res => res.json())
       .then(res => {
-        const randomTag = res.result
-          .sort(() => Math.random() - Math.random())
-          .slice(0, 3);
+        const randomTag = res.result.slice(0, 3);
         setChangeId(randomTag[0].id);
         setTagData(randomTag);
       });
@@ -38,7 +48,9 @@ function Main() {
   useEffect(() => {
     fetch(`${API.DITAILLIST}`)
       .then(res => res.json())
-      .then(res => setDitailList(res.result));
+      .then(res => {
+        setDitailList(res.result);
+      });
   }, []);
 
   useEffect(() => {

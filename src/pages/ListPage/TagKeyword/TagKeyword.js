@@ -16,10 +16,10 @@ function KeywordShell({ recommendKeyword }) {
       <div className="relatedKeyword">
         <span className="wrapKeywordBtn">
           {recommendKeyword.map(tagKeyword => {
-            const { id, keyword } = tagKeyword;
+            const { id, name } = tagKeyword;
             return (
               <button className="detailKeyword" key={id}>
-                {keyword}
+                {name}
               </button>
             );
           })}

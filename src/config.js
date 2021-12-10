@@ -10,5 +10,6 @@ export const API = {
   DITAILLIST: `${BASE_URL}/postings`,
   KEYWORDS: `${BASE_URL}/keywords/list`,
   LOGIN: `${BASE_URL}/users/signin`,
-  DETAIL_PAGE: `${BASE_URL}/postings/detail/12`,
+  DETAIL_PAGE: `${BASE_URL}/postings/detail`,
+  RELATED: `${BASE_URL}/postings`,
 };
